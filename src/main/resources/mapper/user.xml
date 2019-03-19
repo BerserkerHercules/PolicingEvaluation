@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zjw.oa.dao.UserDao">
+
+    <select id="login" resultType="com.zjw.oa.entity.User" parameterType="com.zjw.oa.entity.User">
+        SELECT
+        *
+        FROM
+        user
+        WHERE
+        userName = #{userName}
+        and pwd = #{pwd}
+    </select>
+
+    <select id="getOne" resultType="com.zjw.oa.entity.User">
+        select * from user limit 1
+    </select>
+
+</mapper>

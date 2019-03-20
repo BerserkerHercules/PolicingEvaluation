@@ -52,7 +52,14 @@ public class UserController {
             String message = String.format("登陆失败，详细信息[%s]。", bindingResult.getFieldError().getDefaultMessage());
             return ResultFactory.buildFailResult(message);
         }
-        if (!Objects.equals("javalsj", loginInfoVo.getUserId()) || !Objects.equals("123456", loginInfoVo.getPassword())) {
+
+        User user = new User();
+        user.setUserId(loginInfoVo.getUserId());
+        user.setPwd(loginInfoVo.getPassword());
+        User user1 = userService.login(user);
+
+
+        if (user1==null) {
             String message = String.format("登陆失败，详细信息[用户名、密码信息不正确]。");
             return ResultFactory.buildFailResult(message);
         }

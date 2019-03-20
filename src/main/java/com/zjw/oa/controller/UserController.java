@@ -19,16 +19,17 @@ public class UserController {
 
     /**
      * Description 用户登录
-     * @param null
+     *
+     * @param model model
      * @return
      * @throws Exception
      * @author ZhengJiawei
      * @date 2019-03-20 15:53:42
      */
     @RequestMapping(value = "/login")
-    public User hello(Model model){
+    public User hello(Model model) {
         User user1 = userService.getOne();
-        //model.addAttribute("user",user1);
+        model.addAttribute("user", user1);
         return user1;
     }
 }

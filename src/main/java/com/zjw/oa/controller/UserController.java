@@ -17,6 +17,14 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    /**
+     * Description 用户登录
+     * @param null
+     * @return
+     * @throws Exception
+     * @author ZhengJiawei
+     * @date 2019-03-20 15:53:42
+     */
     @RequestMapping(value = "/login")
     public User hello(Model model){
         User user1 = userService.getOne();

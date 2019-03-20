@@ -16,11 +16,11 @@ public class ResultFactory {
         return buidResult(ResultCode.FAIL, message, null);
     }
 
-    public static Result buidResult(ResultCode resultCode, String message, Object data) {
+    private static Result buidResult(ResultCode resultCode, String message, Object data) {
         return buidResult(resultCode.code, message, data);
     }
 
-    public static Result buidResult(int resultCode, String message, Object data) {
+    private static Result buidResult(int resultCode, String message, Object data) {
         return new Result(resultCode, message, data);
     }
 

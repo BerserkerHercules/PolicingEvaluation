@@ -5,11 +5,11 @@ import com.zjw.oa.entity.pojo.VueLoginInfoVo;
 import com.zjw.oa.result.Result;
 import com.zjw.oa.result.ResultFactory;
 import com.zjw.oa.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import javax.validation.Valid;
 
 /**
@@ -23,7 +23,7 @@ import javax.validation.Valid;
 @RequestMapping(value = "/user")
 public class UserController {
 
-    @Autowired
+    @Resource
     private UserService userService;
 
     /**
@@ -32,7 +32,6 @@ public class UserController {
      * @param loginInfoVo   给VueLoginInfoVo对象加入@Valid注解
      * @param bindingResult 在参数中加入BindingResult来获取错误信息，判断BindingResult知否含有错误信息，如果有错误信息，则直接返回错误信息。
      * @return Result
-     * @throws Exception
      * @author ZhengJiawei
      * @date 2019-03-21 09:06:08
      */

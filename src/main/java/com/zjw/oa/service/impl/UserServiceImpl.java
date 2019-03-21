@@ -6,6 +6,12 @@ import com.zjw.oa.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * Description
+ *
+ * @author ZhengJiawei
+ * @date 2019-03-21 10:47:40
+ */
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -18,9 +24,4 @@ public class UserServiceImpl implements UserService {
         return user1;
     }
 
-    @Override
-    public User getOne() {
-        User user1 = userDao.getOne();
-        return user1;
-    }
 }

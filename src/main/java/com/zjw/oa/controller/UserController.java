@@ -40,9 +40,14 @@ public class UserController {
     }
 
     /**
-     * 登录控制器，前后端分离用的不同协议和端口，所以需要加入@CrossOrigin支持跨域。
-     * 给VueLoginInfoVo对象加入@Valid注解，并在参数中加入BindingResult来获取错误信息。
-     * 在逻辑处理中我们判断BindingResult知否含有错误信息，如果有错误信息，则直接返回错误信息。
+     * Description 登录控制器，前后端分离用的不同协议和端口，所以需要加入@CrossOrigin支持跨域。
+     *
+     * @param loginInfoVo   给VueLoginInfoVo对象加入@Valid注解
+     * @param bindingResult 在参数中加入BindingResult来获取错误信息，判断BindingResult知否含有错误信息，如果有错误信息，则直接返回错误信息。
+     * @return Result
+     * @throws Exception
+     * @author ZhengJiawei
+     * @date 2019-03-21 09:06:08
      */
     @CrossOrigin
     @RequestMapping(value = "/login", method = RequestMethod.POST, produces = "application/json; charset=UTF-8")
@@ -59,7 +64,7 @@ public class UserController {
         User user1 = userService.login(user);
 
 
-        if (user1==null) {
+        if (user1 == null) {
             String message = String.format("登陆失败，详细信息[用户名、密码信息不正确]。");
             return ResultFactory.buildFailResult(message);
         }

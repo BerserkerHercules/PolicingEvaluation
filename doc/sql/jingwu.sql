@@ -11,7 +11,7 @@
  Target Server Version : 80015
  File Encoding         : 65001
 
- Date: 20/03/2019 17:16:58
+ Date: 21/03/2019 15:18:00
 */
 
 SET NAMES utf8mb4;
@@ -22,13 +22,18 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `add_point`;
 CREATE TABLE `add_point`  (
-  `addId` int(4) NOT NULL,
+  `addId` int(4) NOT NULL AUTO_INCREMENT,
   `userId` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '加分人Id',
   `userName` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '加分人名称',
   `addName` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '加分项目名称',
   `addPoint` int(4) NULL DEFAULT NULL COMMENT '加分分数',
   PRIMARY KEY (`addId`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of add_point
+-- ----------------------------
+INSERT INTO `add_point` VALUES (1, '1', 'zjwzjw', '见义勇为', 10);
 
 -- ----------------------------
 -- Table structure for delete_point
@@ -42,6 +47,11 @@ CREATE TABLE `delete_point`  (
   `deletePoint` int(4) NULL DEFAULT NULL COMMENT '扣除分数',
   PRIMARY KEY (`deleteId`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of delete_point
+-- ----------------------------
+INSERT INTO `delete_point` VALUES (1, '1', 'zjwzjw', '被子不整齐', 2);
 
 -- ----------------------------
 -- Table structure for permission
@@ -67,6 +77,11 @@ CREATE TABLE `punish`  (
   `punishComplete` int(1) NULL DEFAULT NULL COMMENT '惩罚是否完成 1：完成 2：未完成',
   PRIMARY KEY (`punishId`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of punish
+-- ----------------------------
+INSERT INTO `punish` VALUES (1, '跑步', '1', 'zjwzjw', '扣班级分数', 1);
 
 -- ----------------------------
 -- Table structure for team
@@ -123,7 +138,7 @@ CREATE TABLE `user_wj`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `weak_check`;
 CREATE TABLE `weak_check`  (
-  `checkId` int(4) NOT NULL,
+  `checkId` int(4) NOT NULL AUTO_INCREMENT,
   `checkName` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '检查名称',
   `checkDesc` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '检查描述',
   `checkPoint` int(4) NULL DEFAULT NULL COMMENT '检查分数',

@@ -2,15 +2,13 @@ package com.zjw.oa.controller;
 
 import com.zjw.oa.entity.User;
 import com.zjw.oa.entity.pojo.VueLoginInfoVo;
-import com.zjw.oa.result.Result;
-import com.zjw.oa.result.ResultFactory;
 import com.zjw.oa.service.UserService;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
-import javax.validation.Valid;
 
 /**
  * Description
@@ -35,25 +33,21 @@ public class UserController {
      * @author ZhengJiawei
      * @date 2019-03-21 09:06:08
      */
-    @CrossOrigin
-    @RequestMapping(value = "/login", method = RequestMethod.POST, produces = "application/json; charset=UTF-8")
+    //@CrossOrigin
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
-    public Result login(@Valid @RequestBody VueLoginInfoVo loginInfoVo, BindingResult bindingResult) {
+    public ModelAndView login(VueLoginInfoVo loginInfoVo, BindingResult bindingResult) {
+        ModelAndView mav = new ModelAndView("test");
         if (bindingResult.hasErrors()) {
-            String message = String.format("登陆失败，详细信息[%s]。", bindingResult.getFieldError().getDefaultMessage());
-            return ResultFactory.buildFailResult(message);
+            return mav;
         }
 
         User user = new User();
         user.setUserId(loginInfoVo.getUserId());
         user.setPwd(loginInfoVo.getPassword());
         User user1 = userService.login(user);
+        mav.addObject("user",user1);
 
-
-        if (user1 == null) {
-            String message = String.format("登陆失败，详细信息[用户名、密码信息不正确]。");
-            return ResultFactory.buildFailResult(message);
-        }
-        return ResultFactory.buildSuccessResult("登陆成功。");
+        return mav;
     }
 }

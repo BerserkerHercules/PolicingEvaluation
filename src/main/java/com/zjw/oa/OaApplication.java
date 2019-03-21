@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author ZhengJiawei
  * @date 2019-03-21 10:48:00
  */
-@MapperScan("com.zjw.oa.dao")
+@MapperScan("com.zjw.oa.mapper")
 @SpringBootApplication
 public class OaApplication {
 

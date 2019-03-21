@@ -1,6 +1,6 @@
 package com.zjw.oa.service.impl;
 
-import com.zjw.oa.dao.UserDao;
+import com.zjw.oa.mapper.UserMapper;
 import com.zjw.oa.entity.User;
 import com.zjw.oa.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,11 +16,11 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl implements UserService {
 
     @Autowired
-    private UserDao userDao;
+    private UserMapper userMapper;
 
     @Override
     public User login(User user) {
-        User user1 = userDao.userLogin(user);
+        User user1 = userMapper.userLogin(user);
         return user1;
     }
 

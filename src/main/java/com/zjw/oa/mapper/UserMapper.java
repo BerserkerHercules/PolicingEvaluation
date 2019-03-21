@@ -1,4 +1,4 @@
-package com.zjw.oa.dao;
+package com.zjw.oa.mapper;
 
 import com.zjw.oa.entity.User;
 import org.apache.ibatis.annotations.Mapper;
@@ -10,7 +10,7 @@ import org.apache.ibatis.annotations.Mapper;
  * @date 2019-03-21 10:46:50
  */
 @Mapper
-public interface UserDao {
+public interface UserMapper {
 
     /**
      * Description 登录

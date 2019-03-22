@@ -1,6 +1,6 @@
-package com.zjw.oa.mapper;
+package com.yzy.pe.mapper;
 
-import com.zjw.oa.entity.User;
+import com.yzy.pe.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

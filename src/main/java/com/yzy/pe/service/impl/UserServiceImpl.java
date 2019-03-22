@@ -1,8 +1,8 @@
-package com.zjw.oa.service.impl;
+package com.yzy.pe.service.impl;
 
-import com.zjw.oa.mapper.UserMapper;
-import com.zjw.oa.entity.User;
-import com.zjw.oa.service.UserService;
+import com.yzy.pe.mapper.UserMapper;
+import com.yzy.pe.entity.User;
+import com.yzy.pe.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

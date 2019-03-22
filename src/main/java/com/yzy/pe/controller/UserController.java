@@ -26,7 +26,7 @@ public class UserController {
     private UserService userService;
 
     /**
-     * Description 登录，可以加入@CrossOrigin支持跨域。
+     * Description 登录，可以加入 @CrossOrigin 支持跨域。
      *
      * @param user 用户输入的学号和密码
      * @return Result

@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Description
  *
- * @author ZhengJiawei
+ * @author YanZiyi
  * @date 2019-03-21 10:46:50
  */
 @Mapper
@@ -19,7 +19,7 @@ public interface UserMapper {
      *
      * @param user 用户
      * @return User
-     * @author ZhengJiawei
+     * @author YanZiyi
      * @date 2019-03-20 16:29:47
      */
     User userLogin(User user);
@@ -28,7 +28,7 @@ public interface UserMapper {
      * Description 获取用户列表
      *
      * @return List<User>
-     * @author ZhengJiawei
+     * @author YanZiyi
      * @date 2019-03-22 09:24:53
      */
     List<User> getUserList();

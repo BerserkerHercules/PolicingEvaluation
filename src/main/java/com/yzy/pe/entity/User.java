@@ -4,7 +4,7 @@ package com.yzy.pe.entity;
 /**
  * 用户实体类
  *
- * @author ZhengJiawei
+ * @author YanZiyi
  * @create 2019-02-13 11:13
  */
 public class User {

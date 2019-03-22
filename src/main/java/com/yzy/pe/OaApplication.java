@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * Description
  *
- * @author ZhengJiawei
+ * @author YanZiyi
  * @date 2019-03-21 10:48:00
  */
 @MapperScan("com.yzy.pe.mapper")

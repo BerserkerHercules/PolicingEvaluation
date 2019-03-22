@@ -14,7 +14,7 @@ import javax.annotation.Resource;
 /**
  * Description
  *
- * @author ZhengJiawei
+ * @author YanZiyi
  * @date 2019-03-21 10:49:24
  */
 @RestController
@@ -30,7 +30,7 @@ public class UserController {
      *
      * @param user 用户输入的学号和密码
      * @return Result
-     * @author ZhengJiawei
+     * @author YanZiyi
      * @date 2019-03-21 09:06:08
      */
     @RequestMapping(value = "/login", method = RequestMethod.POST)
@@ -51,7 +51,7 @@ public class UserController {
     /**
      * Description 获取用户列表
      *
-     * @author ZhengJiawei
+     * @author YanZiyi
      * @date 2019-03-22 10:50:47
      */
     @RequestMapping(value = "/getUserList", method = RequestMethod.POST)

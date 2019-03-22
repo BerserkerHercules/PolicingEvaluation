@@ -44,6 +44,11 @@ public class UserController {
         }
 
         User user1 =  userService.login(user);
+        if(user1==null){
+            mav.setViewName("login");
+            return mav;
+        }
+        mav.setViewName("index");
         mav.addObject("user",user1);
 
         return mav;

@@ -29,7 +29,7 @@ public class UserController {
     /**
      * Description 登录控制器，前后端分离用的不同协议和端口，可以加入@CrossOrigin支持跨域。
      *
-     * @param user   user
+     * @param user          user
      * @param bindingResult 在参数中加入BindingResult来获取错误信息，判断BindingResult知否含有错误信息，如果有错误信息，则直接返回错误信息。
      * @return Result
      * @author ZhengJiawei
@@ -43,23 +43,29 @@ public class UserController {
             return mav;
         }
 
-        User user1 =  userService.login(user);
-        if(user1==null){
+        User user1 = userService.login(user);
+        if (user1 == null) {
             mav.setViewName("login");
             return mav;
         }
         mav.setViewName("index");
-        mav.addObject("user",user1);
+        mav.addObject("user", user1);
 
         return mav;
     }
 
+    /**
+     * Description 获取用户列表
+     *
+     * @author ZhengJiawei
+     * @date 2019-03-22 10:50:47
+     */
     @RequestMapping(value = "/getUserList", method = RequestMethod.POST)
     @ResponseBody
     public ModelAndView getUserList() {
         ModelAndView mav = new ModelAndView("index1");
 
-        mav.addObject("userList",userService.getUserList());
+        mav.addObject("userList", userService.getUserList());
 
         return mav;
     }

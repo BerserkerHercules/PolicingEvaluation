@@ -26,9 +26,9 @@ public class UserController {
     private UserService userService;
 
     /**
-     * Description 登录控制器，前后端分离用的不同协议和端口，可以加入@CrossOrigin支持跨域。
+     * Description 登录，可以加入@CrossOrigin支持跨域。
      *
-     * @param user user
+     * @param user 用户输入的学号和密码
      * @return Result
      * @author ZhengJiawei
      * @date 2019-03-21 09:06:08

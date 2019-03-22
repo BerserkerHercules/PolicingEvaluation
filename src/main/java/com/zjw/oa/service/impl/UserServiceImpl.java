@@ -30,4 +30,5 @@ public class UserServiceImpl implements UserService {
     public List<User> getUserList() {
         return userMapper.getUserList();
     }
+
 }

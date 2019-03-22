@@ -14,4 +14,11 @@
         and pwd = #{pwd}
     </select>
 
+    <select id="getUserList" resultType="com.zjw.oa.entity.User" parameterType="com.zjw.oa.entity.User">
+        SELECT
+        *
+        FROM
+        user
+    </select>
+
 </mapper>

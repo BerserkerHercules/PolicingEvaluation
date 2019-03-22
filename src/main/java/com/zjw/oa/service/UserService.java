@@ -2,6 +2,8 @@ package com.zjw.oa.service;
 
 import com.zjw.oa.entity.User;
 
+import java.util.List;
+
 /**
  * Description
  *
@@ -11,5 +13,7 @@ import com.zjw.oa.entity.User;
 public interface UserService {
 
     User login(User user);
+
+    List<User> getUserList();
 
 }

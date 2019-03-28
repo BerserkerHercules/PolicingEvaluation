@@ -68,8 +68,4 @@ public class UserServiceImpl implements UserService {
         userMapper.deleteUser(user);
     }
 
-    @Override
-    public User getUserMsg(User user) {
-        return userMapper.getUserMsg(user);
-    }
 }

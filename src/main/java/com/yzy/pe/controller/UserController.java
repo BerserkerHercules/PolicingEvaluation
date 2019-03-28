@@ -75,15 +75,11 @@ public class UserController {
     }
 
     /**
-     * Description 获取个人信息
+     * Description 获取奖惩详情信息
      *
      * @author ZhengJiawei
      * @date 2019-03-28 16:29:17
      */
-    @RequestMapping(value = "/getUserMsg", method = RequestMethod.POST)
-    @ResponseBody
-    public User getUserMsg(User user) {
-        return userService.getUserMsg(user);
-    }
+
 
 }

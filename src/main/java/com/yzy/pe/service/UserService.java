@@ -89,11 +89,4 @@ public interface UserService {
      */
     void deleteUser(User user);
 
-    /**
-     * Description 获取个人信息
-     *
-     * @author ZhengJiawei
-     * @date 2019-03-28 16:29:17
-     */
-    User getUserMsg(User user);
 }

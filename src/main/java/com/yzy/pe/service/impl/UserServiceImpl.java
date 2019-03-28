@@ -25,8 +25,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User login(User user) {
-        User user1 = userMapper.userLogin(user);
-        return user1;
+        return userMapper.userLogin(user);
     }
 
     @Override

@@ -37,34 +37,41 @@ public class UserController {
      * @date 2019-03-21 09:06:08
      */
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    @ResponseBody
     public String login(User user, HttpServletRequest request) {
-
         User user1 = userService.login(user);
         if (user1 == null) {
             return "login";
         }
-
-        List<Permission> permissionList = userService.getPerList(user1.getPermissionDegree());
-
         request.getSession().setAttribute("user",user1);
         return "index";
     }
 
     /**
-     * Description 获取用户列表
+     * Description 登录，可以加入 @CrossOrigin 支持跨域。
+     *
+     * @param request 请求
+     * @return Result
+     * @author YanZiyi
+     * @date 2019-03-21 09:06:08
+     */
+    @RequestMapping(value = "/getPerList", method = RequestMethod.POST)
+    @ResponseBody
+    public List<Permission> getPerList(HttpServletRequest request){
+        User user = (User) request.getSession().getAttribute("user");
+        List<Permission> permissionList = userService.getPerList(user.getPermissionDegree());
+        return permissionList;
+    }
+
+    /**
+     * Description 获取学生列表
      *
      * @author YanZiyi
      * @date 2019-03-22 10:50:47
      */
     @RequestMapping(value = "/getUserList", method = RequestMethod.POST)
     @ResponseBody
-    public ModelAndView getUserList() {
-        ModelAndView mav = new ModelAndView("index1");
-
-        mav.addObject("userList", userService.getUserList());
-
-        return mav;
+    public List<User> getUserList() {
+        return userService.getUserList();
     }
 
 }

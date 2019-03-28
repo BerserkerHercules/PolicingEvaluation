@@ -83,4 +83,12 @@ public interface UserMapper {
      */
     void updateUser(User user);
 
+    /**
+     * Description 删除用户
+     *
+     * @author YanZiyi
+     * @date 2019-03-28 11:02:17
+     */
+    void deleteUser(User user);
+
 }

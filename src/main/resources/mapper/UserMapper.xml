@@ -80,4 +80,8 @@
           userId=#{userId}
     </update>
 
+    <delete id="deleteUser" parameterType="com.yzy.pe.entity.User">
+      delete from user where userId=#{userId}
+    </delete>
+
 </mapper>

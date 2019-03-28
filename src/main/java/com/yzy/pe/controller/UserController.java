@@ -32,7 +32,7 @@ public class UserController {
      * Description 登录，可以加入 @CrossOrigin 支持跨域。
      *
      * @param user 用户输入的学号和密码
-     * @return Result
+     * @return String
      * @author YanZiyi
      * @date 2019-03-21 09:06:08
      */
@@ -47,10 +47,10 @@ public class UserController {
     }
 
     /**
-     * Description 登录，可以加入 @CrossOrigin 支持跨域。
+     * Description 权限列表
      *
      * @param request 请求
-     * @return Result
+     * @return List<Permission>
      * @author YanZiyi
      * @date 2019-03-21 09:06:08
      */

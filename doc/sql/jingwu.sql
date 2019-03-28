@@ -11,7 +11,7 @@
  Target Server Version : 80015
  File Encoding         : 65001
 
- Date: 28/03/2019 14:12:11
+ Date: 28/03/2019 14:26:10
 */
 
 SET NAMES utf8mb4;
@@ -135,14 +135,17 @@ CREATE TABLE `user`  (
   `permissionDegree` int(4) NULL DEFAULT NULL COMMENT '权限级别',
   `qdbm` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '区队编码',
   `kpfs` double(4, 0) NULL DEFAULT NULL COMMENT '考评分数',
+  `phone` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '手机号码',
+  `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '邮箱',
+  `qshm` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '寝室号码',
   PRIMARY KEY (`userId`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', 'admin', '123456', 1, '', NULL);
-INSERT INTO `user` VALUES ('15918135', 'zjwzjw', '123456', 3, 'zjjc1591801', 118);
+INSERT INTO `user` VALUES ('1', 'admin', '123456', 1, '', NULL, NULL, NULL, NULL);
+INSERT INTO `user` VALUES ('15918135', 'zjwzjw', '123456', 3, 'zjjc1591801', 118, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for user_wj

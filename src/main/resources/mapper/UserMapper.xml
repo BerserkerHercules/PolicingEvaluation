@@ -85,4 +85,13 @@
       delete from user where userId=#{userId}
     </delete>
 
+    <select id="getUserMsg" resultType="com.yzy.pe.entity.User" parameterType="com.yzy.pe.entity.User">
+        SELECT
+        *
+        FROM
+        user
+        WHERE
+        userId = #{userId}
+    </select>
+
 </mapper>

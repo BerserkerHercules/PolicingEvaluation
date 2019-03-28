@@ -42,7 +42,7 @@ public class UserController {
         if (user1 == null) {
             return "login";
         }
-        request.getSession().setAttribute("user",user1);
+        request.getSession().setAttribute("user", user1);
         return "index";
     }
 
@@ -56,7 +56,7 @@ public class UserController {
      */
     @RequestMapping(value = "/getPerList", method = RequestMethod.POST)
     @ResponseBody
-    public List<Permission> getPerList(HttpServletRequest request){
+    public List<Permission> getPerList(HttpServletRequest request) {
         User user = (User) request.getSession().getAttribute("user");
         List<Permission> permissionList = userService.getPerList(user.getPermissionDegree());
         return permissionList;
@@ -72,6 +72,18 @@ public class UserController {
     @ResponseBody
     public List<User> getUserList() {
         return userService.getUserList();
+    }
+
+    /**
+     * Description 获取个人信息
+     *
+     * @author ZhengJiawei
+     * @date 2019-03-28 16:29:17
+     */
+    @RequestMapping(value = "/getUserMsg", method = RequestMethod.POST)
+    @ResponseBody
+    public User getUserMsg(User user) {
+        return userService.getUserMsg(user);
     }
 
 }

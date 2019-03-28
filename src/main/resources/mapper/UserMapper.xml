@@ -21,4 +21,63 @@
         user
     </select>
 
+    <select id="getPerList" resultType="com.yzy.pe.entity.Permission" parameterType="java.lang.String">
+        SELECT
+        *
+        FROM
+        permission
+        where permissionDegree=#{_parameter}
+        order by permissionId
+    </select>
+
+    <select id="getAdviceList" parameterType="com.yzy.pe.entity.Advice" resultType="com.yzy.pe.entity.Advice">
+        SELECT
+        *
+        FROM
+        advice
+        where
+        1=1
+        <if test="title != null and title != ''">
+            and title = #{title}
+        </if>
+        <if test="isSee != null and isSee != ''">
+            and isSee = #{isSee}
+        </if>
+        <if test="isCross != null and isCross != ''">
+            and isCross = #{isCross}
+        </if>
+        order by orderTime
+    </select>
+
+    <insert id="orderAdvice" parameterType="com.yzy.pe.entity.Advice">
+        insert into
+        advice(title, content, isCross, orderTime)
+        values(#{title},#{content},#{isCross},now())
+    </insert>
+
+    <update id="reviewAdvice" parameterType="com.yzy.pe.entity.Advice">
+        update from advice set
+          title=#{title},
+          content=#{content},
+          isCross=#{isCross},
+          orderTime=now()
+        where
+          adviceId=#{adviceId}
+    </update>
+
+    <insert id="addUser" parameterType="com.yzy.pe.entity.User">
+        insert into
+        user(userId,userName, pwd, permissionDegree, qdbm, kpfs)
+        values(#{userId},#{userName},#{pwd},#{permissionDegree},#{qdbm},#{kpfs})
+    </insert>
+
+    <update id="updateUser" parameterType="com.yzy.pe.entity.User">
+        update from user set
+          userName=#{userName},pwd=#{pwd},
+          permissionDegree=#{permissionDegree},
+          qdbm=#{qdbm},kpfs=#{kpfs}
+        where
+          userId=#{userId}
+    </update>
+
 </mapper>

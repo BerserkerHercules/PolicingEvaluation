@@ -1,5 +1,7 @@
 package com.yzy.pe.service.impl;
 
+import com.yzy.pe.entity.Advice;
+import com.yzy.pe.entity.Permission;
 import com.yzy.pe.mapper.UserMapper;
 import com.yzy.pe.entity.User;
 import com.yzy.pe.service.UserService;
@@ -30,6 +32,36 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> getUserList() {
         return userMapper.getUserList();
+    }
+
+    @Override
+    public List<Permission> getPerList(String permissionDegree) {
+        return userMapper.getPerList(permissionDegree);
+    }
+
+    @Override
+    public List<Advice> getAdviceList(Advice advice) {
+        return userMapper.getAdviceList(advice);
+    }
+
+    @Override
+    public void orderAdvice(Advice advice) {
+        userMapper.orderAdvice(advice);
+    }
+
+    @Override
+    public void reviewAdvice(Advice advice) {
+        userMapper.reviewAdvice(advice);
+    }
+
+    @Override
+    public void addUser(User user) {
+        userMapper.addUser(user);
+    }
+
+    @Override
+    public void updateUser(User user) {
+        userMapper.updateUser(user);
     }
 
 }

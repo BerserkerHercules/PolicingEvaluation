@@ -1,5 +1,6 @@
 package com.yzy.pe.controller;
 
+import com.yzy.pe.entity.Permission;
 import com.yzy.pe.entity.User;
 import com.yzy.pe.service.UserService;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -10,6 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * Description user
@@ -35,17 +38,17 @@ public class UserController {
      */
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
-    public ModelAndView login(User user) {
-        ModelAndView mav = new ModelAndView("login");
+    public String login(User user, HttpServletRequest request) {
 
         User user1 = userService.login(user);
         if (user1 == null) {
-            return mav;
+            return "login";
         }
-        mav.setViewName("index");
-        mav.addObject("user", user1);
 
-        return mav;
+        List<Permission> permissionList = userService.getPerList(user1.getPermissionDegree());
+
+        request.getSession().setAttribute("user",user1);
+        return "index";
     }
 
     /**

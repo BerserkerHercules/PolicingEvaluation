@@ -11,7 +11,7 @@
  Target Server Version : 80015
  File Encoding         : 65001
 
- Date: 28/03/2019 13:40:04
+ Date: 28/03/2019 14:12:11
 */
 
 SET NAMES utf8mb4;
@@ -77,16 +77,16 @@ INSERT INTO `delete_point` VALUES (1, '1', 'zjwzjw', '被子不整齐', 2);
 DROP TABLE IF EXISTS `permission`;
 CREATE TABLE `permission`  (
   `permissionId` int(4) NOT NULL AUTO_INCREMENT,
-  `permissionName` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `permissionDegree` int(4) NULL DEFAULT NULL,
-  `perUrl` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `permissionName` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '权限名称',
+  `permissionDegree` int(4) NULL DEFAULT NULL COMMENT '权限系数',
+  `perUrl` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '权限url',
   PRIMARY KEY (`permissionId`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of permission
 -- ----------------------------
-INSERT INTO `permission` VALUES (1, '管理员', 1, '/user/adminMsg');
+INSERT INTO `permission` VALUES (1, '学生信息', 1, '/user/getUserList');
 
 -- ----------------------------
 -- Table structure for punish
@@ -141,7 +141,8 @@ CREATE TABLE `user`  (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('15918135', 'zjwzjw', '123456', 1, 'zjjc1591801', 118);
+INSERT INTO `user` VALUES ('1', 'admin', '123456', 1, '', NULL);
+INSERT INTO `user` VALUES ('15918135', 'zjwzjw', '123456', 3, 'zjjc1591801', 118);
 
 -- ----------------------------
 -- Table structure for user_wj

@@ -47,7 +47,7 @@ public interface UserService {
      * @author YanZiyi
      * @date 2019-03-28 11:02:17
      */
-    List<Advice> getAdviceList(Advice advice);
+    List<Advice> getAdviceList(Advice advice, int pageNum, int pageSize);
 
     /**
      * Description 提交建议

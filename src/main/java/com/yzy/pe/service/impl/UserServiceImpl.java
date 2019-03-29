@@ -41,7 +41,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<Advice> getAdviceList(Advice advice) {
+    public List<Advice> getAdviceList(Advice advice, int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
         return userMapper.getAdviceList(advice);
     }
 

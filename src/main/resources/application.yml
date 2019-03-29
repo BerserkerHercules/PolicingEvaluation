@@ -13,7 +13,7 @@ mybatis:
   typeAliasesPackage: com.yzy.pe.entity
   mapperLocations: classpath:mapper/*.xml
 
-# 分页配置
+# 分页配置信息
 pagehelper:
   helper-dialect: mysql
   reasonable: true

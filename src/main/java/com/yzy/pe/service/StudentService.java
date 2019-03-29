@@ -24,7 +24,7 @@ public interface StudentService {
      * @author YanZiyi
      * @date 2019-03-29 09:43:49
      */
-    List<DeletePoint> getDeletePoint(DeletePoint deletePoint);
+    List<DeletePoint> getDeletePoint(DeletePoint deletePoint, int pageNum, int pageSize);
 
     /**
      * Description 个人惩罚信息
@@ -32,7 +32,7 @@ public interface StudentService {
      * @author YanZiyi
      * @date 2019-03-29 09:43:49
      */
-    List<Punish> getPunishList(Punish punish);
+    List<Punish> getPunishList(Punish punish, int pageNum, int pageSize);
 
     /**
      * Description 个人奖励信息
@@ -40,7 +40,7 @@ public interface StudentService {
      * @author YanZiyi
      * @date 2019-03-29 09:43:49
      */
-    List<Reward> getRewardList(Reward reward);
+    List<Reward> getRewardList(Reward reward, int pageNum, int pageSize);
 
     /**
      * Description 我的区队信息
@@ -56,6 +56,6 @@ public interface StudentService {
      * @author YanZiyi
      * @date 2019-03-29 09:43:49
      */
-    List<DeletePoint> getTeamDeletePoint(DeletePoint deletePoint);
+    List<DeletePoint> getTeamDeletePoint(DeletePoint deletePoint, int pageNum, int pageSize);
 
 }

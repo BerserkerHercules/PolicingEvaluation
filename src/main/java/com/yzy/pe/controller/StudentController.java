@@ -45,8 +45,10 @@ public class StudentController {
      */
     @RequestMapping("/getDeletePoint")
     @ResponseBody
-    public List<DeletePoint> getDeletePoint(DeletePoint deletePoint) {
-        return studentService.getDeletePoint(deletePoint);
+    public List<DeletePoint> getDeletePoint(DeletePoint deletePoint,
+                                            @RequestParam(defaultValue = "1") int pageNum,
+                                            @RequestParam(defaultValue = "10") int pageSize) {
+        return studentService.getDeletePoint(deletePoint, pageNum, pageSize);
     }
 
     /**
@@ -57,8 +59,10 @@ public class StudentController {
      */
     @RequestMapping("/getPunishList")
     @ResponseBody
-    public List<Punish> getPunishList(Punish punish) {
-        return studentService.getPunishList(punish);
+    public List<Punish> getPunishList(Punish punish,
+                                      @RequestParam(defaultValue = "1") int pageNum,
+                                      @RequestParam(defaultValue = "10") int pageSize) {
+        return studentService.getPunishList(punish, pageNum, pageSize);
     }
 
     /**
@@ -69,8 +73,10 @@ public class StudentController {
      */
     @RequestMapping("/getRewardList")
     @ResponseBody
-    public List<Reward> getRewardList(Reward reward) {
-        return studentService.getRewardList(reward);
+    public List<Reward> getRewardList(Reward reward,
+                                      @RequestParam(defaultValue = "1") int pageNum,
+                                      @RequestParam(defaultValue = "10") int pageSize) {
+        return studentService.getRewardList(reward, pageNum, pageSize);
     }
 
     /**
@@ -93,8 +99,10 @@ public class StudentController {
      */
     @RequestMapping("/getTeamDeletePoint")
     @ResponseBody
-    public List<DeletePoint> getTeamDeletePoint(DeletePoint deletePoint) {
-        return studentService.getTeamDeletePoint(deletePoint);
+    public List<DeletePoint> getTeamDeletePoint(DeletePoint deletePoint,
+                                                @RequestParam(defaultValue = "1") int pageNum,
+                                                @RequestParam(defaultValue = "10") int pageSize) {
+        return studentService.getTeamDeletePoint(deletePoint, pageNum, pageSize);
     }
 
 }

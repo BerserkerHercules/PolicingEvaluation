@@ -27,17 +27,20 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public List<DeletePoint> getDeletePoint(DeletePoint deletePoint) {
+    public List<DeletePoint> getDeletePoint(DeletePoint deletePoint, int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
         return studentMapper.getDeletePoint(deletePoint);
     }
 
     @Override
-    public List<Punish> getPunishList(Punish punish) {
+    public List<Punish> getPunishList(Punish punish, int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
         return studentMapper.getPunishList(punish);
     }
 
     @Override
-    public List<Reward> getRewardList(Reward reward) {
+    public List<Reward> getRewardList(Reward reward, int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
         return studentMapper.getRewardList(reward);
     }
 
@@ -47,7 +50,8 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public List<DeletePoint> getTeamDeletePoint(DeletePoint deletePoint) {
+    public List<DeletePoint> getTeamDeletePoint(DeletePoint deletePoint, int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
         return studentMapper.getTeamDeletePoint(deletePoint);
     }
 }

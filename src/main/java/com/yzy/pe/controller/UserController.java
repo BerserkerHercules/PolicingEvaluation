@@ -57,8 +57,7 @@ public class UserController {
                                        @RequestParam(defaultValue = "1") int pageNum,
                                        @RequestParam(defaultValue = "10") int pageSize) {
         User user = (User) request.getSession().getAttribute("user");
-        List<Permission> permissionList = userService.getPerList(user.getPermissionDegree(), pageNum, pageSize);
-        return permissionList;
+        return userService.getPerList(user.getPermissionDegree(), pageNum, pageSize);
     }
 
     /**

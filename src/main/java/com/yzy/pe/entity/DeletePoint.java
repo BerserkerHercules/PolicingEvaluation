@@ -8,7 +8,6 @@ public class DeletePoint {
   private long deleteId;
   private String userId;
   private String userName;
-  private String deleteName;
   private long deletePoint;
   private String deleteDesc;
   private Date deleteTime;
@@ -38,15 +37,6 @@ public class DeletePoint {
 
   public void setUserName(String userName) {
     this.userName = userName;
-  }
-
-
-  public String getDeleteName() {
-    return deleteName;
-  }
-
-  public void setDeleteName(String deleteName) {
-    this.deleteName = deleteName;
   }
 
 

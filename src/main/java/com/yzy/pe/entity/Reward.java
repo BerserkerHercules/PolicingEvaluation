@@ -6,7 +6,6 @@ import java.util.Date;
 public class Reward {
 
   private long rewardId;
-  private String rewardName;
   private long userId;
   private String userName;
   private String rewardReason;
@@ -20,15 +19,6 @@ public class Reward {
 
   public void setRewardId(long rewardId) {
     this.rewardId = rewardId;
-  }
-
-
-  public String getRewardName() {
-    return rewardName;
-  }
-
-  public void setRewardName(String rewardName) {
-    this.rewardName = rewardName;
   }
 
 

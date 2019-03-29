@@ -6,7 +6,6 @@ import java.util.Date;
 public class Punish {
 
   private long punishId;
-  private String punishName;
   private String userId;
   private String userName;
   private String punishReason;
@@ -21,15 +20,6 @@ public class Punish {
 
   public void setPunishId(long punishId) {
     this.punishId = punishId;
-  }
-
-
-  public String getPunishName() {
-    return punishName;
-  }
-
-  public void setPunishName(String punishName) {
-    this.punishName = punishName;
   }
 
 

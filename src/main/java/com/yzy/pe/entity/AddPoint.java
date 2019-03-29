@@ -8,7 +8,6 @@ public class AddPoint {
   private long addId;
   private String userId;
   private String userName;
-  private String addName;
   private long addPoint;
   private String addDesc;
   private Date time;
@@ -38,15 +37,6 @@ public class AddPoint {
 
   public void setUserName(String userName) {
     this.userName = userName;
-  }
-
-
-  public String getAddName() {
-    return addName;
-  }
-
-  public void setAddName(String addName) {
-    this.addName = addName;
   }
 
 

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yzy.pe.mapper.StudentMapper">
+
+    <select id="getAddPoint" parameterType="com.yzy.pe.entity.AddPoint" resultType="com.yzy.pe.entity.AddPoint">
+        select * from add_point
+        where userId=#{userId}
+        order by time desc
+    </select>
+
+    <select id="getDeletePoint" parameterType="com.yzy.pe.entity.DeletePoint" resultType="com.yzy.pe.entity.DeletePoint">
+        select * from delete_point
+        where userId=#{userId}
+        order by deleteTime desc
+    </select>
+
+</mapper>

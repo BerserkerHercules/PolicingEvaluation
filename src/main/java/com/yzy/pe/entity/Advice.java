@@ -1,12 +1,14 @@
 package com.yzy.pe.entity;
 
+import java.util.Date;
+
 public class Advice {
 
   private long adviceId;
   private String title;
   private String content;
   private long isCross;
-  private java.sql.Timestamp orderTime;
+  private Date orderTime;
 
 
   public long getAdviceId() {
@@ -45,11 +47,11 @@ public class Advice {
   }
 
 
-  public java.sql.Timestamp getOrderTime() {
+  public Date getOrderTime() {
     return orderTime;
   }
 
-  public void setOrderTime(java.sql.Timestamp orderTime) {
+  public void setOrderTime(Date orderTime) {
     this.orderTime = orderTime;
   }
 

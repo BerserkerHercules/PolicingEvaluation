@@ -74,12 +74,4 @@ public class UserController {
         return userService.getUserList();
     }
 
-    /**
-     * Description 获取奖惩详情信息
-     *
-     * @author ZhengJiawei
-     * @date 2019-03-28 16:29:17
-     */
-
-
 }

@@ -1,9 +1,6 @@
 package com.yzy.pe.service.impl;
 
-import com.yzy.pe.entity.AddPoint;
-import com.yzy.pe.entity.DeletePoint;
-import com.yzy.pe.entity.Punish;
-import com.yzy.pe.entity.Reward;
+import com.yzy.pe.entity.*;
 import com.yzy.pe.mapper.StudentMapper;
 import com.yzy.pe.service.StudentService;
 import org.springframework.stereotype.Service;
@@ -39,5 +36,10 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public List<Reward> getRewardList(Reward reward) {
         return studentMapper.getRewardList(reward);
+    }
+
+    @Override
+    public Team getUserTeam(String userId) {
+        return studentMapper.getUserTeam(userId);
     }
 }

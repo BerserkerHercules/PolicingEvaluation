@@ -55,4 +55,9 @@
         order by rewardTime desc
     </select>
 
+    <select id="getUserTeam" parameterType="java.lang.String" resultType="com.yzy.pe.entity.Team">
+        select * from team t
+        where t.qdbm=(select qdbm from user u where u.userId=#{userId})
+    </select>
+
 </mapper>

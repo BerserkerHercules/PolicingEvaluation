@@ -1,9 +1,6 @@
 package com.yzy.pe.mapper;
 
-import com.yzy.pe.entity.AddPoint;
-import com.yzy.pe.entity.DeletePoint;
-import com.yzy.pe.entity.Punish;
-import com.yzy.pe.entity.Reward;
+import com.yzy.pe.entity.*;
 
 import java.util.List;
 
@@ -46,5 +43,13 @@ public interface StudentMapper {
      * @date 2019-03-29 09:43:49
      */
     List<Reward> getRewardList(Reward reward);
+
+    /**
+     * Description 我的区队信息
+     *
+     * @author YanZiyi
+     * @date 2019-03-29 09:43:49
+     */
+    Team getUserTeam(String userId);
 
 }

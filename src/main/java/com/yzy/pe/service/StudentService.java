@@ -42,4 +42,12 @@ public interface StudentService {
      */
     List<Reward> getRewardList(Reward reward);
 
+    /**
+     * Description 我的区队信息
+     *
+     * @author YanZiyi
+     * @date 2019-03-29 09:43:49
+     */
+    Team getUserTeam(String userId);
+
 }

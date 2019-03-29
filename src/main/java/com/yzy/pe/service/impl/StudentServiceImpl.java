@@ -20,7 +20,7 @@ public class StudentServiceImpl implements StudentService {
     private StudentMapper studentMapper;
 
     @Override
-    public List<AddPoint> getAddPoint(AddPoint addPoint,int pageNum, int pageSize) {
+    public List<AddPoint> getAddPoint(AddPoint addPoint, int pageNum, int pageSize) {
         PageHelper.startPage(pageNum, pageSize);
         List<AddPoint> list = studentMapper.getAddPoint(addPoint);
         return list;

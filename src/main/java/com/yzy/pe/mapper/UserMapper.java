@@ -27,7 +27,7 @@ public interface UserMapper {
     User userLogin(User user);
 
     /**
-     * Description 获取用户列表
+     * Description 获取学生列表
      *
      * @return List<User>
      * @author YanZiyi

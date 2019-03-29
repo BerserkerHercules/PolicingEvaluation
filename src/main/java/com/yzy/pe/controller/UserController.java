@@ -5,11 +5,7 @@ import com.yzy.pe.entity.User;
 import com.yzy.pe.service.UserService;
 import org.apache.catalina.connector.Request;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -57,9 +53,11 @@ public class UserController {
      */
     @RequestMapping(value = "/getPerList", method = RequestMethod.POST)
     @ResponseBody
-    public List<Permission> getPerList(Request request) {
+    public List<Permission> getPerList(Request request,
+                                       @RequestParam(defaultValue = "1") int pageNum,
+                                       @RequestParam(defaultValue = "10") int pageSize) {
         User user = (User) request.getSession().getAttribute("user");
-        List<Permission> permissionList = userService.getPerList(user.getPermissionDegree());
+        List<Permission> permissionList = userService.getPerList(user.getPermissionDegree(), pageNum, pageSize);
         return permissionList;
     }
 
@@ -71,8 +69,9 @@ public class UserController {
      */
     @RequestMapping(value = "/getUserList", method = RequestMethod.POST)
     @ResponseBody
-    public List<User> getUserList() {
-        return userService.getUserList();
+    public List<User> getUserList(@RequestParam(defaultValue = "1") int pageNum,
+                                  @RequestParam(defaultValue = "10") int pageSize) {
+        return userService.getUserList(pageNum, pageSize);
     }
 
 }

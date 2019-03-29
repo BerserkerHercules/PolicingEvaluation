@@ -16,7 +16,7 @@ public interface StudentService {
      * @author YanZiyi
      * @date 2019-03-29 09:43:49
      */
-    List<AddPoint> getAddPoint(AddPoint addPoint,int pageNum, int pageSize);
+    List<AddPoint> getAddPoint(AddPoint addPoint, int pageNum, int pageSize);
 
     /**
      * Description 个人扣分信息

@@ -25,13 +25,13 @@ public interface UserService {
     User login(User user);
 
     /**
-     * Description 用户列表
+     * Description 获取学生列表
      *
      * @return List<User>
      * @author YanZiyi
      * @date 2019-03-22 14:15:14
      */
-    List<User> getUserList();
+    List<User> getUserList(int pageNum, int pageSize);
 
     /**
      * Description 权限列表
@@ -39,7 +39,7 @@ public interface UserService {
      * @author YanZiyi
      * @date 2019-03-28 11:02:17
      */
-    List<Permission> getPerList(String permissionDegree);
+    List<Permission> getPerList(String permissionDegree, int pageNum, int pageSize);
 
     /**
      * Description 建议列表

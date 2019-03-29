@@ -1,11 +1,11 @@
 package com.yzy.pe.service.impl;
 
+import com.github.pagehelper.PageHelper;
 import com.yzy.pe.entity.Advice;
 import com.yzy.pe.entity.Permission;
-import com.yzy.pe.mapper.UserMapper;
 import com.yzy.pe.entity.User;
+import com.yzy.pe.mapper.UserMapper;
 import com.yzy.pe.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -29,12 +29,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> getUserList() {
+    public List<User> getUserList(int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
         return userMapper.getUserList();
     }
 
     @Override
-    public List<Permission> getPerList(String permissionDegree) {
+    public List<Permission> getPerList(String permissionDegree, int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
         return userMapper.getPerList(permissionDegree);
     }
 

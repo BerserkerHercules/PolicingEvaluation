@@ -33,8 +33,8 @@ public class StudentController {
     @ResponseBody
     public List<AddPoint> getAddPoint(AddPoint addPoint,
                                       @RequestParam(defaultValue = "1") int pageNum,
-                                      @RequestParam(defaultValue = "10")int pageSize){
-        return studentService.getAddPoint(addPoint,pageNum,pageSize);
+                                      @RequestParam(defaultValue = "10") int pageSize) {
+        return studentService.getAddPoint(addPoint, pageNum, pageSize);
     }
 
     /**
@@ -45,7 +45,7 @@ public class StudentController {
      */
     @RequestMapping("/getDeletePoint")
     @ResponseBody
-    public List<DeletePoint> getDeletePoint(DeletePoint deletePoint){
+    public List<DeletePoint> getDeletePoint(DeletePoint deletePoint) {
         return studentService.getDeletePoint(deletePoint);
     }
 
@@ -57,7 +57,7 @@ public class StudentController {
      */
     @RequestMapping("/getPunishList")
     @ResponseBody
-    public List<Punish> getPunishList(Punish punish){
+    public List<Punish> getPunishList(Punish punish) {
         return studentService.getPunishList(punish);
     }
 
@@ -69,7 +69,7 @@ public class StudentController {
      */
     @RequestMapping("/getRewardList")
     @ResponseBody
-    public List<Reward> getRewardList(Reward reward){
+    public List<Reward> getRewardList(Reward reward) {
         return studentService.getRewardList(reward);
     }
 
@@ -81,7 +81,7 @@ public class StudentController {
      */
     @RequestMapping("/getUserTeam")
     @ResponseBody
-    public Team getUserTeam(String userId){
+    public Team getUserTeam(String userId) {
         return studentService.getUserTeam(userId);
     }
 
@@ -93,7 +93,7 @@ public class StudentController {
      */
     @RequestMapping("/getTeamDeletePoint")
     @ResponseBody
-    public List<DeletePoint> getTeamDeletePoint(DeletePoint deletePoint){
+    public List<DeletePoint> getTeamDeletePoint(DeletePoint deletePoint) {
         return studentService.getTeamDeletePoint(deletePoint);
     }
 

@@ -3,6 +3,7 @@ package com.yzy.pe.controller;
 import com.yzy.pe.entity.Permission;
 import com.yzy.pe.entity.User;
 import com.yzy.pe.service.UserService;
+import org.apache.catalina.connector.Request;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -56,7 +57,7 @@ public class UserController {
      */
     @RequestMapping(value = "/getPerList", method = RequestMethod.POST)
     @ResponseBody
-    public List<Permission> getPerList(HttpServletRequest request) {
+    public List<Permission> getPerList(Request request) {
         User user = (User) request.getSession().getAttribute("user");
         List<Permission> permissionList = userService.getPerList(user.getPermissionDegree());
         return permissionList;

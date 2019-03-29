@@ -1,5 +1,6 @@
 package com.yzy.pe.service.impl;
 
+import com.github.pagehelper.PageHelper;
 import com.yzy.pe.entity.*;
 import com.yzy.pe.mapper.StudentMapper;
 import com.yzy.pe.service.StudentService;
@@ -19,8 +20,10 @@ public class StudentServiceImpl implements StudentService {
     private StudentMapper studentMapper;
 
     @Override
-    public List<AddPoint> getAddPoint(AddPoint addPoint) {
-        return studentMapper.getAddPoint(addPoint);
+    public List<AddPoint> getAddPoint(AddPoint addPoint,int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        List<AddPoint> list = studentMapper.getAddPoint(addPoint);
+        return list;
     }
 
     @Override
@@ -41,5 +44,10 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public Team getUserTeam(String userId) {
         return studentMapper.getUserTeam(userId);
+    }
+
+    @Override
+    public List<DeletePoint> getTeamDeletePoint(DeletePoint deletePoint) {
+        return studentMapper.getTeamDeletePoint(deletePoint);
     }
 }

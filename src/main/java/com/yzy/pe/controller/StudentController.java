@@ -4,6 +4,7 @@ import com.yzy.pe.entity.*;
 import com.yzy.pe.service.StudentService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
@@ -30,8 +31,10 @@ public class StudentController {
      */
     @RequestMapping("/getAddPoint")
     @ResponseBody
-    public List<AddPoint> getAddPoint(AddPoint addPoint){
-        return studentService.getAddPoint(addPoint);
+    public List<AddPoint> getAddPoint(AddPoint addPoint,
+                                      @RequestParam(defaultValue = "1") int pageNum,
+                                      @RequestParam(defaultValue = "10")int pageSize){
+        return studentService.getAddPoint(addPoint,pageNum,pageSize);
     }
 
     /**
@@ -80,6 +83,18 @@ public class StudentController {
     @ResponseBody
     public Team getUserTeam(String userId){
         return studentService.getUserTeam(userId);
+    }
+
+    /**
+     * Description 区队扣分信息
+     *
+     * @author YanZiyi
+     * @date 2019-03-29 09:43:49
+     */
+    @RequestMapping("/getTeamDeletePoint")
+    @ResponseBody
+    public List<DeletePoint> getTeamDeletePoint(DeletePoint deletePoint){
+        return studentService.getTeamDeletePoint(deletePoint);
     }
 
 }

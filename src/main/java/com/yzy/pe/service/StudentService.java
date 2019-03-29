@@ -16,7 +16,7 @@ public interface StudentService {
      * @author YanZiyi
      * @date 2019-03-29 09:43:49
      */
-    List<AddPoint> getAddPoint(AddPoint addPoint);
+    List<AddPoint> getAddPoint(AddPoint addPoint,int pageNum, int pageSize);
 
     /**
      * Description 个人扣分信息
@@ -49,5 +49,13 @@ public interface StudentService {
      * @date 2019-03-29 09:43:49
      */
     Team getUserTeam(String userId);
+
+    /**
+     * Description 区队扣分信息
+     *
+     * @author YanZiyi
+     * @date 2019-03-29 09:43:49
+     */
+    List<DeletePoint> getTeamDeletePoint(DeletePoint deletePoint);
 
 }

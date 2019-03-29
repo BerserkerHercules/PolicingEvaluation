@@ -16,4 +16,16 @@
         order by deleteTime desc
     </select>
 
+    <select id="getPunishList" parameterType="com.yzy.pe.entity.Punish" resultType="com.yzy.pe.entity.Punish">
+        select * from punish
+        where userId=#{userId}
+        order by punishTime desc
+    </select>
+
+    <select id="getRewardList" parameterType="com.yzy.pe.entity.Reward" resultType="com.yzy.pe.entity.Reward">
+        select * from reward
+        where userId=#{userId}
+        order by rewardTime desc
+    </select>
+
 </mapper>

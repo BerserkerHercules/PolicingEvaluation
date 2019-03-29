@@ -1,8 +1,6 @@
 package com.yzy.pe.controller;
 
-import com.yzy.pe.entity.AddPoint;
-import com.yzy.pe.entity.DeletePoint;
-import com.yzy.pe.entity.User;
+import com.yzy.pe.entity.*;
 import com.yzy.pe.service.StudentService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -46,6 +44,30 @@ public class StudentController {
     @ResponseBody
     public List<DeletePoint> getDeletePoint(DeletePoint deletePoint){
         return studentService.getDeletePoint(deletePoint);
+    }
+
+    /**
+     * Description 个人惩罚信息
+     *
+     * @author YanZiyi
+     * @date 2019-03-29 09:43:49
+     */
+    @RequestMapping("/getPunishList")
+    @ResponseBody
+    public List<Punish> getPunishList(Punish punish){
+        return studentService.getPunishList(punish);
+    }
+
+    /**
+     * Description 个人奖励信息
+     *
+     * @author YanZiyi
+     * @date 2019-03-29 09:43:49
+     */
+    @RequestMapping("/getRewardList")
+    @ResponseBody
+    public List<Reward> getRewardList(Reward reward){
+        return studentService.getRewardList(reward);
     }
 
 }

@@ -81,7 +81,7 @@
                     <li class="nav-title">Navigation</li>
 
                     <li class="nav-item">
-                        <a href="index.html" class="nav-link active">
+                        <a href="index.html" class="nav-link">
                             <i class="icon icon-speedometer"></i> Dashboard
                         </a>
                     </li>
@@ -131,7 +131,7 @@
                             </li>
 
                             <li class="nav-item">
-                                <a href="buttons.html" class="nav-link">
+                                <a href="buttons.html" class="nav-link active">
                                     <i class="icon icon-energy"></i> Buttons
                                 </a>
                             </li>
@@ -250,102 +250,93 @@
         </div>
 
         <div class="content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="card p-4">
-                            <div class="card-body d-flex justify-content-between align-items-center">
-                                <div>
-                                    <span class="h4 d-block font-weight-normal mb-2">54</span>
-                                    <span class="font-weight-light">Total Users</span>
-                                </div>
-
-                                <div class="h2 text-muted">
-                                    <i class="icon icon-people"></i>
-                                </div>
-                            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            Buttons
                         </div>
-                    </div>
 
-                    <div class="col-md-3">
-                        <div class="card p-4">
-                            <div class="card-body d-flex justify-content-between align-items-center">
-                                <div>
-                                    <span class="h4 d-block font-weight-normal mb-2">$32,400</span>
-                                    <span class="font-weight-light">Income</span>
-                                </div>
-
-                                <div class="h2 text-muted">
-                                    <i class="icon icon-wallet"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3">
-                        <div class="card p-4">
-                            <div class="card-body d-flex justify-content-between align-items-center">
-                                <div>
-                                    <span class="h4 d-block font-weight-normal mb-2">900</span>
-                                    <span class="font-weight-light">Downloads</span>
-                                </div>
-
-                                <div class="h2 text-muted">
-                                    <i class="icon icon-cloud-download"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3">
-                        <div class="card p-4">
-                            <div class="card-body d-flex justify-content-between align-items-center">
-                                <div>
-                                    <span class="h4 d-block font-weight-normal mb-2">32s</span>
-                                    <span class="font-weight-light">Time</span>
-                                </div>
-
-                                <div class="h2 text-muted">
-                                    <i class="icon icon-clock"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row ">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="card-header">
-                                Total Users
+                        <div class="card-body">
+                            <div class="mb-4">
+                                <p>Normal Buttons</p>
+                                <button class="btn btn-primary">Primary</button>
+                                <button class="btn btn-secondary">Secondary</button>
+                                <button class="btn btn-success">Success</button>
+                                <button class="btn btn-warning">Warning</button>
+                                <button class="btn btn-danger">Danger</button>
+                                <button class="btn btn-info">Info</button>
+                                <button class="btn btn-link">Link</button>
                             </div>
 
-                            <div class="card-body p-0">
-                                <div class="p-4">
-                                    <canvas id="line-chart" width="100%" height="20"></canvas>
-                                </div>
+                            <hr>
+                            <div class="my-4">
+                                <p>Outline Buttons</p>
+                                <p>Add <code>.btn-outline-*</code> to your buttons to mak</p>
+                                <button type="button" class="btn btn-outline-primary">Primary</button>
+                                <button type="button" class="btn btn-outline-secondary">Secondary</button>
+                                <button type="button" class="btn btn-outline-success">Success</button>
+                                <button type="button" class="btn btn-outline-warning">Warning</button>
+                                <button type="button" class="btn btn-outline-danger">Danger</button>
+                                <button type="button" class="btn btn-outline-info">Info</button>
+                            </div>
 
-                                <div class="justify-content-around mt-4 p-4 bg-light d-flex border-top d-md-down-none">
-                                    <div class="text-center">
-                                        <div class="text-muted small">Total Traffic</div>
-                                        <div>12,457 Users (40%)</div>
-                                    </div>
+                            <hr>
+                            <div class="my-4">
+                                <p>Button Sizes</p>
+                                <p>To make different size buttons add one of the classes <code>.btn-sm</code>,
+                                    <code>.btn-lg</code></p>
+                                <button type="button" class="btn btn-secondary btn-sm">Small Size</button>
+                                <button type="button" class="btn btn-secondary">Normal Size</button>
+                                <button type="button" class="btn btn-secondary btn-lg">Large Size</button>
+                            </div>
 
-                                    <div class="text-center">
-                                        <div class="text-muted small">Banned Users</div>
-                                        <div>95,333 Users (5%)</div>
-                                    </div>
+                            <hr>
+                            <div class="my-4">
+                                <p>Button with Icons</p>
+                                <button type="button" class="btn btn-primary">
+                                    <i class="fa fa-align-center"></i> &nbsp; Primary
+                                </button>
 
-                                    <div class="text-center">
-                                        <div class="text-muted small">Page Views</div>
-                                        <div>957,565 Pages (50%)</div>
-                                    </div>
+                                <button type="button" class="btn btn-secondary">
+                                    <i class="fa fa-download"></i> &nbsp; Secondary
+                                </button>
 
-                                    <div class="text-center">
-                                        <div class="text-muted small">Total Downloads</div>
-                                        <div>957,565 Files (100 TB)</div>
-                                    </div>
-                                </div>
+                                <button type="button" class="btn btn-success">
+                                    <i class="fa fa-cut"></i>&nbsp; Success
+                                </button>
+
+                                <button type="button" class="btn btn-warning">
+                                    <i class="fa fa-clipboard"></i> &nbsp; Warning
+                                </button>
+
+                                <button type="button" class="btn btn-danger">
+                                    <i class="fa fa-trash"></i> &nbsp; Danger
+                                </button>
+                            </div>
+
+                            <hr>
+                            <div class="my-4">
+                                <p>Rounded Buttons</p>
+                                <p>Add <code>.btn-rounded</code> class to your buttons to make them rounded.</p>
+                                <button class="btn btn-rounded btn-primary">Primary</button>
+                                <button class="btn btn-rounded btn-secondary">Secondary</button>
+                                <button class="btn btn-rounded btn-success">Success</button>
+                                <button class="btn btn-rounded btn-warning">Warning</button>
+                                <button class="btn btn-rounded btn-danger">Danger</button>
+                                <button class="btn btn-rounded btn-info">Info</button>
+                            </div>
+
+                            <hr>
+                            <div class="my-4">
+                                <p>Block Buttons</p>
+                                <p>Add <code>.btn-block</code> class to your buttons to make them full width.</p>
+                                <button type="button" class="btn btn-block btn-primary">Primary</button>
+                                <button type="button" class="btn btn-block btn-secondary">Secondary</button>
+                                <button type="button" class="btn btn-block btn-success">Success</button>
+                                <button type="button" class="btn btn-block btn-warning">Warning</button>
+                                <button type="button" class="btn btn-block btn-danger">Danger</button>
+                                <button type="button" class="btn btn-block btn-info">Info</button>
                             </div>
                         </div>
                     </div>

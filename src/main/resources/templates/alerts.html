@@ -11,68 +11,70 @@
 </head>
 <body class="sidebar-fixed header-fixed">
 <div class="page-wrapper">
-    <nav class="navbar page-header">
-        <a href="#" class="btn btn-link sidebar-mobile-toggle d-md-none mr-auto">
-            <i class="fa fa-bars"></i>
-        </a>
+    <div class="page-header">
+        <nav class="navbar page-header">
+            <a href="#" class="btn btn-link sidebar-mobile-toggle d-md-none mr-auto">
+                <i class="fa fa-bars"></i>
+            </a>
 
-        <a class="navbar-brand" href="#">
-            <img src="./imgs/logo.png" alt="logo">
-        </a>
+            <a class="navbar-brand" href="#">
+                <img src="./imgs/logo.png" alt="logo">
+            </a>
 
-        <a href="#" class="btn btn-link sidebar-toggle d-md-down-none">
-            <i class="fa fa-bars"></i>
-        </a>
+            <a href="#" class="btn btn-link sidebar-toggle d-md-down-none">
+                <i class="fa fa-bars"></i>
+            </a>
 
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item d-md-down-none">
-                <a href="#">
-                    <i class="fa fa-bell"></i>
-                    <span class="badge badge-pill badge-danger">5</span>
-                </a>
-            </li>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item d-md-down-none">
+                    <a href="#">
+                        <i class="fa fa-bell"></i>
+                        <span class="badge badge-pill badge-danger">5</span>
+                    </a>
+                </li>
 
-            <li class="nav-item d-md-down-none">
-                <a href="#">
-                    <i class="fa fa-envelope-open"></i>
-                    <span class="badge badge-pill badge-danger">5</span>
-                </a>
-            </li>
+                <li class="nav-item d-md-down-none">
+                    <a href="#">
+                        <i class="fa fa-envelope-open"></i>
+                        <span class="badge badge-pill badge-danger">5</span>
+                    </a>
+                </li>
 
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img src="./imgs/avatar-1.png" class="avatar avatar-sm" alt="logo">
-                    <span class="small ml-1 d-md-down-none">John Smith</span>
-                </a>
-
-                <div class="dropdown-menu dropdown-menu-right">
-                    <div class="dropdown-header">Account</div>
-
-                    <a href="#" class="dropdown-item">
-                        <i class="fa fa-user"></i> Profile
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img src="./imgs/avatar-1.png" class="avatar avatar-sm" alt="logo">
+                        <span class="small ml-1 d-md-down-none">John Smith</span>
                     </a>
 
-                    <a href="#" class="dropdown-item">
-                        <i class="fa fa-envelope"></i> Messages
-                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <div class="dropdown-header">Account</div>
 
-                    <div class="dropdown-header">Settings</div>
+                        <a href="#" class="dropdown-item">
+                            <i class="fa fa-user"></i> Profile
+                        </a>
 
-                    <a href="#" class="dropdown-item">
-                        <i class="fa fa-bell"></i> Notifications
-                    </a>
+                        <a href="#" class="dropdown-item">
+                            <i class="fa fa-envelope"></i> Messages
+                        </a>
 
-                    <a href="#" class="dropdown-item">
-                        <i class="fa fa-wrench"></i> Settings
-                    </a>
+                        <div class="dropdown-header">Settings</div>
 
-                    <a href="#" class="dropdown-item">
-                        <i class="fa fa-lock"></i> Logout
-                    </a>
-                </div>
-            </li>
-        </ul>
-    </nav>
+                        <a href="#" class="dropdown-item">
+                            <i class="fa fa-bell"></i> Notifications
+                        </a>
+
+                        <a href="#" class="dropdown-item">
+                            <i class="fa fa-wrench"></i> Settings
+                        </a>
+
+                        <a href="#" class="dropdown-item">
+                            <i class="fa fa-lock"></i> Logout
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
 
     <div class="main-container">
         <div class="sidebar">
@@ -81,7 +83,7 @@
                     <li class="nav-title">Navigation</li>
 
                     <li class="nav-item">
-                        <a href="index.html" class="nav-link active">
+                        <a href="index.html" class="nav-link">
                             <i class="icon icon-speedometer"></i> Dashboard
                         </a>
                     </li>
@@ -125,7 +127,7 @@
 
                         <ul class="nav-dropdown-items">
                             <li class="nav-item">
-                                <a href="alerts.html" class="nav-link">
+                                <a href="alerts.html" class="nav-link active">
                                     <i class="icon icon-energy"></i> Alerts
                                 </a>
                             </li>
@@ -252,99 +254,76 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-3">
-                        <div class="card p-4">
-                            <div class="card-body d-flex justify-content-between align-items-center">
-                                <div>
-                                    <span class="h4 d-block font-weight-normal mb-2">54</span>
-                                    <span class="font-weight-light">Total Users</span>
-                                </div>
-
-                                <div class="h2 text-muted">
-                                    <i class="icon icon-people"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3">
-                        <div class="card p-4">
-                            <div class="card-body d-flex justify-content-between align-items-center">
-                                <div>
-                                    <span class="h4 d-block font-weight-normal mb-2">$32,400</span>
-                                    <span class="font-weight-light">Income</span>
-                                </div>
-
-                                <div class="h2 text-muted">
-                                    <i class="icon icon-wallet"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3">
-                        <div class="card p-4">
-                            <div class="card-body d-flex justify-content-between align-items-center">
-                                <div>
-                                    <span class="h4 d-block font-weight-normal mb-2">900</span>
-                                    <span class="font-weight-light">Downloads</span>
-                                </div>
-
-                                <div class="h2 text-muted">
-                                    <i class="icon icon-cloud-download"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3">
-                        <div class="card p-4">
-                            <div class="card-body d-flex justify-content-between align-items-center">
-                                <div>
-                                    <span class="h4 d-block font-weight-normal mb-2">32s</span>
-                                    <span class="font-weight-light">Time</span>
-                                </div>
-
-                                <div class="h2 text-muted">
-                                    <i class="icon icon-clock"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row ">
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <div class="card">
-                            <div class="card-header">
-                                Total Users
+                            <div class="card-header bg-light">
+                                Normal Alerts
                             </div>
 
-                            <div class="card-body p-0">
-                                <div class="p-4">
-                                    <canvas id="line-chart" width="100%" height="20"></canvas>
+                            <div class="card-body">
+                                <div class="alert alert-primary">.alert .alert-primary</div>
+                                <div class="alert alert-secondary">.alert .alert-secondary</div>
+                                <div class="alert alert-danger">.alert .alert-danger</div>
+                                <div class="alert alert-success">.alert .alert-success</div>
+                                <div class="alert alert-warning">.alert .alert-warning</div>
+                                <div class="alert alert-info">.alert .alert-info</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header bg-light">
+                                Dismissible Alerts
+                            </div>
+
+                            <div class="card-body">
+                                <div class="alert alert-dismissible alert-primary">
+                                    .alert .alert-dismissible .alert-primary
+
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
                                 </div>
 
-                                <div class="justify-content-around mt-4 p-4 bg-light d-flex border-top d-md-down-none">
-                                    <div class="text-center">
-                                        <div class="text-muted small">Total Traffic</div>
-                                        <div>12,457 Users (40%)</div>
-                                    </div>
+                                <div class="alert alert-dismissible alert-secondary">
+                                    .alert .alert-dismissible .alert-secondary
 
-                                    <div class="text-center">
-                                        <div class="text-muted small">Banned Users</div>
-                                        <div>95,333 Users (5%)</div>
-                                    </div>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
 
-                                    <div class="text-center">
-                                        <div class="text-muted small">Page Views</div>
-                                        <div>957,565 Pages (50%)</div>
-                                    </div>
+                                <div class="alert alert-dismissible alert-danger">
+                                    .alert .alert-dismissible .alert-danger
 
-                                    <div class="text-center">
-                                        <div class="text-muted small">Total Downloads</div>
-                                        <div>957,565 Files (100 TB)</div>
-                                    </div>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+
+                                <div class="alert alert-dismissible alert-success">
+                                    .alert .alert-dismissible .alert-success
+
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+
+                                <div class="alert alert-dismissible alert-warning">
+                                    .alert .alert-dismissible .alert-warning
+
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+
+                                <div class="alert alert-dismissible alert-info">
+                                    .alert .alert-dismissible .alert-info
+
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
                                 </div>
                             </div>
                         </div>

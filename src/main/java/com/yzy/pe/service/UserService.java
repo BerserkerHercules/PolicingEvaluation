@@ -39,7 +39,7 @@ public interface UserService {
      * @author YanZiyi
      * @date 2019-03-28 11:02:17
      */
-    List<Permission> getPerList(String permissionDegree, int pageNum, int pageSize);
+    List<Permission> getPerList(Long permissionDegree, int pageNum, int pageSize);
 
     /**
      * Description 建议列表

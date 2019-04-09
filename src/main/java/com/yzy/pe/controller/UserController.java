@@ -6,6 +6,7 @@ import com.yzy.pe.service.UserService;
 import org.apache.catalina.connector.Request;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -34,13 +35,17 @@ public class UserController {
      * @date 2019-03-21 09:06:08
      */
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(User user, HttpServletRequest request) {
+    public ModelAndView login(User user, HttpServletRequest request) {
         User user1 = userService.login(user);
+        ModelAndView mv = new ModelAndView("login");
         if (user1 == null) {
-            return "login";
+            return mv;
+        }else{
+            mv.setViewName("index");
+            mv.addObject("user",user1);
+            request.getSession().setAttribute("user", user1);
+            return mv;
         }
-        request.getSession().setAttribute("user", user1);
-        return "index";
     }
 
     /**

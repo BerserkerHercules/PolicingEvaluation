@@ -35,7 +35,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<Permission> getPerList(String permissionDegree, int pageNum, int pageSize) {
+    public List<Permission> getPerList(Long permissionDegree, int pageNum, int pageSize) {
         PageHelper.startPage(pageNum, pageSize);
         return userMapper.getPerList(permissionDegree);
     }

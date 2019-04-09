@@ -2,12 +2,13 @@ package com.yzy.pe.controller;
 
 import com.yzy.pe.entity.*;
 import com.yzy.pe.service.StudentService;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -16,12 +17,25 @@ import java.util.List;
  * @author YanZiyi
  * @create 2019-03-29 9:49
  */
-@Controller
+@RestController
+@EnableAutoConfiguration
 @RequestMapping("/student")
 public class StudentController {
 
     @Resource
     private StudentService studentService;
+
+    @RequestMapping(value = "/getMyName", method = RequestMethod.POST)
+    public User getMyMsg( HttpServletRequest request) {
+        User user = (User)request.getSession().getAttribute("user");
+        return user;
+    }
+
+    @RequestMapping("/getMyMsg")
+    public ModelAndView getAddPoint() {
+        ModelAndView mv = new ModelAndView("my_msg");
+        return mv;
+    }
 
     /**
      * Description 个人加分信息

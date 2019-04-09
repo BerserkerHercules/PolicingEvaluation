@@ -1,62 +1,107 @@
 package com.yzy.pe.entity;
 
 
-/**
- * 用户实体类
- *
- * @author YanZiyi
- * @create 2019-02-13 11:13
- */
 public class User {
 
-    private String userId;
+  private String userId;
+  private String userName;
+  private String pwd;
+  private long permissionDegree;
+  private String qdbm;
+  private double kpfs;
+  private String phone;
+  private String email;
+  private String qshm;
+  private String xb;
 
-    private String userName;
 
-    private String pwd;
+  public String getUserId() {
+    return userId;
+  }
 
-    private String permissionDegree;
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
 
-    private String qdbm;
 
-    public String getUserId() {
-        return userId;
-    }
+  public String getUserName() {
+    return userName;
+  }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
+  public void setUserName(String userName) {
+    this.userName = userName;
+  }
 
-    public String getUserName() {
-        return userName;
-    }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
+  public String getPwd() {
+    return pwd;
+  }
 
-    public String getPwd() {
-        return pwd;
-    }
+  public void setPwd(String pwd) {
+    this.pwd = pwd;
+  }
 
-    public void setPwd(String pwd) {
-        this.pwd = pwd;
-    }
 
-    public String getPermissionDegree() {
-        return permissionDegree;
-    }
+  public long getPermissionDegree() {
+    return permissionDegree;
+  }
 
-    public void setPermissionDegree(String permissionDegree) {
-        this.permissionDegree = permissionDegree;
-    }
+  public void setPermissionDegree(long permissionDegree) {
+    this.permissionDegree = permissionDegree;
+  }
 
-    public String getQdbm() {
-        return qdbm;
-    }
 
-    public void setQdbm(String qdbm) {
-        this.qdbm = qdbm;
-    }
+  public String getQdbm() {
+    return qdbm;
+  }
+
+  public void setQdbm(String qdbm) {
+    this.qdbm = qdbm;
+  }
+
+
+  public double getKpfs() {
+    return kpfs;
+  }
+
+  public void setKpfs(double kpfs) {
+    this.kpfs = kpfs;
+  }
+
+
+  public String getPhone() {
+    return phone;
+  }
+
+  public void setPhone(String phone) {
+    this.phone = phone;
+  }
+
+
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+
+  public String getQshm() {
+    return qshm;
+  }
+
+  public void setQshm(String qshm) {
+    this.qshm = qshm;
+  }
+
+
+  public String getXb() {
+    return xb;
+  }
+
+  public void setXb(String xb) {
+    this.xb = xb;
+  }
 
 }

@@ -41,7 +41,7 @@ public interface UserMapper {
      * @author YanZiyi
      * @date 2019-03-28 11:02:17
      */
-    List<Permission> getPerList(String permissionDegree);
+    List<Permission> getPerList(Long permissionDegree);
 
     /**
      * Description 建议列表

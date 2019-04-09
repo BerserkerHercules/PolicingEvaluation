@@ -11,7 +11,7 @@
  Target Server Version : 80015
  File Encoding         : 65001
 
- Date: 29/03/2019 15:15:26
+ Date: 09/04/2019 22:33:34
 */
 
 SET NAMES utf8mb4;
@@ -29,7 +29,7 @@ CREATE TABLE `add_point`  (
   `addDesc` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '加分描述',
   `time` datetime(0) NULL DEFAULT NULL COMMENT '加分时间',
   PRIMARY KEY (`addId`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of add_point
@@ -157,14 +157,15 @@ CREATE TABLE `user`  (
   `phone` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '手机号码',
   `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '邮箱',
   `qshm` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '寝室号码',
+  `xb` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '性别',
   PRIMARY KEY (`userId`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', 'admin', '123456', 1, '', NULL, NULL, NULL, NULL);
-INSERT INTO `user` VALUES ('15918135', 'zjwzjw', '123456', 3, 'zjjc1591801', 118, '15700122303', 'dddz97@163.com', '6-503');
+INSERT INTO `user` VALUES ('1', 'admin', '123456', 1, '', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `user` VALUES ('2', '严子义', '222', 3, 'zjjc1591801', 118, '15700122303', 'dddz97@163.com', '6-503', '男');
 
 -- ----------------------------
 -- Table structure for user_wj

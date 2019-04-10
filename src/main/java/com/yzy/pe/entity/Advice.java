@@ -1,6 +1,6 @@
 package com.yzy.pe.entity;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Advice {
 

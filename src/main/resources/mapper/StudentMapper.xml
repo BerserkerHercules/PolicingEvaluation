@@ -5,7 +5,7 @@
 <mapper namespace="com.yzy.pe.mapper.StudentMapper">
 
     <select id="getAddPoint" parameterType="com.yzy.pe.entity.AddPoint" resultType="com.yzy.pe.entity.AddPoint">
-        select * from add_point
+        select addId,addDesc,addPoint,userId,userName,time  from add_point
         where userId=#{userId}
         <if test="addDesc !=null and addDesc !=''">
             and addDesc=#{addDesc}

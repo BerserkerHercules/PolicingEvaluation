@@ -1,12 +1,12 @@
 package com.yzy.pe.entity;
 
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Reward {
 
   private long rewardId;
-  private long userId;
+  private String userId;
   private String userName;
   private String rewardReason;
   private String rewardDesc;
@@ -22,11 +22,11 @@ public class Reward {
   }
 
 
-  public long getUserId() {
+  public String getUserId() {
     return userId;
   }
 
-  public void setUserId(long userId) {
+  public void setUserId(String userId) {
     this.userId = userId;
   }
 

@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Carbon - Admin Template</title>
     <link rel="stylesheet" href="/vendor/simple-line-icons/css/simple-line-icons.css">
@@ -18,7 +19,8 @@
 
         <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false">
                     <img src="/imgs/avatar-1.png" class="avatar avatar-sm" alt="logo">
                     <span id="myMsg" class="small ml-1 d-md-down-none"></span>
                 </a>
@@ -34,20 +36,34 @@
 
                     <li class="nav-item">
                         <a href="/student/getMyMsg" target="targetText" class="nav-link active">
-                            <i class="icon icon-speedometer"></i> 个人信息
+                            <i class="icon icon-speedometer"></i> 我的个人信息
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="/student/myKp" target="targetText" class="nav-link active">
+                            <i class="icon icon-speedometer"></i> 我的考评信息
+                        </a>
+                    </li>
+
+                    <li class="nav-title">区队</li>
+
+                    <li class="nav-item">
+                        <a href="/student/getUserTeam" target="targetText" class="nav-link active">
+                            <i class="icon icon-speedometer"></i> 我的区队信息
                         </a>
                     </li>
 
                     <li class="nav-item">
                         <a href="/student/getUserTeam" target="targetText" class="nav-link active">
-                            <i class="icon icon-speedometer"></i> 区队信息
+                            <i class="icon icon-speedometer"></i> 区队考评信息
                         </a>
                     </li>
 
                     <li class="nav-title">所有人</li>
 
                     <li class="nav-item nav-dropdown">
-                        <a href="#" class="nav-link nav-dropdown-toggle">
+                        <a href="javascript:void(0);" class="nav-link nav-dropdown-toggle">
                             <i class="icon icon-target"></i> 所有人信息 <i class="fa fa-caret-left"></i>
                         </a>
 
@@ -83,14 +99,18 @@
         <div class="content">
             <div class="container">
                 <div class="row">
-        <iframe id="iframe"  onload="this.height=body.offsetHeight" width="100%" scrolling="true" frameborder="0" src="/student/getMyMsg" name="targetText"></iframe>
-                </div></div></div>
+                    <iframe id="iframe" onload="this.height=body.offsetHeight" width="100%" scrolling="true"
+                            frameborder="0" src="/student/getMyMsg" name="targetText"></iframe>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <script src="/vendor/jquery/jquery.min.js"></script>
 <script src="/vendor/popper.js/popper.min.js"></script>
 <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
 <script src="/vendor/chart.js/chart.min.js"></script>
+<script src="/js/carbon.js"></script>
 <script src="/js/index.js"></script>
 </body>
 </html>

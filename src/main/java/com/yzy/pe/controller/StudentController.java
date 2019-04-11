@@ -3,6 +3,7 @@ package com.yzy.pe.controller;
 import com.github.pagehelper.PageInfo;
 import com.yzy.pe.entity.*;
 import com.yzy.pe.service.StudentService;
+import com.yzy.pe.service.UserService;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -25,8 +26,11 @@ public class StudentController {
     @Resource
     private StudentService studentService;
 
+    @Resource
+    private UserService userService;
+
     /**
-     * Description ajax获取个人信息
+     * Description 获取个人信息
      *
      * @author YanZiyi
      * @date 2019-03-29 09:43:49
@@ -34,7 +38,8 @@ public class StudentController {
     @RequestMapping(value = "/getMyName", method = RequestMethod.POST)
     public User getMyMsg( HttpServletRequest request) {
         User user = (User)request.getSession().getAttribute("user");
-        return user;
+        User user1 = userService.selectUser(user);
+        return user1;
     }
 
     /**
@@ -70,6 +75,36 @@ public class StudentController {
     @RequestMapping("/change_msg")
     public ModelAndView change_msg() {
         ModelAndView mv = new ModelAndView("change_msg");
+        return mv;
+    }
+
+    /**
+     * Description 打开区队信息页面
+     *
+     * @author YanZiyi
+     * @date 2019-03-29 09:43:49
+     */
+    @RequestMapping("/teamMsg")
+    public ModelAndView teamMsg() {
+        ModelAndView mv = new ModelAndView("team_msg");
+        return mv;
+    }
+
+    /**
+     * Description 修改个人信息页面
+     *
+     * @author YanZiyi
+     * @date 2019-03-29 09:43:49
+     */
+    @RequestMapping("/changeMyMsg")
+    public ModelAndView changeMyMsg(User user, HttpServletRequest request) {
+        User user1 = (User)request.getSession().getAttribute("user");
+        user.setUserId(user1.getUserId());
+        ModelAndView mv = new ModelAndView("my_msg");
+        if(user.getPwd()!=null&&!"".equals(user.getPwd())){
+            mv.setViewName("redirect:/");
+        }
+        //userService.updateUserBySelf(user);
         return mv;
     }
 
@@ -153,8 +188,9 @@ public class StudentController {
      */
     @RequestMapping("/getUserTeam")
     @ResponseBody
-    public Team getUserTeam(String userId) {
-        return studentService.getUserTeam(userId);
+    public Team getUserTeam(HttpServletRequest request) {
+        User user = (User) request.getSession().getAttribute("user");
+        return studentService.getUserTeam(user.getUserId());
     }
 
     /**

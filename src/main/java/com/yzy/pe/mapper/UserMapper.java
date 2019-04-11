@@ -91,4 +91,22 @@ public interface UserMapper {
      */
     void deleteUser(User user);
 
+    /**
+     * Description 查找用户byId
+     *
+     * @param user 用户输入数据
+     * @return User
+     * @author YanZiyi
+     * @date 2019-03-22 14:14:27
+     */
+    User selectUser(User user);
+
+    /**
+     * Description 修改用户
+     *
+     * @author YanZiyi
+     * @date 2019-03-28 11:02:17
+     */
+    void updateUserBySelf(User user);
+
 }

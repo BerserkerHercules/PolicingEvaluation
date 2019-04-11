@@ -9,6 +9,7 @@ public class Team {
   private String qdms;
   private String qdkh;
   private long qdkp;
+  private long qdrs;
 
 
   public long getQdId() {
@@ -62,6 +63,14 @@ public class Team {
 
   public void setQdkp(long qdkp) {
     this.qdkp = qdkp;
+  }
+
+  public long getQdrs() {
+    return qdrs;
+  }
+
+  public void setQdrs(long qdrs) {
+    this.qdrs = qdrs;
   }
 
 }

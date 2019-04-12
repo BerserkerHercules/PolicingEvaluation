@@ -27,8 +27,7 @@
                                     <thead>
                                     <tr>
                                         <th>序号</th>
-                                        <th>名字</th>
-                                        <th>描述</th>
+                                        <th>加分原因</th>
                                         <th>加分分数</th>
                                         <th>时间</th>
                                     </tr>
@@ -58,8 +57,7 @@
                                     <thead>
                                     <tr>
                                         <th>序号</th>
-                                        <th>名字</th>
-                                        <th>描述</th>
+                                        <th>扣分原因</th>
                                         <th>扣分分数</th>
                                         <th>时间</th>
                                     </tr>
@@ -87,20 +85,23 @@
 
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-hover">
+                                <table class="table table-hover" id="table_jl">
                                     <thead>
                                     <tr>
-                                        <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Sales</th>
-                                        <th>Price</th>
-                                        <th>Discount</th>
+                                        <th>序号</th>
+                                        <th>奖项</th>
+                                        <th>描述</th>
+                                        <th>获奖时间</th>
                                     </tr>
                                     </thead>
                                     <tbody>
 
                                     </tbody>
                                 </table>
+                                <button type="button" class="btn btn-secondary btn-sm jl">首页</button>
+                                <button type="button" class="btn btn-secondary btn-sm jl">上一页</button>
+                                <button type="button" class="btn btn-secondary btn-sm jl">下一页</button>
+                                <button type="button" class="btn btn-secondary btn-sm jl">尾页</button>
                             </div>
                         </div>
                     </div>
@@ -114,20 +115,24 @@
 
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-hover">
+                                <table class="table table-hover" id="table_cf">
                                     <thead>
                                     <tr>
-                                        <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Sales</th>
-                                        <th>Price</th>
-                                        <th>Discount</th>
+                                        <th>序号</th>
+                                        <th>惩罚原因</th>
+                                        <th>惩罚项目</th>
+                                        <th>是否完成</th>
+                                        <th>完成时间</th>
                                     </tr>
                                     </thead>
                                     <tbody>
 
                                     </tbody>
                                 </table>
+                                <button type="button" class="btn btn-secondary btn-sm cf">首页</button>
+                                <button type="button" class="btn btn-secondary btn-sm cf">上一页</button>
+                                <button type="button" class="btn btn-secondary btn-sm cf">下一页</button>
+                                <button type="button" class="btn btn-secondary btn-sm cf">尾页</button>
                             </div>
                         </div>
                     </div>
@@ -139,6 +144,7 @@
 <script src="/vendor/jquery/jquery.min.js"></script>
 <script src="/vendor/popper.js/popper.min.js"></script>
 <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="/vendor/bootstrap-paginator.js"></script>
 <script src="/vendor/chart.js/chart.min.js"></script>
 <script src="/js/my_kp.js"></script>
 </body>

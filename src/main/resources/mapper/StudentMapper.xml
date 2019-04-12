@@ -41,7 +41,7 @@
         <if test="punishDesc !=null and punishDesc !=''">
             and punishDesc=#{punishDesc}
         </if>
-        order by punishTime desc
+        order by punishComplete desc,punishTime desc
     </select>
 
     <select id="getRewardList" parameterType="com.yzy.pe.entity.Reward" resultType="com.yzy.pe.entity.Reward">

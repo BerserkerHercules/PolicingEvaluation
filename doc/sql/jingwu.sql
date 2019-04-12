@@ -11,7 +11,7 @@
  Target Server Version : 80015
  File Encoding         : 65001
 
- Date: 10/04/2019 17:42:11
+ Date: 11/04/2019 00:04:50
 */
 
 SET NAMES utf8mb4;
@@ -34,13 +34,14 @@ CREATE TABLE `add_point`  (
 -- ----------------------------
 -- Records of add_point
 -- ----------------------------
-INSERT INTO `add_point` VALUES (1, '2', '严子义', 10, '救1人', '2019-03-29 09:56:27');
-INSERT INTO `add_point` VALUES (2, '2', '严子义', 20, '救2人', '2019-04-10 15:12:10');
-INSERT INTO `add_point` VALUES (3, '2', '严子义', 11, '3人', '2019-04-09 15:59:49');
-INSERT INTO `add_point` VALUES (4, '2', '严子义', 22, '4人', '2019-04-08 15:59:54');
-INSERT INTO `add_point` VALUES (5, '2', '严子义', 33, '5人', '2019-04-07 15:59:58');
-INSERT INTO `add_point` VALUES (6, '2', '严子义', 44, '6人', '2019-04-06 16:00:01');
-INSERT INTO `add_point` VALUES (7, '2', '严子义', 55, '7人', '2019-04-05 16:00:04');
+INSERT INTO `add_point` VALUES (1, '2', '严子义', 10, '救人', '2019-03-29 09:56:27');
+INSERT INTO `add_point` VALUES (2, '2', '严子义', 14, '救1人', '2019-04-09 21:00:21');
+INSERT INTO `add_point` VALUES (3, '2', '严子义', 13, '救1人12', '2019-04-08 21:00:26');
+INSERT INTO `add_point` VALUES (4, '2', '严子义', 11, '救1人我', '2019-04-11 21:00:31');
+INSERT INTO `add_point` VALUES (5, '2', '严子义', 12, '救1人撒旦', '2019-04-12 21:00:36');
+INSERT INTO `add_point` VALUES (6, '2', '严子义', 15, '萨芬', '2019-04-06 21:00:41');
+INSERT INTO `add_point` VALUES (7, '2', '严子义', 16, '沙发', '2019-04-05 21:00:45');
+INSERT INTO `add_point` VALUES (8, '2', '严子义', 17, 'f发', '2019-04-09 21:00:48');
 
 -- ----------------------------
 -- Table structure for advice
@@ -78,13 +79,18 @@ CREATE TABLE `delete_point`  (
 -- Records of delete_point
 -- ----------------------------
 INSERT INTO `delete_point` VALUES (1, '2', '严子义', 2, '被子不整齐', '2019-03-29 09:58:10');
-INSERT INTO `delete_point` VALUES (2, '2', '严子义', 3, '被子不整齐21', '2019-04-11 16:18:42');
-INSERT INTO `delete_point` VALUES (3, '2', '严子义', 3, '分被子不整齐', '2019-04-03 16:18:46');
-INSERT INTO `delete_point` VALUES (4, '2', '严子义', 4, '被子不整齐人23', '2019-04-09 16:18:51');
-INSERT INTO `delete_point` VALUES (5, '2', '严子义', 4, '被子不整齐访问', '2019-04-05 16:18:55');
-INSERT INTO `delete_point` VALUES (6, '2', '严子义', 6, '被子不整齐去', '2019-04-01 16:18:59');
-INSERT INTO `delete_point` VALUES (7, '2', '严子义', 6, '被子不整齐撒', '2019-04-02 16:19:03');
-INSERT INTO `delete_point` VALUES (8, '2', '严子义', 67, '被子不整齐额为全额付', '2019-04-06 16:19:06');
+INSERT INTO `delete_point` VALUES (2, '2', '严子义', 1, '被子不整齐', '2019-04-04 21:32:58');
+INSERT INTO `delete_point` VALUES (3, '2', '严子义', 2, '撒打发', '2019-04-09 21:33:01');
+INSERT INTO `delete_point` VALUES (4, '2', '严子义', 3, '飞洒', '2019-04-05 21:33:05');
+INSERT INTO `delete_point` VALUES (5, '2', '严子义', 4, '更换尿布地方', '2019-04-07 21:33:09');
+INSERT INTO `delete_point` VALUES (6, '2', '严子义', 5, '如果', '2019-04-01 21:33:12');
+INSERT INTO `delete_point` VALUES (7, '2', '严子义', 6, '人我', '2019-04-02 21:33:18');
+INSERT INTO `delete_point` VALUES (8, '2', '严子义', 5, '阿尔瓦', '2019-04-09 21:33:23');
+INSERT INTO `delete_point` VALUES (9, '2', '严子义', 7, '范德萨', '2019-04-11 21:33:26');
+INSERT INTO `delete_point` VALUES (10, '2', '严子义', 21, '购房价款', '2019-04-08 21:33:28');
+INSERT INTO `delete_point` VALUES (11, '2', '严子义', 4, '发大水', '2019-04-11 21:33:32');
+INSERT INTO `delete_point` VALUES (12, '2', '严子义', 56, '法国', '2019-04-02 21:33:35');
+INSERT INTO `delete_point` VALUES (13, '2', '严子义', 4, '公认为', '2019-04-10 21:33:39');
 
 -- ----------------------------
 -- Table structure for permission
@@ -121,14 +127,18 @@ CREATE TABLE `punish`  (
 -- ----------------------------
 -- Records of punish
 -- ----------------------------
-INSERT INTO `punish` VALUES (1, '1', 'zjwzjw', '扣班级分数', 1, '10圈', '2019-03-27 10:03:59');
+INSERT INTO `punish` VALUES (1, '2', '严子义', '扣班级分数1', 1, '10圈', '2019-03-27 10:03:59');
+INSERT INTO `punish` VALUES (2, '2', '严子义', '扣班级分数2', 2, '10圈', '2019-04-11 22:27:56');
+INSERT INTO `punish` VALUES (3, '2', '严子义', '扣班级分数3', 1, '10圈', '2019-04-09 22:27:59');
+INSERT INTO `punish` VALUES (4, '2', '严子义', '扣班级分数4', 1, '10圈', '2019-04-08 22:28:03');
+INSERT INTO `punish` VALUES (5, '2', '严子义', '扣班级分数5', 2, '10圈', '2019-04-02 22:57:14');
 
 -- ----------------------------
 -- Table structure for reward
 -- ----------------------------
 DROP TABLE IF EXISTS `reward`;
 CREATE TABLE `reward`  (
-  `rewardId` int(6) NOT NULL,
+  `rewardId` int(6) NOT NULL AUTO_INCREMENT,
   `userId` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `userName` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `rewardReason` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '奖励原因',
@@ -136,6 +146,17 @@ CREATE TABLE `reward`  (
   `rewardTime` datetime(0) NULL DEFAULT NULL COMMENT '奖励时间',
   PRIMARY KEY (`rewardId`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of reward
+-- ----------------------------
+INSERT INTO `reward` VALUES (1, '2', '严子义', '一等奖', '吃饭大赛荣获一等奖学金', '2019-04-11 21:41:33');
+INSERT INTO `reward` VALUES (2, '2', '严子义', '2等奖', '吃饭大赛荣获2等奖学金', '2019-04-12 21:42:25');
+INSERT INTO `reward` VALUES (3, '2', '严子义', '3等奖', '吃饭大赛3等奖', '2019-04-13 21:42:45');
+INSERT INTO `reward` VALUES (9, '2', '严子义', '严子义', '严子义', '2019-04-10 22:58:07');
+INSERT INTO `reward` VALUES (10, '2', '严子义', '严子义', '严子义', '2019-04-10 22:58:10');
+INSERT INTO `reward` VALUES (11, '2', '严子义', '严子义', '严子义', '2019-04-10 22:58:13');
+INSERT INTO `reward` VALUES (12, '2', '严子义', '严子义', '严子义', '2019-04-10 22:58:16');
 
 -- ----------------------------
 -- Table structure for team

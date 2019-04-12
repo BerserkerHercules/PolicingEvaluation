@@ -81,8 +81,32 @@
           userId=#{userId}
     </update>
 
+    <update id="updateUserBySelf" parameterType="com.yzy.pe.entity.User">
+        update user set userId=#{userId}
+        <if test="pwd != null and pwd != ''">
+           ,pwd=#{pwd}
+        </if>
+        <if test="phone != null and phone != ''">
+            ,phone=#{phone}
+        </if>
+        <if test="email != null and email != ''">
+            ,email=#{email}
+        </if>
+        where
+          userId=#{userId}
+    </update>
+
     <delete id="deleteUser" parameterType="com.yzy.pe.entity.User">
       delete from user where userId=#{userId}
     </delete>
+
+    <select id="selectUser" resultType="com.yzy.pe.entity.User" parameterType="com.yzy.pe.entity.User">
+        SELECT
+        *
+        FROM
+        user
+        WHERE
+        userId = #{userId}
+    </select>
 
 </mapper>

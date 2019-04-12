@@ -1,7 +1,9 @@
 package com.yzy.pe.controller;
 
+import com.github.pagehelper.PageInfo;
 import com.yzy.pe.entity.*;
 import com.yzy.pe.service.StudentService;
+import com.yzy.pe.service.UserService;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -24,8 +26,11 @@ public class StudentController {
     @Resource
     private StudentService studentService;
 
+    @Resource
+    private UserService userService;
+
     /**
-     * Description ajax获取名字
+     * Description 获取个人信息
      *
      * @author YanZiyi
      * @date 2019-03-29 09:43:49
@@ -33,7 +38,8 @@ public class StudentController {
     @RequestMapping(value = "/getMyName", method = RequestMethod.POST)
     public User getMyMsg( HttpServletRequest request) {
         User user = (User)request.getSession().getAttribute("user");
-        return user;
+        User user1 = userService.selectUser(user);
+        return user1;
     }
 
     /**
@@ -61,6 +67,48 @@ public class StudentController {
     }
 
     /**
+     * Description 打开修改个人信息页面
+     *
+     * @author YanZiyi
+     * @date 2019-03-29 09:43:49
+     */
+    @RequestMapping("/change_msg")
+    public ModelAndView change_msg() {
+        ModelAndView mv = new ModelAndView("change_msg");
+        return mv;
+    }
+
+    /**
+     * Description 打开区队信息页面
+     *
+     * @author YanZiyi
+     * @date 2019-03-29 09:43:49
+     */
+    @RequestMapping("/teamMsg")
+    public ModelAndView teamMsg() {
+        ModelAndView mv = new ModelAndView("team_msg");
+        return mv;
+    }
+
+    /**
+     * Description 修改个人信息页面
+     *
+     * @author YanZiyi
+     * @date 2019-03-29 09:43:49
+     */
+    @RequestMapping("/changeMyMsg")
+    public ModelAndView changeMyMsg(User user, HttpServletRequest request) {
+        User user1 = (User)request.getSession().getAttribute("user");
+        user.setUserId(user1.getUserId());
+        ModelAndView mv = new ModelAndView("my_msg");
+        if(user.getPwd()!=null&&!"".equals(user.getPwd())){
+            mv.setViewName("redirect:/");
+        }
+        //userService.updateUserBySelf(user);
+        return mv;
+    }
+
+    /**
      * Description 个人加分信息
      *
      * @author YanZiyi
@@ -68,13 +116,14 @@ public class StudentController {
      */
     @RequestMapping("/getAddPoint")
     @ResponseBody
-    public List<AddPoint> getAddPoint(AddPoint addPoint,HttpServletRequest request,
+    public PageInfo<AddPoint> getAddPoint(AddPoint addPoint,HttpServletRequest request,
                                       @RequestParam(defaultValue = "1") int pageNum,
                                       @RequestParam(defaultValue = "5") int pageSize) {
         User user = (User) request.getSession().getAttribute("user");
         addPoint.setUserId(user.getUserId());
         List<AddPoint> list = studentService.getAddPoint(addPoint, pageNum, pageSize);
-        return list;
+        PageInfo<AddPoint> pageInfo = new PageInfo<>(list);
+        return pageInfo;
     }
 
     /**
@@ -85,12 +134,14 @@ public class StudentController {
      */
     @RequestMapping("/getDeletePoint")
     @ResponseBody
-    public List<DeletePoint> getDeletePoint(DeletePoint deletePoint,HttpServletRequest request,
+    public PageInfo<DeletePoint> getDeletePoint(DeletePoint deletePoint,HttpServletRequest request,
                                             @RequestParam(defaultValue = "1") int pageNum,
                                             @RequestParam(defaultValue = "5") int pageSize) {
         User user = (User) request.getSession().getAttribute("user");
         deletePoint.setUserId(user.getUserId());
-        return studentService.getDeletePoint(deletePoint, pageNum, pageSize);
+        List<DeletePoint> list = studentService.getDeletePoint(deletePoint, pageNum, pageSize);
+        PageInfo<DeletePoint> pageInfo = new PageInfo<>(list);
+        return pageInfo;
     }
 
     /**
@@ -101,12 +152,14 @@ public class StudentController {
      */
     @RequestMapping("/getPunishList")
     @ResponseBody
-    public List<Punish> getPunishList(Punish punish,HttpServletRequest request,
+    public PageInfo<Punish> getPunishList(Punish punish,HttpServletRequest request,
                                       @RequestParam(defaultValue = "1") int pageNum,
                                       @RequestParam(defaultValue = "5") int pageSize) {
         User user = (User) request.getSession().getAttribute("user");
         punish.setUserId(user.getUserId());
-        return studentService.getPunishList(punish, pageNum, pageSize);
+        List<Punish> list = studentService.getPunishList(punish, pageNum, pageSize);
+        PageInfo<Punish> pageInfo = new PageInfo<>(list);
+        return pageInfo;
     }
 
     /**
@@ -117,12 +170,14 @@ public class StudentController {
      */
     @RequestMapping("/getRewardList")
     @ResponseBody
-    public List<Reward> getRewardList(Reward reward,HttpServletRequest request,
+    public PageInfo<Reward> getRewardList(Reward reward,HttpServletRequest request,
                                       @RequestParam(defaultValue = "1") int pageNum,
                                       @RequestParam(defaultValue = "5") int pageSize) {
         User user = (User) request.getSession().getAttribute("user");
         reward.setUserId(user.getUserId());
-        return studentService.getRewardList(reward, pageNum, pageSize);
+        List<Reward> list = studentService.getRewardList(reward, pageNum, pageSize);
+        PageInfo<Reward> pageInfo = new PageInfo<>(list);
+        return pageInfo;
     }
 
     /**
@@ -133,8 +188,9 @@ public class StudentController {
      */
     @RequestMapping("/getUserTeam")
     @ResponseBody
-    public Team getUserTeam(String userId) {
-        return studentService.getUserTeam(userId);
+    public Team getUserTeam(HttpServletRequest request) {
+        User user = (User) request.getSession().getAttribute("user");
+        return studentService.getUserTeam(user.getUserId());
     }
 
     /**

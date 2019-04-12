@@ -1,7 +1,8 @@
-var add_pageNum=1, add_pageSize=5, add_num=0;
-var del_pageNum=1, del_pageSize=5, del_num=0;
-var jl_pageNum=1, jl_pageSize=5, jl_num=0;
-var cf_pageNum=1, cf_pageSize=5, cf_num=0;
+
+var add_pageNum=1, pageSize=5, add_pages=0;
+var del_pageNum=1, del_pages=0;
+var jl_pageNum=1, jl_pages=0;
+var cf_pageNum=1, cf_pages=0;
 
 $(document).ready(function () {
     init();
@@ -13,7 +14,11 @@ $(document).ready(function () {
 function init(){
     addPoint();
     delPoint();
+    jlXx();
+    cfXx();
 }
+
+//****************************************************************************************************
 
 /**
  * 加分信息
@@ -22,19 +27,18 @@ function addPoint(){
     $.ajax({
         url : "/student/getAddPoint",     //后台请求的数据
         data: {
-            "pageSize":add_pageSize,
+            "pageSize":pageSize,
             "pageNum":add_pageNum
         },
         type : "post",                  //请求方式
         async : true,                   //是否异步请求
         success : function(data) {      //如果请求成功，返回数据。
             $("#table_add tbody").html("");
-            add_num = data.length/add_pageSize+1;
-
-            for(var i=1;i<data.length+1;i++){
-                var content = data[i-1];
+            add_pages = data.pages;
+            var list_ = data.list;
+            for(var i=1;i<list_.length+1;i++){
+                var content = list_[i-1];
                 var trHTML = "<tr><td>"+i+"</td>"
-                    +"<td>"+content.userName+"</td>"
                     +"<td>"+content.addDesc+"</td>"
                     +"<td>"+content.addPoint+"</td>"
                     +"<td>"+content.time+"</td></tr>";
@@ -52,10 +56,12 @@ $(".add").click(function(){
     switch (data) {
         case "首页":if(add_pageNum==1){break;}add_pageNum=1;addPoint();break;
         case "上一页":if(add_pageNum==1){break;}add_pageNum--;addPoint();break;
-        case "下一页":if(add_pageNum==add_num){break;}add_pageNum++;addPoint();break;
-        case "尾页":if(add_pageNum==add_num){break;}add_pageNum=add_num;addPoint();break;
+        case "下一页":if(add_pageNum==add_pages){break;}add_pageNum++;addPoint();break;
+        case "尾页":if(add_pageNum==add_pages){break;}add_pageNum=add_pages;addPoint();break;
     }
 });
+
+//****************************************************************************************************
 
 /**
  * 扣分信息
@@ -64,19 +70,19 @@ function delPoint(){
     $.ajax({
         url : "/student/getDeletePoint",     //后台请求的数据
         data: {
-            "pageSize":del_pageSize,
+            "pageSize":pageSize,
             "pageNum":del_pageNum
         },
         type : "post",                  //请求方式
         async : true,                   //是否异步请求
         success : function(data) {      //如果请求成功，返回数据。
             $("#table_del tbody").html("");
-            del_num = data.length/del_pageSize+1;
+            del_pages = data.pages;
+            var list_ = data.list;
 
-            for(var i=1;i<data.length+1;i++){
-                var content = data[i-1];
+            for(var i=1;i<list_.length+1;i++){
+                var content = list_[i-1];
                 var trHTML = "<tr><td>"+i+"</td>"
-                    +"<td>"+content.userName+"</td>"
                     +"<td>"+content.deleteDesc+"</td>"
                     +"<td>"+content.deletePoint+"</td>"
                     +"<td>"+content.deleteTime+"</td></tr>";
@@ -94,7 +100,104 @@ $(".del").click(function(){
     switch (data) {
         case "首页":if(del_pageNum==1){break;}del_pageNum=1;delPoint();break;
         case "上一页":if(del_pageNum==1){break;}del_pageNum--;delPoint();break;
-        case "下一页":if(del_pageNum==del_num){break;}del_pageNum++;delPoint();break;
-        case "尾页":if(del_pageNum==del_num){break;}del_pageNum=del_num;delPoint();break;
+        case "下一页":if(del_pageNum==del_pages){break;}del_pageNum++;delPoint();break;
+        case "尾页":if(del_pageNum==del_pages){break;}del_pageNum=del_pages;delPoint();break;
     }
 });
+
+//****************************************************************************************************
+
+/**
+ * 奖励信息
+ */
+function jlXx(){
+    $.ajax({
+        url : "/student/getRewardList",     //后台请求的数据
+        data: {
+            "pageSize":pageSize,
+            "pageNum":jl_pageNum
+        },
+        type : "post",                  //请求方式
+        async : true,                   //是否异步请求
+        success : function(data) {      //如果请求成功，返回数据。
+            $("#table_jl tbody").html("");
+            jl_pages = data.pages;
+            var list_ = data.list;
+            for(var i=1;i<list_.length+1;i++){
+                var content = list_[i-1];
+                var trHTML = "<tr><td>"+i+"</td>"
+                    +"<td>"+content.rewardReason+"</td>"
+                    +"<td>"+content.rewardDesc+"</td>"
+                    +"<td>"+content.rewardTime+"</td>";
+                $("#table_jl tbody").append(trHTML);//在table最后面添加一行
+            }
+        },
+    });
+}
+
+/**
+ * 奖励信息表翻页
+ */
+$(".jl").click(function(){
+    var data = $(this).html();
+    switch (data) {
+        case "首页":if(jl_pageNum==1){break;}jl_pageNum=1;jlXx();break;
+        case "上一页":if(jl_pageNum==1){break;}jl_pageNum--;jlXx();break;
+        case "下一页":if(jl_pageNum==jl_pages){break;}jl_pageNum++;jlXx();break;
+        case "尾页":if(jl_pageNum==jl_pages){break;}jl_pageNum=jl_pages;jlXx();break;
+    }
+});
+
+//****************************************************************************************************
+
+/**
+ * 惩罚信息
+ */
+function cfXx(){
+    $.ajax({
+        url : "/student/getPunishList",     //后台请求的数据
+        data: {
+            "pageSize":pageSize,
+            "pageNum":cf_pageNum
+        },
+        type : "post",                  //请求方式
+        async : true,                   //是否异步请求
+        success : function(data) {      //如果请求成功，返回数据。
+            $("#table_cf tbody").html("");
+            cf_pages = data.pages;
+            var list_ = data.list;
+            for(var i=1;i<list_.length+1;i++){
+                var content = list_[i-1];
+                var trHTML = "<tr><td>"+i+"</td>"
+                    +"<td>"+content.punishReason+"</td>"
+                    +"<td>"+content.punishDesc+"</td>"
+                    +"<td>"+isOne(content.punishComplete)+"</td>"
+                    +"<td>"+content.punishTime+"</td>";
+                $("#table_cf tbody").append(trHTML);//在table最后面添加一行
+            }
+        },
+    });
+}
+
+/**
+ * 惩罚信息表翻页
+ */
+$(".jl").click(function(){
+    var data = $(this).html();
+    switch (data) {
+        case "首页":if(cf_pageNum==1){break;}cf_pageNum=1;cfXx();break;
+        case "上一页":if(cf_pageNum==1){break;}cf_pageNum--;cfXx();break;
+        case "下一页":if(cf_pageNum==cf_pages){break;}cf_pageNum++;cfXx();break;
+        case "尾页":if(cf_pageNum==cf_pages){break;}cf_pageNum=cf_pages;cfXx();break;
+    }
+});
+
+//****************************************************************************************************
+
+function isOne(data) {
+    if(data==1||data=="1"){
+        return "已完成";
+    }else{
+        return "未完成";
+    }
+}

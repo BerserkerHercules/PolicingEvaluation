@@ -29,12 +29,6 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> getUserList(int pageNum, int pageSize) {
-        PageHelper.startPage(pageNum, pageSize);
-        return userMapper.getUserList();
-    }
-
-    @Override
     public List<Permission> getPerList(Long permissionDegree, int pageNum, int pageSize) {
         PageHelper.startPage(pageNum, pageSize);
         return userMapper.getPerList(permissionDegree);
@@ -81,4 +75,9 @@ public class UserServiceImpl implements UserService {
         userMapper.updateUserBySelf(user);
     }
 
+    @Override
+    public List<User> selectUserList(User user,int pageNum,int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        return userMapper.selectUserList(user);
+    }
 }

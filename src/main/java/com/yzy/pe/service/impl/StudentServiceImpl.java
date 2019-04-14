@@ -49,9 +49,8 @@ public class StudentServiceImpl implements StudentService {
         return studentMapper.getUserTeam(userId);
     }
 
-    @Override
-    public List<DeletePoint> getTeamDeletePoint(DeletePoint deletePoint, int pageNum, int pageSize) {
+    public List<Team> getTeamList(Team team,int pageNum, int pageSize){
         PageHelper.startPage(pageNum, pageSize);
-        return studentMapper.getTeamDeletePoint(deletePoint);
+        return studentMapper.getTeamList(team);
     }
 }

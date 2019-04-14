@@ -61,17 +61,16 @@
         where t.qdbm=(select qdbm from user u where u.userId=#{userId})
     </select>
 
-    <select id="getTeamDeletePoint" parameterType="com.yzy.pe.entity.DeletePoint"
-            resultType="com.yzy.pe.entity.DeletePoint">
-        select * from delete_point
-        where userId=(select qdbm from user u where u.userId=#{userId})
-        <if test="deleteDesc !=null and deleteDesc !=''">
-            and deleteDesc=#{deleteDesc}
+    <select id="getTeamList" parameterType="com.yzy.pe.entity.Team" resultType="com.yzy.pe.entity.Team">
+        select * from team
+        where 1=1
+        <if test="qdmc!=null and qdmc!=''">
+            and qdmc like CONCAT('%',#{qdmc},'%')
         </if>
-        <if test="deletePoint !=null and deletePoint !=''">
-            and deletePoint=#{deletePoint}
+        <if test="qdbm!=null and qdbm!=''">
+            and qdbm like CONCAT('%',#{qdbm},'%')
         </if>
-        order by deleteTime desc
+        order by qdkp desc
     </select>
 
     <select id="getUserWj" parameterType="com.yzy.pe.entity.UserWj" resultType="com.yzy.pe.entity.UserWj">

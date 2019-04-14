@@ -104,7 +104,7 @@ public class StudentController {
         if(user.getPwd()!=null&&!"".equals(user.getPwd())){
             mv.setViewName("redirect:/");
         }
-        //userService.updateUserBySelf(user);
+        userService.updateUserBySelf(user);
         return mv;
     }
 
@@ -194,17 +194,47 @@ public class StudentController {
     }
 
     /**
-     * Description 区队扣分信息
+     * Description 打开所有区队信息页面
      *
      * @author YanZiyi
      * @date 2019-03-29 09:43:49
      */
-    @RequestMapping("/getTeamDeletePoint")
+    @RequestMapping("/team_list")
+    public ModelAndView teamList() {
+        ModelAndView mv = new ModelAndView("team_list");
+        return mv;
+    }
+
+    /**
+     * Description 所有区队信息
+     *
+     * @author YanZiyi
+     * @date 2019-03-29 09:43:49
+     */
+    @RequestMapping("/getTeamList")
     @ResponseBody
-    public List<DeletePoint> getTeamDeletePoint(DeletePoint deletePoint,
-                                                @RequestParam(defaultValue = "1") int pageNum,
-                                                @RequestParam(defaultValue = "10") int pageSize) {
-        return studentService.getTeamDeletePoint(deletePoint, pageNum, pageSize);
+    public PageInfo<Team> getTeamList(@RequestParam(defaultValue = "")String qdmc,
+                                      @RequestParam(defaultValue = "")String qdbm,
+                                      @RequestParam(defaultValue = "1") int pageNum,
+                                      @RequestParam(defaultValue = "10") int pageSize) {
+        Team team = new Team();
+        team.setQdmc(qdmc);
+        team.setQdbm(qdbm);
+        List<Team> list = studentService.getTeamList(team,pageNum, pageSize);
+        PageInfo<Team> pageInfo = new PageInfo<>(list);
+        return pageInfo;
+    }
+
+    /**
+     * Description 打开所有人信息页面
+     *
+     * @author YanZiyi
+     * @date 2019-03-29 09:43:49
+     */
+    @RequestMapping("/user_list")
+    public ModelAndView userList(String userName,String userId,String qdbm,String qdmc) {
+        ModelAndView mv = new ModelAndView("team_list");
+        return mv;
     }
 
 }

@@ -14,14 +14,6 @@
         and pwd = #{pwd}
     </select>
 
-    <select id="getUserList" resultType="com.yzy.pe.entity.User" parameterType="com.yzy.pe.entity.User">
-        SELECT
-        *
-        FROM
-        user
-        where permissionDegree=3
-    </select>
-
     <select id="getPerList" resultType="com.yzy.pe.entity.Permission" parameterType="java.lang.String">
         SELECT
         *
@@ -107,6 +99,26 @@
         user
         WHERE
         userId = #{userId}
+    </select>
+
+    <select id="selectUserList" resultType="com.yzy.pe.entity.User" parameterType="com.yzy.pe.entity.User">
+        SELECT
+        *
+        FROM
+        user
+        where permissionDegree=3
+        <if test="userName!=null and userName!=''">
+            userName like CONCAT('%',#{userName},'%')
+        </if>
+        <if test="userId!=null and userId!=''">
+            userId like CONCAT('%',#{userId},'%')
+        </if>
+        <if test="qdbm!=null and qdbm!= ''">
+            qdbm like CONCAT('%',#{qdbm},'%')
+        </if>
+        <if test="qdmc!=null and qdmc!= ''">
+            qdbm in (select qdbm from team where qdmc like CONCAT('%',#{qdmc},'%'))
+        </if>
     </select>
 
 </mapper>

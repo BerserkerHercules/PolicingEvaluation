@@ -65,17 +65,4 @@ public class UserController {
         return userService.getPerList(user.getPermissionDegree(), pageNum, pageSize);
     }
 
-    /**
-     * Description 获取学生列表
-     *
-     * @author YanZiyi
-     * @date 2019-03-22 10:50:47
-     */
-    @RequestMapping(value = "/getUserList", method = RequestMethod.POST)
-    @ResponseBody
-    public List<User> getUserList(@RequestParam(defaultValue = "1") int pageNum,
-                                  @RequestParam(defaultValue = "10") int pageSize) {
-        return userService.getUserList(pageNum, pageSize);
-    }
-
 }

@@ -51,11 +51,11 @@ public interface StudentService {
     Team getUserTeam(String userId);
 
     /**
-     * Description 区队扣分信息
+     * Description 所有区队信息
      *
      * @author YanZiyi
      * @date 2019-03-29 09:43:49
      */
-    List<DeletePoint> getTeamDeletePoint(DeletePoint deletePoint, int pageNum, int pageSize);
+    List<Team> getTeamList(Team team,int pageNum, int pageSize);
 
 }

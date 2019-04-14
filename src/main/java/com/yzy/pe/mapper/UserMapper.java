@@ -27,15 +27,6 @@ public interface UserMapper {
     User userLogin(User user);
 
     /**
-     * Description 获取学生列表
-     *
-     * @return List<User>
-     * @author YanZiyi
-     * @date 2019-03-22 09:24:53
-     */
-    List<User> getUserList();
-
-    /**
      * Description 权限列表
      *
      * @author YanZiyi
@@ -108,5 +99,13 @@ public interface UserMapper {
      * @date 2019-03-28 11:02:17
      */
     void updateUserBySelf(User user);
+
+    /**
+     * Description 用户列表
+     *
+     * @author YanZiyi
+     * @date 2019-03-28 11:02:17
+     */
+    List<User> selectUserList(User user);
 
 }

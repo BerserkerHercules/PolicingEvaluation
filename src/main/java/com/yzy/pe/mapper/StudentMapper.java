@@ -53,12 +53,12 @@ public interface StudentMapper {
     Team getUserTeam(String userId);
 
     /**
-     * Description 区队扣分信息
+     * Description 所有区队信息
      *
      * @author YanZiyi
      * @date 2019-03-29 09:43:49
      */
-    List<DeletePoint> getTeamDeletePoint(DeletePoint deletePoint);
+    List<Team> getTeamList(Team team);
 
     /**
      * Description 违纪通报

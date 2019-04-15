@@ -11,12 +11,12 @@
 
     <select id="getWeekData" resultType="com.yzy.pe.entity.dto.TeamDelDto">
         select checkId,count(qdId) as countTeam from team_del
-        where kfTime &gt;= #{arg0} and kfTime &lt;= #{arg1} GROUP BY checkId
+        where kfTime &gt;= #{param1} and kfTime &lt;= #{param2} GROUP BY checkId
     </select>
 
     <select id="getWeekData2" resultType="com.yzy.pe.entity.dto.TeamDelDto">
         select DATE_FORMAT(kfTime,'%Y-%m-%d') as kfTime,count(qdId) as countTeam from team_del
-        where kfTime &gt;= #{arg0} and kfTime &lt;= #{arg1}
+        where kfTime &gt;= #{param1} and kfTime &lt;= #{param2}
         GROUP BY DATE_FORMAT(kfTime,'%Y-%m-%d')
     </select>
 

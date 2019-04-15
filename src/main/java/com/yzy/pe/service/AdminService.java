@@ -17,4 +17,6 @@ public interface AdminService {
 
     Map<String,List> getWeekData2();
 
+    Map<String,String> getWeekData3();
+
 }

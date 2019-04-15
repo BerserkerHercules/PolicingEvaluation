@@ -80,4 +80,10 @@ public class AdminController {
         return adminService.getWeekData2();
     }
 
+    @RequestMapping("/getWeekData3")
+    @ResponseBody
+    public Map<String,List> getWeekData3(){
+        return adminService.getWeekData2();
+    }
+
 }

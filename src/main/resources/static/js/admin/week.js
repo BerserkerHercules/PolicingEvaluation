@@ -2,6 +2,7 @@ $(document).ready(function () {
 
     initWeekTeam();
     initCheck2();
+    initZhanbi();
 });
 
 
@@ -187,4 +188,107 @@ function initCheck2() {
             myChart.hideLoading();
         }
     });
+}
+
+function initZhanbi() {
+
+    var myChart = echarts.init(document.getElementById('main3'));
+
+    myChart.showLoading();    //数据加载完之前先显示一段简单的loading动画
+
+    option = {
+        //backgroundColor: '#2c343c',
+
+        title: {
+            text: '重点项目扣分占比',
+            left: 'center',
+            top: 20,
+            textStyle: {
+                color: '#ccc'
+            }
+        },
+
+        tooltip : {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+
+        visualMap: {
+            show: false,
+            min: 80,
+            max: 600,
+            inRange: {
+                colorLightness: [0, 1]
+            }
+        },
+        series : [
+            {
+                name:'扣分占比',
+                type:'pie',
+                radius : '55%',
+                center: ['50%', '50%'],
+
+                roseType: 'radius',
+                label: {
+                    normal: {
+                        textStyle: {
+                            color: 'rgba(255, 255, 255, 0.3)'
+                        }
+                    }
+                },
+                labelLine: {
+                    normal: {
+                        lineStyle: {
+                            color: 'rgba(255, 255, 255, 0.3)'
+                        },
+                        smooth: 0.2,
+                        length: 10,
+                        length2: 20
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: '#c23531',
+                        shadowBlur: 200,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                },
+
+                animationType: 'scale',
+                animationEasing: 'elasticOut',
+                animationDelay: function (idx) {
+                    return Math.random() * 200;
+                }
+            }
+        ]
+    };
+
+    myChart.setOption(option);
+
+    $.ajax({
+        type: "post",
+        async: true,            //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
+        url: "/admin/getWeekData3",    //请求发送到TestServlet处
+        /*data : {},
+        dataType : "json",*/        //返回数据形式为json
+        success: function (result) {
+            //请求成功时执行该函数内容，result即为服务器返回的json对象
+
+            myChart.hideLoading();    //隐藏加载动画
+            myChart.setOption({       //加载数据图表
+                series: [{
+                    // 根据名字对应到相应的系列
+                    name: '扣分占比',
+                    data:[result].sort(function (a, b) { return a.value - b.value; }),
+                }]
+            });
+
+        },
+        error: function (errorMsg) {
+            //请求失败时执行该函数
+            alert("图表请求数据失败!");
+            myChart.hideLoading();
+        }
+    });
+
 }

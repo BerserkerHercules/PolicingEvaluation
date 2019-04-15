@@ -68,4 +68,9 @@ public class AdminServiceImpl implements AdminService {
         return maps;
     }
 
+    @Override
+    public Map<String, String> getWeekData3() {
+        return null;
+    }
+
 }

@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yzy.pe.mapper.TeacherMapper">
 
-    <select id="getStuMsg">
+    <select id="getStuMsg" parameterType="com.yzy.pe.entity.User" resultType="com.yzy.pe.entity.User">
         select * from user
         where 1=1
         <if test="userId != null and userId != ''">
@@ -17,4 +17,5 @@
             and userName = #{userName}
         </if>
     </select>
+
 </mapper>

@@ -9,6 +9,12 @@
     <link rel="stylesheet" href="/vendor/simple-line-icons/css/simple-line-icons.css">
     <link rel="stylesheet" href="/vendor/font-awesome/css/fontawesome-all.min.css">
     <link rel="stylesheet" href="/css/styles.css">
+    <style type="text/css">
+        .iframe_div{
+            margin-left: 240px;
+            margin-top: 60px
+        }
+    </style>
 </head>
 <body class="sidebar-fixed header-fixed">
 <div class="page-wrapper">
@@ -41,59 +47,32 @@
         <div class="sidebar">
             <nav class="sidebar-nav">
                 <ul class="nav">
-                    <li class="nav-title">我的</li>
+                    <li class="nav-title">尊敬的管理员，您好</li>
 
                     <li class="nav-item">
-                        <a href="/student/getMyMsg" target="targetText" class="nav-link active">
-                            <i class="icon icon-speedometer"></i> 我的个人信息
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="/student/myKp" target="targetText" class="nav-link active">
-                            <i class="icon icon-speedometer"></i> 我的考评信息
-                        </a>
-                    </li>
-
-                    <li class="nav-title">区队</li>
-
-                    <li class="nav-item">
-                        <a href="/student/teamMsg/" target="targetText" class="nav-link active">
-                            <i class="icon icon-speedometer"></i> 我的区队信息
+                        <a href="/admin/week" target="targetText" class="nav-link active">
+                            <i class="icon icon-target"></i></i> 周信息
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a href="/student/team_list" target="targetText" class="nav-link active">
-                            <i class="icon icon-speedometer"></i> 区队考评信息
+                        <a href="/admin/term" target="targetText" class="nav-link active">
+                            <i class="icon icon-target"></i></i> 学期信息
                         </a>
                     </li>
 
-                    <li class="nav-title">所有人</li>
-
-                    <li class="nav-item nav-dropdown">
-                        <a href="javascript:void(0);" class="nav-link nav-dropdown-toggle">
-                            <i class="icon icon-target"></i> 所有人信息 <i class="fa fa-caret-left"></i>
+                    <li class="nav-item">
+                        <a href="/admin/year" target="targetText" class="nav-link active">
+                            <i class="icon icon-target"></i></i> 年度信息
                         </a>
-
-                        <ul class="nav-dropdown-items">
-                            <li class="nav-item">
-                                <a href="layouts-normal.html" target="targetText" class="nav-link">
-                                    <i class="icon icon-target"></i> 所有人考评信息
-                                </a>
-                            </li>
-                        </ul>
                     </li>
+
                 </ul>
             </nav>
         </div>
         <div class="content">
-            <div class="container">
-                <div class="row">
-                    <iframe id="iframe" onload="this.height=body.offsetHeight" width="100%" scrolling="true"
-                            frameborder="0" src="/student/getMyMsg" name="targetText"></iframe>
-                </div>
-            </div>
+            <iframe id="iframe" onload="this.height=body.offsetHeight" width="100%" scrolling="true"
+                    frameborder="0" src="/admin/week" name="targetText"></iframe>
         </div>
     </div>
 </div>

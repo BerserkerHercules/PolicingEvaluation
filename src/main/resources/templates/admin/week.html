@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <title>星期图表展示</title>
+    <link rel="stylesheet" href="/css/xark/style.css">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<div class="grey_bg_outside_box">
+    <div class="main_content_box">
+        <div class="legal_entity_status height-auto mt20">
+            <div class="legal_entity_status_chart whole_box">
+                <div class="chart_content_tip">
+                    <span class="fl mr20">上周重点检查项目</span>
+
+                </div>
+                <div class="status_chart_container h410"></div>
+            </div>
+        </div>
+
+        <div class="legal_entity_status height-auto mt20">
+            <div class="legal_entity_status_chart whole_box">
+                <div class="chart_content_tip">
+                    <span class="fl mr20">上周区队扣分图表展示</span>
+                    <span class="pos-rel flex-1"><i class="icon-mark"></i>
+                    <span class="tips-mark new2">统计了上周重点检查项目中被扣分的区队数量。</span></span>
+                </div>
+                <div class="status_chart_container h410" id="main"></div>
+            </div>
+        </div>
+
+        <div class="legal_entity_status height-auto mt20">
+            <div class="legal_entity_status_chart whole_box">
+                <div class="chart_content_tip">
+                    <span class="fl mr20">上周每日扣分图表展示</span>
+                    <span class="pos-rel flex-1"><i class="icon-mark"></i>
+                    <span class="tips-mark new2">统计了上周每日被扣分的区队数量。</span></span>
+                </div>
+                <div class="status_chart_container h410" id="main2"></div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="/vendor/jquery/jquery.min.js"></script>
+<script src="/vendor/popper.js/popper.min.js"></script>
+<script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="/vendor/chart.js/echarts.min.js"></script>
+<script src="/js/admin/week.js"></script>
+</body>
+</html>

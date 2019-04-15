@@ -40,10 +40,22 @@ public class UserController {
         ModelAndView mv = new ModelAndView("login");
         if (user1 == null) {
             return mv;
-        }else{
+        }else if(user1.getPermissionDegree()==3){
             mv.setViewName("index");
             mv.addObject("user",user1);
             request.getSession().setAttribute("user", user1);
+            return mv;
+        }else if (user1.getPermissionDegree()==1){
+            mv.setViewName("/admin/admin");
+            mv.addObject("user",user1);
+            request.getSession().setAttribute("user", user1);
+            return mv;
+        }else if(user1.getPermissionDegree()==2){
+            mv.setViewName("/teacher/teacher");
+            mv.addObject("user",user1);
+            request.getSession().setAttribute("user", user1);
+            return mv;
+        }else{
             return mv;
         }
     }

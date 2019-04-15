@@ -11,7 +11,7 @@
  Target Server Version : 80015
  File Encoding         : 65001
 
- Date: 11/04/2019 00:04:50
+ Date: 15/04/2019 17:49:55
 */
 
 SET NAMES utf8mb4;
@@ -29,7 +29,7 @@ CREATE TABLE `add_point`  (
   `addDesc` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '加分描述',
   `time` datetime(0) NULL DEFAULT NULL COMMENT '加分时间',
   PRIMARY KEY (`addId`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of add_point
@@ -54,7 +54,7 @@ CREATE TABLE `advice`  (
   `isCross` int(1) NULL DEFAULT NULL COMMENT '1：已通过，2：未通过',
   `orderTime` datetime(0) NULL DEFAULT NULL COMMENT '提交时间',
   PRIMARY KEY (`adviceId`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of advice
@@ -73,7 +73,7 @@ CREATE TABLE `delete_point`  (
   `deleteDesc` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '扣分描述',
   `deleteTime` datetime(0) NULL DEFAULT NULL COMMENT '扣分时间',
   PRIMARY KEY (`deleteId`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of delete_point
@@ -102,7 +102,7 @@ CREATE TABLE `permission`  (
   `permissionDegree` int(1) NULL DEFAULT NULL COMMENT '权限系数',
   `perUrl` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '权限url',
   PRIMARY KEY (`permissionId`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of permission
@@ -122,7 +122,7 @@ CREATE TABLE `punish`  (
   `punishDesc` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '惩罚描述',
   `punishTime` datetime(0) NULL DEFAULT NULL COMMENT '惩罚时间',
   PRIMARY KEY (`punishId`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of punish
@@ -145,7 +145,7 @@ CREATE TABLE `reward`  (
   `rewardDesc` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '奖励描述',
   `rewardTime` datetime(0) NULL DEFAULT NULL COMMENT '奖励时间',
   PRIMARY KEY (`rewardId`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of reward
@@ -169,13 +169,61 @@ CREATE TABLE `team`  (
   `qdms` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '区队简介',
   `qdkh` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '区队口号',
   `qdkp` int(4) NULL DEFAULT NULL COMMENT '区队考评分数',
+  `qdrs` int(5) NULL DEFAULT NULL COMMENT '区队人数',
   PRIMARY KEY (`qdId`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of team
 -- ----------------------------
-INSERT INTO `team` VALUES (1, 'zjjc1591801', '15级网络安全与执法一队', '浙江警察学院 15级 网络安全与执法专业 一班', '一班一班', 100);
+INSERT INTO `team` VALUES (1, 'zjjc1591801', '15级网络安全与执法一队', '浙江警察学院 15级 网络安全与执法专业 一班', '一班一班', 100, 324);
+INSERT INTO `team` VALUES (2, 'zjjc1111', '网络安全与执法2', '浙江警察学院 15级 网络安全与执法专业 一班', '一班一班', 123, 333);
+INSERT INTO `team` VALUES (3, 'zjjc2222', '网络安全与执法3', '浙江警察学院 15级 网络安全与执法专业 一班', '一班一班', 101, 111);
+INSERT INTO `team` VALUES (4, 'zjjc3333', '网络安全与执法4', '浙江警察学院 15级 网络安全与执法专业 一班', '一班一班', 96, 44);
+INSERT INTO `team` VALUES (5, 'zj4444', 'casa5', '浙江警察学院 15级 网络安全与执法专业 一班', '一班一班', 88, 55);
+INSERT INTO `team` VALUES (6, 'zjj5555', 'gggggg6', '浙江警察学院 15级 网络安全与执法专业 一班', '一班一班', 77, 78);
+INSERT INTO `team` VALUES (7, '6666', '7777777777', '浙江警察学院 15级 网络安全与执法专业 一班', '一班一班', 66, 251);
+INSERT INTO `team` VALUES (8, '1111', '1121', 'hbfdh', 'erger', 55, 24);
+INSERT INTO `team` VALUES (9, '222', '12e', 'dg', 'gerg', 54, 44);
+INSERT INTO `team` VALUES (10, 'qqq', '31', 'hdf', 'hdfgh', 53, 55);
+INSERT INTO `team` VALUES (11, 'www', 'dwq', 'bfdb', 'bfd', 52, 33);
+INSERT INTO `team` VALUES (12, 'ee', 'wq', 'dhe', 'hfdfd', 57, 77);
+INSERT INTO `team` VALUES (13, 'rrt', 'eqf', 'fdhdf', 'bbdfb', 4, 88);
+INSERT INTO `team` VALUES (14, 'ttt', 'ew', 'hdfh', 'fdb', 54, 99);
+INSERT INTO `team` VALUES (15, 'yyyy', 'gerfeg', 'ehergh', 'dfg', 77, 421);
+
+-- ----------------------------
+-- Table structure for team_del
+-- ----------------------------
+DROP TABLE IF EXISTS `team_del`;
+CREATE TABLE `team_del`  (
+  `qdId` int(6) NULL DEFAULT NULL COMMENT '区队Id',
+  `qdbm` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '区队编码',
+  `kf` int(4) NULL DEFAULT NULL COMMENT '扣除分数',
+  `kfTime` datetime(0) NULL DEFAULT NULL COMMENT '扣分时间',
+  `xqs` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '学期：如2018第2学期',
+  `checkId` int(6) NULL DEFAULT NULL COMMENT '扣分项目Id',
+  `checkName` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '扣分项目'
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of team_del
+-- ----------------------------
+INSERT INTO `team_del` VALUES (1, 'zjjc1591801', 10, '2019-04-11 11:33:45', '2019第1学期', 1, '卫生');
+INSERT INTO `team_del` VALUES (1, 'zjjc1591801', 10, '2019-04-13 16:58:27', '2019第1学期', 1, '卫生');
+INSERT INTO `team_del` VALUES (1, NULL, NULL, '2019-04-10 17:01:26', NULL, 2, NULL);
+INSERT INTO `team_del` VALUES (1, NULL, NULL, '2019-04-11 17:01:31', NULL, 2, NULL);
+INSERT INTO `team_del` VALUES (1, NULL, NULL, '2019-04-11 17:01:37', NULL, 2, NULL);
+INSERT INTO `team_del` VALUES (1, NULL, NULL, '2019-04-11 17:01:41', NULL, 2, NULL);
+INSERT INTO `team_del` VALUES (1, NULL, NULL, '2019-04-12 17:01:44', NULL, 3, NULL);
+INSERT INTO `team_del` VALUES (1, NULL, NULL, '2019-04-13 17:01:47', NULL, 3, NULL);
+INSERT INTO `team_del` VALUES (1, NULL, NULL, '2019-04-13 17:01:50', NULL, 1, NULL);
+INSERT INTO `team_del` VALUES (1, NULL, NULL, '2019-04-14 17:29:21', NULL, 4, NULL);
+INSERT INTO `team_del` VALUES (1, NULL, NULL, '2019-04-13 17:29:26', NULL, 4, NULL);
+INSERT INTO `team_del` VALUES (1, NULL, NULL, '2019-04-12 17:29:30', NULL, 5, NULL);
+INSERT INTO `team_del` VALUES (1, NULL, NULL, '2019-04-12 17:29:35', NULL, 6, NULL);
+INSERT INTO `team_del` VALUES (1, NULL, NULL, '2019-04-12 17:29:38', NULL, 6, NULL);
+INSERT INTO `team_del` VALUES (1, NULL, NULL, '2019-04-10 17:29:41', NULL, 6, NULL);
 
 -- ----------------------------
 -- Table structure for user
@@ -198,8 +246,9 @@ CREATE TABLE `user`  (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', 'admin', '123456', 1, '', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `user` VALUES ('1', 'admin', '1', 1, '', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `user` VALUES ('2', '严子义', '222', 3, 'zjjc1591801', 118, '15700122303', 'dddz97@163.com', '6-503', '男');
+INSERT INTO `user` VALUES ('3', 'teacher', '111', 2, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for user_wj
@@ -214,7 +263,7 @@ CREATE TABLE `user_wj`  (
   `wjTime` datetime(0) NULL DEFAULT NULL COMMENT '违纪时间',
   `wjcl` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '违纪处理结果',
   PRIMARY KEY (`wjId`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of user_wj
@@ -230,12 +279,18 @@ CREATE TABLE `weak_check`  (
   `checkName` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '检查名称',
   `checkDesc` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '检查描述',
   `checkPoint` int(4) NULL DEFAULT NULL COMMENT '检查分数',
+  `isNow` int(1) NULL DEFAULT NULL COMMENT '1本周，2上周',
   PRIMARY KEY (`checkId`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of weak_check
 -- ----------------------------
-INSERT INTO `weak_check` VALUES (1, '卫生', '寝室卫生', 10);
+INSERT INTO `weak_check` VALUES (1, '寝室卫生', '寝室卫生', 10, 2);
+INSERT INTO `weak_check` VALUES (2, '晚自习纪律', '晚自习纪律', 10, 2);
+INSERT INTO `weak_check` VALUES (3, '早自习出勤', '早自习出勤', 10, 2);
+INSERT INTO `weak_check` VALUES (4, '彩虹晨跑出勤', '彩虹晨跑出勤', 10, 2);
+INSERT INTO `weak_check` VALUES (5, '文艺汇演纪律', '文艺汇演纪律', 10, 2);
+INSERT INTO `weak_check` VALUES (6, '上课报道情况', '上课报道情况', 10, 2);
 
 SET FOREIGN_KEY_CHECKS = 1;

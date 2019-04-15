@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yzy.pe.mapper.AdminMapper">
+
+    <select id="getWeek2" resultType="com.yzy.pe.entity.WeakCheck">
+        select * from weak_check
+        where isNow=2
+    </select>
+
+    <select id="getWeekData" resultType="com.yzy.pe.entity.dto.TeamDelDto">
+        select checkId,count(qdId) as countTeam from team_del
+        where kfTime &gt;= #{arg0} and kfTime &lt;= #{arg1} GROUP BY checkId
+    </select>
+
+    <select id="getWeekData2" resultType="com.yzy.pe.entity.dto.TeamDelDto">
+        select DATE_FORMAT(kfTime,'%Y-%m-%d') as kfTime,count(qdId) as countTeam from team_del
+        where kfTime &gt;= #{arg0} and kfTime &lt;= #{arg1}
+        GROUP BY DATE_FORMAT(kfTime,'%Y-%m-%d')
+    </select>
+
+</mapper>

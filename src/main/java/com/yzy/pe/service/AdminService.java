@@ -1,6 +1,7 @@
 package com.yzy.pe.service;
 
 import com.yzy.pe.entity.WeakCheck;
+import com.yzy.pe.entity.dto.NameValueDto;
 
 import java.util.List;
 import java.util.Map;
@@ -17,6 +18,8 @@ public interface AdminService {
 
     Map<String,List> getWeekData2();
 
-    Map<String,String> getWeekData3();
+    List<NameValueDto> getWeekData3();
+
+    List<NameValueDto> getWeekData4();
 
 }

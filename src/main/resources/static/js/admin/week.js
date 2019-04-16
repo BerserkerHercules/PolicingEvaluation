@@ -3,6 +3,7 @@ $(document).ready(function () {
     initWeekTeam();
     initCheck2();
     initZhanbi();
+    initTimeZhanbi();
 });
 
 
@@ -127,7 +128,7 @@ function initCheck2() {
                 }
             },
         },
-        yAxis: {
+        yAxis: [{
             axisLine: {
                 show: true,
                 lineStyle: {
@@ -135,6 +136,17 @@ function initCheck2() {
                 }
             },
         },
+            /*{
+                type: 'value',
+                name: '温度',
+                min: 0,
+                max: 25,
+                interval: 5,
+                axisLabel: {
+                    formatter: '{value} °C'
+                }
+            }*/
+        ],
         series: [{
             name: '被扣分的区队数',
             type: 'bar',
@@ -201,16 +213,17 @@ function initZhanbi() {
 
         title: {
             text: '重点项目扣分占比',
+            subtext: '仅供参考',
             left: 'center',
             top: 20,
             textStyle: {
-                color: '#ccc'
+                color: '#000000'
             }
         },
 
         tooltip : {
             trigger: 'item',
-            formatter: "{a} <br/>{b} : {c} ({d}%)"
+            formatter: "{b}<br/> 扣分数：{c}<br/> 占比：{d}%"
         },
 
         visualMap: {
@@ -229,28 +242,12 @@ function initZhanbi() {
                 center: ['50%', '50%'],
 
                 roseType: 'radius',
-                label: {
-                    normal: {
-                        textStyle: {
-                            color: 'rgba(255, 255, 255, 0.3)'
-                        }
-                    }
-                },
-                labelLine: {
-                    normal: {
-                        lineStyle: {
-                            color: 'rgba(255, 255, 255, 0.3)'
-                        },
-                        smooth: 0.2,
-                        length: 10,
-                        length2: 20
-                    }
-                },
+
                 itemStyle: {
                     normal: {
-                        color: '#c23531',
+
                         shadowBlur: 200,
-                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        shadowColor: 'rgba(0, 0, 0, 0)'
                     }
                 },
 
@@ -263,7 +260,7 @@ function initZhanbi() {
         ]
     };
 
-    myChart.setOption(option);
+
 
     $.ajax({
         type: "post",
@@ -279,7 +276,7 @@ function initZhanbi() {
                 series: [{
                     // 根据名字对应到相应的系列
                     name: '扣分占比',
-                    data:[result].sort(function (a, b) { return a.value - b.value; }),
+                    data:result.sort(function (a, b) { return a.value - b.value; }),
                 }]
             });
 
@@ -290,5 +287,80 @@ function initZhanbi() {
             myChart.hideLoading();
         }
     });
+    myChart.setOption(option);
+}
+
+function initTimeZhanbi() {
+
+    var myChart = echarts.init(document.getElementById('main4'));
+
+    myChart.showLoading();    //数据加载完之前先显示一段简单的loading动画
+
+    option = {
+        title : {
+            text: '扣分日期占比',
+            subtext: '仅供参考',
+            x:'center'
+        },
+        tooltip : {
+            trigger: 'item',
+            formatter: "{b}<br/> 扣分数：{c}<br/> 占比：{d}%"
+        },
+        legend: {
+            orient: 'vertical',
+            left: 'left',
+            data:[],
+        },
+        series : [
+            {
+                name: '扣分日期占比',
+                type: 'pie',
+                radius : '55%',
+                center: ['50%', '60%'],
+                data:[],
+                itemStyle: {
+                    emphasis: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                }
+            }
+        ]
+    };
+    myChart.setOption(option);
+    $.ajax({
+        type: "post",
+        async: true,            //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
+        url: "/admin/getWeekData4",    //请求发送到TestServlet处
+        /*data : {},
+        dataType : "json",*/        //返回数据形式为json
+        success: function (result) {
+            //请求成功时执行该函数内容，result即为服务器返回的json对象
+            //alert(result[0].name);
+            /*var data;
+            result.forEach(function (item) {
+               data.push(item.name);
+            });*/
+
+            myChart.hideLoading();    //隐藏加载动画
+            myChart.setOption({       //加载数据图表
+                //legend:{data:data,},
+                series: [{
+                    // 根据名字对应到相应的系列
+                    name: '扣分日期占比',
+                    data:result.sort(function (a, b) { return a.value - b.value; }),
+                }]
+            });
+
+        },
+        error: function (errorMsg) {
+            //请求失败时执行该函数
+            alert("图表请求数据失败!");
+            myChart.hideLoading();
+        }
+    });
+
+
 
 }

@@ -1,6 +1,7 @@
 package com.yzy.pe.controller;
 
 import com.yzy.pe.entity.WeakCheck;
+import com.yzy.pe.entity.dto.NameValueDto;
 import com.yzy.pe.service.AdminService;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -80,10 +81,28 @@ public class AdminController {
         return adminService.getWeekData2();
     }
 
+    /**
+     * Description 扣分占比
+     *
+     * @author YanZiyi
+     * @date 2019-03-29 09:43:49
+     */
     @RequestMapping("/getWeekData3")
     @ResponseBody
-    public Map<String,List> getWeekData3(){
-        return adminService.getWeekData2();
+    public List<NameValueDto> getWeekData3(){
+        return adminService.getWeekData3();
+    }
+
+    /**
+     * Description 扣分占比
+     *
+     * @author YanZiyi
+     * @date 2019-03-29 09:43:49
+     */
+    @RequestMapping("/getWeekData4")
+    @ResponseBody
+    public List<NameValueDto> getWeekData4(){
+        return adminService.getWeekData4();
     }
 
 }

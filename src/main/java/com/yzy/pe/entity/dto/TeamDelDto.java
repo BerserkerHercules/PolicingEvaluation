@@ -10,7 +10,7 @@ public class TeamDelDto {
 
     private long checkId;
 
-    private int countTeam;
+    private Integer countTeam;
 
     private Date kfTime;
 
@@ -22,11 +22,11 @@ public class TeamDelDto {
         this.checkId = checkId;
     }
 
-    public int getCountTeam() {
+    public Integer getCountTeam() {
         return countTeam;
     }
 
-    public void setCountTeam(int countTeam) {
+    public void setCountTeam(Integer countTeam) {
         this.countTeam = countTeam;
     }
 

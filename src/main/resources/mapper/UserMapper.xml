@@ -114,10 +114,7 @@
             userId like CONCAT('%',#{userId},'%')
         </if>
         <if test="qdbm!=null and qdbm!= ''">
-            qdbm like CONCAT('%',#{qdbm},'%')
-        </if>
-        <if test="qdmc!=null and qdmc!= ''">
-            qdbm in (select qdbm from team where qdmc like CONCAT('%',#{qdmc},'%'))
+            qdbm =#{qdbm}
         </if>
     </select>
 

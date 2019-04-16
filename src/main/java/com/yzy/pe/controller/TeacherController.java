@@ -61,9 +61,8 @@ public class TeacherController {
      * @date 2019-03-29 09:43:49
      */
     @RequestMapping(value = "/getUser", method = RequestMethod.GET)
-    public ModelAndView getUser(@RequestParam String userId) {
+    public ModelAndView getUser() {
         ModelAndView mv = new ModelAndView("/teacher/user_msg");
-        mv.addObject("userId",userId);
         return mv;
     }
 
@@ -79,6 +78,18 @@ public class TeacherController {
         user.setUserId(userId);
         User user1 = userService.selectUser(user);
         return user1;
+    }
+
+    /**
+     * Description 打开添加学生页面
+     *
+     * @author YanZiyi
+     * @date 2019-03-29 09:43:49
+     */
+    @RequestMapping(value = "/addUser")
+    public ModelAndView addUser() {
+        ModelAndView mv = new ModelAndView("/teacher/add_user");
+        return mv;
     }
 
 }

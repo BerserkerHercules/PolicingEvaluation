@@ -99,4 +99,9 @@ public class WebController {
         return "layouts-normal";
     }
 
+    @RequestMapping(value = "/register")
+    public String register() {
+        return "register";
+    }
+
 }

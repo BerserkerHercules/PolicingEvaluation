@@ -82,8 +82,8 @@ $(".add").click(function () {
 });
 
 $(".user-msg").click(function () {
-    alert(1);
-    /*var userId = $(this).attr('userId');
+    //alert(1);
+    var userId = $(this).attr('userId');
     alert(userId);
     $("#all_user").hide();
     $("#user_msg").show();
@@ -104,5 +104,5 @@ $(".user-msg").click(function () {
             $("#qdbm").append(data.qdbm);
             $("#qshm").append(data.qshm);
         },
-    });*/
+    });
 });

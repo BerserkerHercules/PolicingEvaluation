@@ -4,7 +4,6 @@ import com.yzy.pe.entity.WeakCheck;
 import com.yzy.pe.entity.dto.TeamDelDto;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * 学生mapper
@@ -20,6 +19,6 @@ public interface AdminMapper {
 
     List<TeamDelDto> getWeekData2(String date1, String date2);
 
-    Map<String,String> getWeekData3();
+    String stuCount();
 
 }

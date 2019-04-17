@@ -117,4 +117,8 @@ public class AdminServiceImpl implements AdminService {
         return dtoList;
     }
 
+    @Override
+    public String stuCount() {
+        return adminMapper.stuCount();
+    }
 }

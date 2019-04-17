@@ -22,4 +22,6 @@ public interface AdminService {
 
     List<NameValueDto> getWeekData4();
 
+    String stuCount();
+
 }

@@ -1,11 +1,24 @@
 $(document).ready(function () {
-
+    initCount();
     initWeekTeam();
     initCheck2();
     initZhanbi();
     initTimeZhanbi();
 });
 
+
+function initCount() {
+    $.ajax({
+        url : "/admin/stuCount",     //后台请求的数据
+        type : "post",                  //请求方式
+        async : true,                   //是否异步请求
+        success : function(data) {      //如果请求成功，返回数据。
+            for(var i=0;i<data.length;i++){
+                $("#"+i).html(data[i]);
+            }
+        },
+    });
+}
 
 function initWeekTeam() {
 

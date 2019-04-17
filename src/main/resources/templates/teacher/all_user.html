@@ -28,7 +28,7 @@
     </style>
 </head>
 <body>
-<div class="page-wrapper">
+<div class="page-wrapper" id="all_user">
     <div class="main-container">
         <div class="content">
                 <div class="col-md-6-2">
@@ -64,6 +64,50 @@
                         </div>
                     </div>
                 </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-wrapper" id="user_msg" style="display: none">
+    <div class="main-container">
+        <div class="content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body p-0">
+
+                                <div class="row pb-5 p-5">
+                                    <div class="col-md-6">
+                                        <p class="font-weight-bold mb-4">学生信息</p>
+                                        <p class="mb-1" id="userName">姓名：</p>
+                                        <p id="xb">性别：</p>
+                                        <p class="mb-1" id="phone">手机号码：</p>
+                                        <p class="mb-1" id="email">邮箱：</p>
+                                    </div>
+
+                                    <div class="col-md-6 text-right">
+                                        <p class="font-weight-bold mb-4">详情</p>
+                                        <p class="mb-1" id="id"><span class="text-muted">学号: </span></p>
+                                        <p class="mb-1" id="pwd"><span class="text-muted">密码: </span></p>
+                                        <p class="mb-1" id="kpfs"><span class="text-muted">考评总分: </span></p>
+                                        <p class="mb-1" id="qdbm"><span class="text-muted">所属区队: </span></p>
+                                        <p class="mb-1" id="qshm"><span class="text-muted">寝室号码: </span></p>
+                                    </div>
+                                </div>
+
+                                <!--<div class="row p-5">
+                                    <div class="col-md-12">
+                                        <a href="/student/change_msg"><button type="button" class="btn btn-outline-primary">修改信息</button></a>
+                                        <a href="/student/myKp"><button type="button" class="btn btn-outline-primary">考评详情</button></a>
+                                    </div>
+                                </div>-->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

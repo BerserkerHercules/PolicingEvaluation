@@ -20,7 +20,7 @@ public class TeacherServiceImpl implements TeacherService {
     @Override
     public String haveId(String id) {
         String userId = teacherMapper.haveId(id);
-        if(StringUtils.isEmpty(userId)){
+        if (StringUtils.isEmpty(userId)) {
             return "false";
         }
         return "true";

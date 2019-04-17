@@ -48,9 +48,9 @@ public class TeacherController {
      */
     @RequestMapping("/getUserList")
     @ResponseBody
-    public PageInfo<User> getDeletePoint(User user,@RequestParam(defaultValue = "1") int pageNum,
+    public PageInfo<User> getDeletePoint(User user, @RequestParam(defaultValue = "1") int pageNum,
                                          @RequestParam(defaultValue = "10") int pageSize) {
-        List<User> list = userService.selectUserList(user,pageNum,pageSize);
+        List<User> list = userService.selectUserList(user, pageNum, pageSize);
         return new PageInfo<>(list);
     }
 
@@ -100,7 +100,7 @@ public class TeacherController {
      */
     @RequestMapping(value = "/haveId")
     @ResponseBody
-    public String haveId(String userId,String userName,String phone,String qdbm,String email,String qshm,String xb) {
+    public String haveId(String userId, String userName, String phone, String qdbm, String email, String qshm, String xb) {
         User user = new User();
         user.setUserId(userId);
         user.setUserName(userName);
@@ -110,9 +110,9 @@ public class TeacherController {
         user.setQshm(qshm);
         user.setXb(xb);
         String haveId = teacherService.haveId(userId);
-        if("true".equals(haveId)){
+        if ("true".equals(haveId)) {
             return "false";
-        }else{
+        } else {
             userService.addUser(user);
         }
         return "true";

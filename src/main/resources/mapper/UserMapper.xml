@@ -76,7 +76,7 @@
     <update id="updateUserBySelf" parameterType="com.yzy.pe.entity.User">
         update user set userId=#{userId}
         <if test="pwd != null and pwd != ''">
-           ,pwd=#{pwd}
+            ,pwd=#{pwd}
         </if>
         <if test="phone != null and phone != ''">
             ,phone=#{phone}
@@ -85,7 +85,7 @@
             ,email=#{email}
         </if>
         where
-          userId=#{userId}
+        userId=#{userId}
     </update>
 
     <delete id="deleteUser" parameterType="com.yzy.pe.entity.User">

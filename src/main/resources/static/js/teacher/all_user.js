@@ -34,7 +34,7 @@ function addPoint(){
                     +"<td>"+content.qdbm+"</td>"
                     +"<td>"+content.phone+"</td>"
                     +"<td>"+content.kpfs+"</td>"
-                    +"<td><a class=\"xq\" userId='"+content.userId+"' href='javascript:;'>详情</a></td>"
+                    +"<td><a class='xq' userId='"+content.userId+"' href='javascript:;'>详情</a></td>"
                     + "</tr>";
                 $("#table_add tbody").append(trHTML);//在table最后面添加一行
             }

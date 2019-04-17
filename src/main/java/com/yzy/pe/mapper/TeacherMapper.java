@@ -14,4 +14,6 @@ public interface TeacherMapper {
 
     List<User> getStuMsg(User user);
 
+    String haveId(String id);
+
 }

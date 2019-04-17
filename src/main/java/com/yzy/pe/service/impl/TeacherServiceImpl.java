@@ -1,7 +1,11 @@
 package com.yzy.pe.service.impl;
 
+import com.yzy.pe.mapper.TeacherMapper;
 import com.yzy.pe.service.TeacherService;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
+
+import javax.annotation.Resource;
 
 /**
  * @author YanZiyi
@@ -10,4 +14,15 @@ import org.springframework.stereotype.Service;
 @Service
 public class TeacherServiceImpl implements TeacherService {
 
+    @Resource
+    private TeacherMapper teacherMapper;
+
+    @Override
+    public String haveId(String id) {
+        String userId = teacherMapper.haveId(id);
+        if(StringUtils.isEmpty(userId)){
+            return "false";
+        }
+        return "true";
+    }
 }

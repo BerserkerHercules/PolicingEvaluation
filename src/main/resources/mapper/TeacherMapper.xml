@@ -18,4 +18,8 @@
         </if>
     </select>
 
+    <select id="haveId" parameterType="java.lang.String" resultType="java.lang.String">
+        select userId from user where userId=#{parameter_}
+    </select>
+
 </mapper>

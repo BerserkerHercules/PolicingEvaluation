@@ -92,4 +92,30 @@ public class TeacherController {
         return mv;
     }
 
+    /**
+     * Description 添加
+     *
+     * @author YanZiyi
+     * @date 2019-03-29 09:43:49
+     */
+    @RequestMapping(value = "/haveId")
+    @ResponseBody
+    public String haveId(String userId,String userName,String phone,String qdbm,String email,String qshm,String xb) {
+        User user = new User();
+        user.setUserId(userId);
+        user.setUserName(userName);
+        user.setEmail(email);
+        user.setPhone(phone);
+        user.setQdbm(qdbm);
+        user.setQshm(qshm);
+        user.setXb(xb);
+        String haveId = teacherService.haveId(userId);
+        if("true".equals(haveId)){
+            return "false";
+        }else{
+            userService.addUser(user);
+        }
+        return "true";
+    }
+
 }

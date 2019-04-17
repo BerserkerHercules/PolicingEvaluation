@@ -6,4 +6,6 @@ package com.yzy.pe.service;
  */
 public interface TeacherService {
 
+    String haveId(String id);
+
 }

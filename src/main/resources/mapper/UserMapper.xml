@@ -60,8 +60,8 @@
 
     <insert id="addUser" parameterType="com.yzy.pe.entity.User">
         insert into
-        user(userId,userName, pwd, permissionDegree, qdbm, kpfs)
-        values(#{userId},#{userName},#{pwd},#{permissionDegree},#{qdbm},#{kpfs})
+        user(userId,userName, pwd, permissionDegree, qdbm, kpfs, qshm, phone, email, xb)
+        values(#{userId},#{userName},123456,3,#{qdbm},100,#{qshm},#{phone},#{email},#{xb})
     </insert>
 
     <update id="updateUser" parameterType="com.yzy.pe.entity.User">

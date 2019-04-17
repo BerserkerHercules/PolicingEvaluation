@@ -34,16 +34,18 @@ function addPoint(){
                     +"<td>"+content.qdbm+"</td>"
                     +"<td>"+content.phone+"</td>"
                     +"<td>"+content.kpfs+"</td>"
-                    +"<td><a class='xq' userId='"+content.userId+"' href='javascript:;'>详情</a></td>"
+                    +"<td><a class='user-msg' href='javascript:;'>详情</a></td>"
                     + "</tr>";
                 $("#table_add tbody").append(trHTML);//在table最后面添加一行
             }
+            /*var xq = $(".xq");
+            alert(xq.length);*/
         },
     });
 }
 
 /**
- * 加分信息表翻页
+ * 翻页
  */
 $(".add").click(function(){
     var data = $(this).html();
@@ -55,8 +57,9 @@ $(".add").click(function(){
     }
 });
 
-$(".xq").click(function () {
-    var userId = $(this).attr('userId');
+$(".user-msg").click(function () {
+    alert(1);
+    /*var userId = $(this).attr('userId');
     alert(userId);
     $("#all_user").hide();
     $("#user_msg").show();
@@ -77,5 +80,5 @@ $(".xq").click(function () {
             $("#qdbm").append(data.qdbm);
             $("#qshm").append(data.qshm);
         },
-    });
+    });*/
 });

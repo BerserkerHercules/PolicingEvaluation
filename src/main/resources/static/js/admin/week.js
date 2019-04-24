@@ -16,40 +16,40 @@ function initSelect() {
             var xqs = data.xqs;
             var weekNum = data.weekNum;
             for(var i=0;i<xqs.length;i++){
-                $(".chooseXqs").append("<option value=''>"+xqs[i]+"</option>");
+                $(".chooseXqs").append("<option value="+xqs[i]+">"+xqs[i]+"</option>");
             }
             for(var i=0;i<weekNum.length;i++){
-                $(".chooseWeek").append("<option>第"+weekNum[i]+"周</option>");
+                $(".chooseWeek").append("<option value="+weekNum[i]+">第"+weekNum[i]+"周</option>");
             }
         },
     });
 }
 $("#chooseXqs1").change(function () {
-    initWeekTeam();
+    initZhanbi();
 });
 $("#chooseWeek1").change(function () {
-    initWeekTeam();
+    initZhanbi();
 });
 
 $("#chooseXqs2").change(function () {
-    initCheck2();
+    initTimeZhanbi();
 });
 $("#chooseWeek2").change(function () {
-    initCheck2();
+    initTimeZhanbi();
 });
 
 $("#chooseXqs3").change(function () {
-    initZhanbi();
+    initWeekTeam();
 });
 $("#chooseWeek3").change(function () {
-    initZhanbi();
+    initWeekTeam();
 });
 
 $("#chooseXqs4").change(function () {
-    initTimeZhanbi();
+    initCheck2();
 });
 $("#chooseWeek4").change(function () {
-    initTimeZhanbi();
+    initCheck2();
 });
 
 function initCount() {
@@ -120,14 +120,13 @@ function initWeekTeam() {
     var names = [];    //类别数组（实际用来盛放X轴坐标值）
     var nums = [];    //销量数组（实际用来盛放Y坐标值）
 
-    alert($("#chooseXqs1 option:selected").val());
     $.ajax({
         type: "post",
         async: true,            //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
         url: "/admin/getWeekData",    //请求发送到TestServlet处
         data : {
-            "xqs":$("#chooseXqs1").val(),
-            "weekNum":$("#chooseWeek1").val()
+            "xqs":$("#chooseXqs3").val(),
+            "weekNum":$("#chooseWeek3").val()
         },
         dataType : "json",        //返回数据形式为json
         success: function (result) {
@@ -222,8 +221,8 @@ function initCheck2() {
         async: true,            //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
         url: "/admin/getWeekData2",    //请求发送到TestServlet处
         data : {
-            "xqs":$("#chooseXqs2").val(),
-            "weekNum":$("#chooseWeek2").val()
+            "xqs":$("#chooseXqs4").val(),
+            "weekNum":$("#chooseWeek4").val()
         },
         dataType : "json",        //返回数据形式为json
         success: function (result) {
@@ -320,8 +319,8 @@ function initZhanbi() {
         async: true,            //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
         url: "/admin/getWeekData3",    //请求发送到TestServlet处
         data : {
-            "xqs":$("#chooseXqs3").val(),
-            "weekNum":$("#chooseWeek3").val()
+            "xqs":$("#chooseXqs1").val(),
+            "weekNum":$("#chooseWeek1").val()
         },
         dataType : "json",        //返回数据形式为json
         success: function (result) {
@@ -390,8 +389,8 @@ function initTimeZhanbi() {
         async: true,            //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
         url: "/admin/getWeekData4",    //请求发送到TestServlet处
         data : {
-            "xqs":$("#chooseXqs4").val(),
-            "weekNum":$("#chooseWeek4").val()
+            "xqs":$("#chooseXqs2").val(),
+            "weekNum":$("#chooseWeek2").val()
         },
         dataType : "json",        //返回数据形式为json
         success: function (result) {

@@ -7,6 +7,7 @@ import com.yzy.pe.mapper.AdminMapper;
 import com.yzy.pe.service.AdminService;
 import com.yzy.pe.util.DateUtil;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -39,6 +40,14 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public Map<String, List> getWeekData(String xqs,String weekNum) {
+        if(StringUtils.isEmpty(xqs)){
+            List<String> list = adminMapper.initSelect1();
+            xqs = list.get(0);
+        }
+        if(StringUtils.isEmpty(weekNum)){
+            List<String> list = adminMapper.initSelect2();
+            weekNum = list.get(0);
+        }
         List<TeamDelDto> dataList = adminMapper.getWeekData(xqs, weekNum);
         List<WeakCheck> checkList = adminMapper.getWeek2();
         List<TeamDelDto> dtoList = new ArrayList<>();
@@ -58,6 +67,14 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public Map<String, List> getWeekData2(String xqs,String weekNum) {
+        if(StringUtils.isEmpty(xqs)){
+            List<String> list = adminMapper.initSelect1();
+            xqs = list.get(0);
+        }
+        if(StringUtils.isEmpty(weekNum)){
+            List<String> list = adminMapper.initSelect2();
+            weekNum = list.get(0);
+        }
         List<String> weekList = adminMapper.weekList(xqs, weekNum);
         List<TeamDelDto> dataList = adminMapper.getWeekData2(xqs, weekNum);
         List<TeamDelDto> dtoList = new ArrayList<>();
@@ -82,6 +99,14 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public List<NameValueDto> getWeekData3(String xqs,String weekNum) {
+        if(StringUtils.isEmpty(xqs)){
+            List<String> list = adminMapper.initSelect1();
+            xqs = list.get(0);
+        }
+        if(StringUtils.isEmpty(weekNum)){
+            List<String> list = adminMapper.initSelect2();
+            weekNum = list.get(0);
+        }
         List<TeamDelDto> dataList = adminMapper.getWeekData(xqs, weekNum);
         List<WeakCheck> checkList = adminMapper.getWeek2();
         List<NameValueDto> dtoList = new ArrayList<>();
@@ -101,8 +126,16 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public List<NameValueDto> getWeekData4(String xqs,String weekNum) {
+        if(StringUtils.isEmpty(xqs)){
+            List<String> list = adminMapper.initSelect1();
+            xqs = list.get(0);
+        }
+        if(StringUtils.isEmpty(weekNum)){
+            List<String> list = adminMapper.initSelect2();
+            weekNum = list.get(0);
+        }
         List<String> weekList = adminMapper.weekList(xqs, weekNum);
-        List<TeamDelDto> dataList = adminMapper.getWeekData2(weekList.get(0), weekList.get(weekList.size() - 1));
+        List<TeamDelDto> dataList = adminMapper.getWeekData2(xqs, weekNum);
 
         List<NameValueDto> dtoList = new ArrayList<>();
         weekList.forEach(e -> {

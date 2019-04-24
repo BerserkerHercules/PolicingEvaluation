@@ -43,25 +43,25 @@ public class AdminController {
 
     @RequestMapping("/initSelect")
     @ResponseBody
-    public Map<String ,List> initSelect(){
+    public Map<String, List> initSelect() {
         return adminService.initSelect();
     }
 
     @RequestMapping("/getWeekCheck2")
     @ResponseBody
-    public List<WeakCheck> getWeekCheck2(){
+    public List<WeakCheck> getWeekCheck2() {
         return adminService.getWeek2();
     }
 
     @RequestMapping("/getWeekData")
     @ResponseBody
-    public Map<String,List> getWeekData(String xqs,String weekNum){
-        return adminService.getWeekData(xqs, weekNum);
+    public Map<String, List> getWeekData(String xqs, String weekNum, String qdbm) {
+        return adminService.getWeekData(xqs, weekNum, qdbm);
     }
 
     @RequestMapping("/getWeekData2")
     @ResponseBody
-    public Map<String,List> getWeekData2(String xqs,String weekNum){
+    public Map<String, List> getWeekData2(String xqs, String weekNum) {
         return adminService.getWeekData2(xqs, weekNum);
     }
 
@@ -73,8 +73,8 @@ public class AdminController {
      */
     @RequestMapping("/getWeekData3")
     @ResponseBody
-    public List<NameValueDto> getWeekData3(String xqs,String weekNum){
-        return adminService.getWeekData3(xqs, weekNum);
+    public List<NameValueDto> getWeekData3(String xqs, String weekNum, String qdbm) {
+        return adminService.getWeekData3(xqs, weekNum, qdbm);
     }
 
     /**
@@ -85,7 +85,7 @@ public class AdminController {
      */
     @RequestMapping("/getWeekData4")
     @ResponseBody
-    public List<NameValueDto> getWeekData4(String xqs,String weekNum){
+    public List<NameValueDto> getWeekData4(String xqs, String weekNum) {
         return adminService.getWeekData4(xqs, weekNum);
     }
 
@@ -97,7 +97,7 @@ public class AdminController {
      */
     @RequestMapping("/stuCount")
     @ResponseBody
-    public List<String> stuCount(){
+    public List<String> stuCount() {
         String qrrkCount = adminService.stuCount();
         List<String> countList = new ArrayList<>();
         if (!StringUtils.isEmpty(qrrkCount)) {

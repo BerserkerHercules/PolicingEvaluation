@@ -24,7 +24,7 @@ public interface AdminMapper {
 
     List<String> weekList(String date1, String date2);
 
-    List<TeamDelDto> getWeekData(String date1, String date2);
+    List<TeamDelDto> getWeekData(String date1, String date2, String data3);
 
     List<TeamDelDto> getWeekData2(String date1, String date2);
 

@@ -31,7 +31,7 @@
     </select>
 
     <select id="getWeekData" resultType="com.yzy.pe.entity.dto.TeamDelDto">
-        select checkId,count(qdId) as countTeam from team_del
+        select checkId,sum(kf) as countTeam from team_del
         where 1=1
         <if test="param1!=null and param1!=''">
             and xqs = #{param1}
@@ -43,7 +43,7 @@
     </select>
 
     <select id="getWeekData2" resultType="com.yzy.pe.entity.dto.TeamDelDto">
-        select DATE_FORMAT(kfTime,'%Y-%m-%d') as kfTime,count(qdId) as countTeam from team_del
+        select DATE_FORMAT(kfTime,'%Y-%m-%d') as kfTime,sum(kf) as countTeam from team_del
         where 1=1
         <if test="param1!=null and param1!=''">
             and xqs = #{param1}

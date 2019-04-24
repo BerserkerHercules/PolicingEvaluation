@@ -112,7 +112,7 @@ function initWeekTeam() {
             },
         },
         series: [{
-            name: '被扣分的区队数',
+            name: '被扣总分数',
             type: 'bar',
             barWidth: 30,//柱图宽度
             itemStyle: {
@@ -155,7 +155,7 @@ function initWeekTeam() {
                 },
                 series: [{
                     // 根据名字对应到相应的系列
-                    name: '被扣分的区队数',
+                    name: '被扣总分数',
                     data: nums
                 }]
             });
@@ -210,7 +210,7 @@ function initCheck2() {
         },
         ],
         series: [{
-            name: '被扣分的区队数',
+            name: '被扣总分数',
             type: 'line',
             barWidth: 30,//柱图宽度
             itemStyle: {
@@ -253,7 +253,7 @@ function initCheck2() {
                 },
                 series: [{
                     // 根据名字对应到相应的系列
-                    name: '被扣分的区队数',
+                    name: '被扣总分数',
                     data: nums
                 }]
             });
@@ -288,7 +288,7 @@ function initZhanbi() {
 
         tooltip : {
             trigger: 'item',
-            formatter: "{b}<br/> 扣分数：{c}<br/> 占比：{d}%"
+            formatter: "{b}<br/> 被扣总分数：{c}<br/> 占比：{d}%"
         },
 
         visualMap: {
@@ -370,7 +370,7 @@ function initTimeZhanbi() {
         },
         tooltip : {
             trigger: 'item',
-            formatter: "{b}<br/> 扣分数：{c}<br/> 占比：{d}%"
+            formatter: "{b}<br/> 被扣总分数：{c}<br/> 占比：{d}%"
         },
         legend: {
             orient: 'vertical',
@@ -422,7 +422,5 @@ function initTimeZhanbi() {
             myChart.hideLoading();
         }
     });
-
-
 
 }

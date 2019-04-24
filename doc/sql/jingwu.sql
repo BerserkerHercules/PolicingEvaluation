@@ -5,18 +5,18 @@
  Source Server Type    : MySQL
  Source Server Version : 80015
  Source Host           : localhost:3306
- Source Schema         : jingwu
+ Source Schema         : ccc
 
  Target Server Type    : MySQL
  Target Server Version : 80015
  File Encoding         : 65001
 
- Date: 24/04/2019 20:47:42
+ Date: 24/04/2019 21:45:07
 */
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
-
+z
 -- ----------------------------
 -- Table structure for add_point
 -- ----------------------------
@@ -29,7 +29,7 @@ CREATE TABLE `add_point`  (
   `addDesc` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '加分描述',
   `time` datetime(0) NULL DEFAULT NULL COMMENT '加分时间',
   PRIMARY KEY (`addId`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of add_point
@@ -54,7 +54,7 @@ CREATE TABLE `advice`  (
   `isCross` int(1) NULL DEFAULT NULL COMMENT '1：已通过，2：未通过',
   `orderTime` datetime(0) NULL DEFAULT NULL COMMENT '提交时间',
   PRIMARY KEY (`adviceId`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of advice
@@ -73,7 +73,7 @@ CREATE TABLE `delete_point`  (
   `deleteDesc` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '扣分描述',
   `deleteTime` datetime(0) NULL DEFAULT NULL COMMENT '扣分时间',
   PRIMARY KEY (`deleteId`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of delete_point
@@ -122,7 +122,7 @@ CREATE TABLE `punish`  (
   `punishDesc` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '惩罚描述',
   `punishTime` datetime(0) NULL DEFAULT NULL COMMENT '惩罚时间',
   PRIMARY KEY (`punishId`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of punish
@@ -145,7 +145,7 @@ CREATE TABLE `reward`  (
   `rewardDesc` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '奖励描述',
   `rewardTime` datetime(0) NULL DEFAULT NULL COMMENT '奖励时间',
   PRIMARY KEY (`rewardId`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of reward
@@ -190,7 +190,7 @@ CREATE TABLE `team_del`  (
   `checkId` int(6) NULL DEFAULT NULL COMMENT '扣分项目Id',
   `checkName` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '扣分项目',
   `weekNum` int(2) NULL DEFAULT NULL COMMENT '周数'
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of team_del
@@ -249,7 +249,7 @@ CREATE TABLE `user_wj`  (
   `wjTime` datetime(0) NULL DEFAULT NULL COMMENT '违纪时间',
   `wjcl` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '违纪处理结果',
   PRIMARY KEY (`wjId`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of user_wj
@@ -263,11 +263,11 @@ DROP TABLE IF EXISTS `weak_check`;
 CREATE TABLE `weak_check`  (
   `checkId` int(6) NOT NULL AUTO_INCREMENT,
   `checkName` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '检查名称',
-  `checkDesc` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '检查描述',
+  `checkDesc` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '检查描述',
   `checkPoint` int(4) NULL DEFAULT NULL COMMENT '检查分数',
   `isNow` int(1) NULL DEFAULT NULL COMMENT '1本周，2上周',
   PRIMARY KEY (`checkId`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of weak_check

@@ -41,28 +41,10 @@ public class AdminController {
         return mv;
     }
 
-    /**
-     * Description 打开学期信息页面
-     *
-     * @author YanZiyi
-     * @date 2019-03-29 09:43:49
-     */
-    @RequestMapping("/term")
-    public ModelAndView term() {
-        ModelAndView mv = new ModelAndView("/admin/term");
-        return mv;
-    }
-
-    /**
-     * Description 打开年度信息页面
-     *
-     * @author YanZiyi
-     * @date 2019-03-29 09:43:49
-     */
-    @RequestMapping("/year")
-    public ModelAndView year() {
-        ModelAndView mv = new ModelAndView("/admin/year");
-        return mv;
+    @RequestMapping("/initSelect")
+    @ResponseBody
+    public Map<String ,List> initSelect(){
+        return adminService.initSelect();
     }
 
     @RequestMapping("/getWeekCheck2")

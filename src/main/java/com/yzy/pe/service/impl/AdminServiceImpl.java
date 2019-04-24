@@ -25,6 +25,14 @@ public class AdminServiceImpl implements AdminService {
     private AdminMapper adminMapper;
 
     @Override
+    public Map<String, List> initSelect() {
+        Map<String,List> list = new HashMap<>(2);
+        list.put("xqs",adminMapper.initSelect1());
+        list.put("weekNum",adminMapper.initSelect2());
+        return list;
+    }
+
+    @Override
     public List<WeakCheck> getWeek2() {
         return adminMapper.getWeek2();
     }

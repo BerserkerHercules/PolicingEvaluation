@@ -13,6 +13,10 @@ import java.util.List;
  */
 public interface AdminMapper {
 
+    List<String> initSelect1();
+
+    List<String> initSelect2();
+
     List<WeakCheck> getWeek2();
 
     List<TeamDelDto> getWeekData(String date1, String date2);

@@ -12,6 +12,8 @@ import java.util.Map;
  */
 public interface AdminService {
 
+    Map<String ,List> initSelect();
+
     List<WeakCheck> getWeek2();
 
     Map<String,List> getWeekData();

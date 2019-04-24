@@ -4,6 +4,14 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yzy.pe.mapper.AdminMapper">
 
+    <select id="initSelect1" resultType="java.lang.String">
+      select xqs from team_del group by xqs
+    </select>
+
+    <select id="initSelect2" resultType="java.lang.String">
+      select weekNum from team_del group by weekNum
+    </select>
+
     <select id="getWeek2" resultType="com.yzy.pe.entity.WeakCheck">
         select * from weak_check
         where isNow=2

@@ -1,10 +1,22 @@
 $(document).ready(function () {
+    initSelect();
     initCount();
     initWeekTeam();
     initCheck2();
     initZhanbi();
     initTimeZhanbi();
 });
+
+function initSelect() {
+    $.ajax({
+        url : "/admin/initSelect",     //后台请求的数据
+        type : "post",                  //请求方式
+        async : true,                   //是否异步请求
+        success : function(data) {      //如果请求成功，返回数据。
+
+        },
+    });
+}
 
 
 function initCount() {

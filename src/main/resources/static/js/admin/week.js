@@ -15,11 +15,15 @@ function initSelect() {
         success : function(data) {      //如果请求成功，返回数据。
             var xqs = data.xqs;
             var weekNum = data.weekNum;
+            var qdList = data.qdList;
             for(var i=0;i<xqs.length;i++){
                 $(".chooseXqs").append("<option value="+xqs[i]+">"+xqs[i]+"</option>");
             }
             for(var i=0;i<weekNum.length;i++){
                 $(".chooseWeek").append("<option value="+weekNum[i]+">第"+weekNum[i]+"周</option>");
+            }
+            for(var i=0;i<qdList.length;i++){
+                $(".chooseWeek").append("<option value="+qdList[i].qdbm+">"+qdList[i].qdmc+"</option>");
             }
         },
     });
@@ -27,7 +31,12 @@ function initSelect() {
 $("#chooseXqs1").change(function () {
     initZhanbi();
 });
+
 $("#chooseWeek1").change(function () {
+    initZhanbi();
+});
+
+$("#chooseQd1").change(function () {
     initZhanbi();
 });
 
@@ -167,9 +176,9 @@ function initCheck2() {
     myChart.setOption({
         tooltip: {
             trigger: 'axis',
-            axisPointer: {
+            /*axisPointer: {
                 type: 'shadow',
-            }
+            }*/
         },
         legend: {
             data: ['周扣分情况']
@@ -188,6 +197,7 @@ function initCheck2() {
                     color: '#A5A5A5'
                 }
             },
+            type: 'category',
         },
         yAxis: [{
             axisLine: {
@@ -196,11 +206,12 @@ function initCheck2() {
                     color: '#A5A5A5' // y 轴线最下面的横坐标线的颜色
                 }
             },
+            type: 'value'
         },
         ],
         series: [{
             name: '被扣分的区队数',
-            type: 'bar',
+            type: 'line',
             barWidth: 30,//柱图宽度
             itemStyle: {
                 normal: {

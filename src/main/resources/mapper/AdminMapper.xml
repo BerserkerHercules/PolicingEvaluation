@@ -5,11 +5,11 @@
 <mapper namespace="com.yzy.pe.mapper.AdminMapper">
 
     <select id="initSelect1" resultType="java.lang.String">
-      select xqs from team_del group by xqs
+      select xqs from team_del where xqs is not null group by xqs order by xqs desc
     </select>
 
     <select id="initSelect2" resultType="java.lang.String">
-      select weekNum from team_del group by weekNum
+      select weekNum from team_del where weekNum is not null group by weekNum order by weekNum desc
     </select>
 
     <select id="getWeek2" resultType="com.yzy.pe.entity.WeakCheck">

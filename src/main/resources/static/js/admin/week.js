@@ -1,6 +1,6 @@
 $(document).ready(function () {
     initSelect();
-    initCount();
+    //initCount();
     initWeekTeam();
     initCheck2();
     initZhanbi();
@@ -13,11 +13,17 @@ function initSelect() {
         type : "post",                  //请求方式
         async : true,                   //是否异步请求
         success : function(data) {      //如果请求成功，返回数据。
-
+            var xqs = data.xqs;
+            var weekNum = data.weekNum;
+            for(var i=0;i<xqs.length;i++){
+                $(".chooseXqs").append("<option>"+xqs[i]+"</option>");
+            }
+            for(var i=0;i<weekNum.length;i++){
+                $(".chooseWeek").append("<option>第"+weekNum[i]+"周</option>");
+            }
         },
     });
 }
-
 
 function initCount() {
     $.ajax({
@@ -91,8 +97,11 @@ function initWeekTeam() {
         type: "post",
         async: true,            //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
         url: "/admin/getWeekData",    //请求发送到TestServlet处
-        /*data : {},
-        dataType : "json",*/        //返回数据形式为json
+        data : {
+            "xqs":$("#chooseXqs1").val(),
+            "weekNum":$("#chooseWeek1").val()
+        },
+        dataType : "json",        //返回数据形式为json
         success: function (result) {
             //请求成功时执行该函数内容，result即为服务器返回的json对象
             var checkList = result.checkList;
@@ -161,16 +170,6 @@ function initCheck2() {
                 }
             },
         },
-            /*{
-                type: 'value',
-                name: '温度',
-                min: 0,
-                max: 25,
-                interval: 5,
-                axisLabel: {
-                    formatter: '{value} °C'
-                }
-            }*/
         ],
         series: [{
             name: '被扣分的区队数',
@@ -194,8 +193,11 @@ function initCheck2() {
         type: "post",
         async: true,            //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
         url: "/admin/getWeekData2",    //请求发送到TestServlet处
-        /*data : {},
-        dataType : "json",*/        //返回数据形式为json
+        data : {
+            "xqs":$("#chooseXqs2").val(),
+            "weekNum":$("#chooseWeek2").val()
+        },
+        dataType : "json",        //返回数据形式为json
         success: function (result) {
             //请求成功时执行该函数内容，result即为服务器返回的json对象
             var checkList = result.checkList;
@@ -285,14 +287,15 @@ function initZhanbi() {
         ]
     };
 
-
-
     $.ajax({
         type: "post",
         async: true,            //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
         url: "/admin/getWeekData3",    //请求发送到TestServlet处
-        /*data : {},
-        dataType : "json",*/        //返回数据形式为json
+        data : {
+            "xqs":$("#chooseXqs3").val(),
+            "weekNum":$("#chooseWeek3").val()
+        },
+        dataType : "json",        //返回数据形式为json
         success: function (result) {
             //请求成功时执行该函数内容，result即为服务器返回的json对象
 
@@ -358,16 +361,12 @@ function initTimeZhanbi() {
         type: "post",
         async: true,            //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
         url: "/admin/getWeekData4",    //请求发送到TestServlet处
-        /*data : {},
-        dataType : "json",*/        //返回数据形式为json
+        data : {
+            "xqs":$("#chooseXqs4").val(),
+            "weekNum":$("#chooseWeek4").val()
+        },
+        dataType : "json",        //返回数据形式为json
         success: function (result) {
-            //请求成功时执行该函数内容，result即为服务器返回的json对象
-            //alert(result[0].name);
-            /*var data;
-            result.forEach(function (item) {
-               data.push(item.name);
-            });*/
-
             myChart.hideLoading();    //隐藏加载动画
             myChart.setOption({       //加载数据图表
                 //legend:{data:data,},

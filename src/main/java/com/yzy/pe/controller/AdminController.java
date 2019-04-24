@@ -55,14 +55,14 @@ public class AdminController {
 
     @RequestMapping("/getWeekData")
     @ResponseBody
-    public Map<String,List> getWeekData(){
-        return adminService.getWeekData();
+    public Map<String,List> getWeekData(String xqs,String weekNum){
+        return adminService.getWeekData(xqs, weekNum);
     }
 
     @RequestMapping("/getWeekData2")
     @ResponseBody
-    public Map<String,List> getWeekData2(){
-        return adminService.getWeekData2();
+    public Map<String,List> getWeekData2(String xqs,String weekNum){
+        return adminService.getWeekData2(xqs, weekNum);
     }
 
     /**
@@ -73,8 +73,8 @@ public class AdminController {
      */
     @RequestMapping("/getWeekData3")
     @ResponseBody
-    public List<NameValueDto> getWeekData3(){
-        return adminService.getWeekData3();
+    public List<NameValueDto> getWeekData3(String xqs,String weekNum){
+        return adminService.getWeekData3(xqs, weekNum);
     }
 
     /**
@@ -85,8 +85,8 @@ public class AdminController {
      */
     @RequestMapping("/getWeekData4")
     @ResponseBody
-    public List<NameValueDto> getWeekData4(){
-        return adminService.getWeekData4();
+    public List<NameValueDto> getWeekData4(String xqs,String weekNum){
+        return adminService.getWeekData4(xqs, weekNum);
     }
 
     /**

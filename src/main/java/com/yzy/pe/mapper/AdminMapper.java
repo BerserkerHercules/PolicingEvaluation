@@ -19,6 +19,8 @@ public interface AdminMapper {
 
     List<WeakCheck> getWeek2();
 
+    List<String> weekList(String date1, String date2);
+
     List<TeamDelDto> getWeekData(String date1, String date2);
 
     List<TeamDelDto> getWeekData2(String date1, String date2);

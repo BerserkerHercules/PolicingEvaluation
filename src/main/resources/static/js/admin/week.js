@@ -16,7 +16,7 @@ function initSelect() {
             var xqs = data.xqs;
             var weekNum = data.weekNum;
             for(var i=0;i<xqs.length;i++){
-                $(".chooseXqs").append("<option>"+xqs[i]+"</option>");
+                $(".chooseXqs").append("<option value=''>"+xqs[i]+"</option>");
             }
             for(var i=0;i<weekNum.length;i++){
                 $(".chooseWeek").append("<option>第"+weekNum[i]+"周</option>");
@@ -24,6 +24,33 @@ function initSelect() {
         },
     });
 }
+$("#chooseXqs1").change(function () {
+    initWeekTeam();
+});
+$("#chooseWeek1").change(function () {
+    initWeekTeam();
+});
+
+$("#chooseXqs2").change(function () {
+    initCheck2();
+});
+$("#chooseWeek2").change(function () {
+    initCheck2();
+});
+
+$("#chooseXqs3").change(function () {
+    initZhanbi();
+});
+$("#chooseWeek3").change(function () {
+    initZhanbi();
+});
+
+$("#chooseXqs4").change(function () {
+    initTimeZhanbi();
+});
+$("#chooseWeek4").change(function () {
+    initTimeZhanbi();
+});
 
 function initCount() {
     $.ajax({
@@ -93,6 +120,7 @@ function initWeekTeam() {
     var names = [];    //类别数组（实际用来盛放X轴坐标值）
     var nums = [];    //销量数组（实际用来盛放Y坐标值）
 
+    alert($("#chooseXqs1 option:selected").val());
     $.ajax({
         type: "post",
         async: true,            //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
@@ -186,8 +214,8 @@ function initCheck2() {
 
     myChart.showLoading();    //数据加载完之前先显示一段简单的loading动画
 
-    var names = [];    //类别数组（实际用来盛放X轴坐标值）
-    var nums = [];    //销量数组（实际用来盛放Y坐标值）
+    var names = [];    //（实际用来盛放X轴坐标值）
+    var nums = [];    //（实际用来盛放Y坐标值）
 
     $.ajax({
         type: "post",

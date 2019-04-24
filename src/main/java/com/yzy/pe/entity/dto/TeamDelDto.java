@@ -1,6 +1,6 @@
 package com.yzy.pe.entity.dto;
 
-import java.sql.Date;
+import java.util.Date;
 
 /**
  * @author ZhengJiawei

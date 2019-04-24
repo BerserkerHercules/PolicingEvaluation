@@ -38,9 +38,8 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public Map<String, List> getWeekData() {
-        List<String> weekList = DateUtil.getLastWeekDays();
-        List<TeamDelDto> dataList = adminMapper.getWeekData(weekList.get(0), weekList.get(weekList.size() - 1));
+    public Map<String, List> getWeekData(String xqs,String weekNum) {
+        List<TeamDelDto> dataList = adminMapper.getWeekData(xqs, weekNum);
         List<WeakCheck> checkList = adminMapper.getWeek2();
         List<TeamDelDto> dtoList = new ArrayList<>();
         checkList.forEach(e -> {
@@ -58,10 +57,9 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public Map<String, List> getWeekData2() {
-        List<String> weekList = DateUtil.getLastWeekDays();
-        List<TeamDelDto> dataList = adminMapper.getWeekData2(weekList.get(0), weekList.get(weekList.size() - 1));
-        //List<WeakCheck> checkList = adminMapper.getWeek2();
+    public Map<String, List> getWeekData2(String xqs,String weekNum) {
+        List<String> weekList = adminMapper.weekList(xqs, weekNum);
+        List<TeamDelDto> dataList = adminMapper.getWeekData2(xqs, weekNum);
         List<TeamDelDto> dtoList = new ArrayList<>();
         weekList.forEach(e -> {
             TeamDelDto dto = new TeamDelDto();
@@ -69,13 +67,10 @@ public class AdminServiceImpl implements AdminService {
             dto.setKfTime(sqlDate);
             dto.setCountTeam(0);
             for (TeamDelDto t : dataList) {
-
                 if (e.equals(DateUtil.dateToString(t.getKfTime(),"yyyy-MM-dd"))) {
                     dto.setCountTeam(t.getCountTeam());
-                    //dtoList.add(dto);
                     break;
                 }
-
             }
             dtoList.add(dto);
         });
@@ -86,9 +81,8 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public List<NameValueDto> getWeekData3() {
-        List<String> weekList = DateUtil.getLastWeekDays();
-        List<TeamDelDto> dataList = adminMapper.getWeekData(weekList.get(0), weekList.get(weekList.size() - 1));
+    public List<NameValueDto> getWeekData3(String xqs,String weekNum) {
+        List<TeamDelDto> dataList = adminMapper.getWeekData(xqs, weekNum);
         List<WeakCheck> checkList = adminMapper.getWeek2();
         List<NameValueDto> dtoList = new ArrayList<>();
         checkList.forEach(e -> {
@@ -106,8 +100,8 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public List<NameValueDto> getWeekData4() {
-        List<String> weekList = DateUtil.getLastWeekDays();
+    public List<NameValueDto> getWeekData4(String xqs,String weekNum) {
+        List<String> weekList = adminMapper.weekList(xqs, weekNum);
         List<TeamDelDto> dataList = adminMapper.getWeekData2(weekList.get(0), weekList.get(weekList.size() - 1));
 
         List<NameValueDto> dtoList = new ArrayList<>();

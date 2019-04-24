@@ -12,6 +12,10 @@
       select weekNum from team_del where weekNum is not null group by weekNum order by weekNum desc
     </select>
 
+    <select id="allTeam" resultType="com.yzy.pe.entity.Team">
+        select * from team order by qdId
+    </select>
+
     <select id="getWeek2" resultType="com.yzy.pe.entity.WeakCheck">
         select * from weak_check
         where isNow=2

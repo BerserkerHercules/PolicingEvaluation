@@ -1,5 +1,6 @@
 package com.yzy.pe.mapper;
 
+import com.yzy.pe.entity.Team;
 import com.yzy.pe.entity.WeakCheck;
 import com.yzy.pe.entity.dto.TeamDelDto;
 
@@ -16,6 +17,8 @@ public interface AdminMapper {
     List<String> initSelect1();
 
     List<String> initSelect2();
+
+    List<Team> allTeam();
 
     List<WeakCheck> getWeek2();
 

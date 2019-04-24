@@ -27,9 +27,10 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public Map<String, List> initSelect() {
-        Map<String,List> list = new HashMap<>(2);
+        Map<String,List> list = new HashMap<>(3);
         list.put("xqs",adminMapper.initSelect1());
         list.put("weekNum",adminMapper.initSelect2());
+        list.put("qdList",adminMapper.allTeam());
         return list;
     }
 

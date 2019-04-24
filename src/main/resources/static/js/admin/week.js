@@ -23,7 +23,7 @@ function initSelect() {
                 $(".chooseWeek").append("<option value="+weekNum[i]+">第"+weekNum[i]+"周</option>");
             }
             for(var i=0;i<qdList.length;i++){
-                $(".chooseWeek").append("<option value="+qdList[i].qdbm+">"+qdList[i].qdmc+"</option>");
+                $(".chooseQd").append("<option value="+qdList[i].qdbm+">"+qdList[i].qdmc+"</option>");
             }
         },
     });

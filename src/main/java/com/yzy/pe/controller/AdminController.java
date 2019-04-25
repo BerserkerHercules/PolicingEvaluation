@@ -5,7 +5,13 @@ import com.yzy.pe.entity.WeakCheck;
 import com.yzy.pe.entity.dto.NameValueDto;
 import com.yzy.pe.service.AdminService;
 import com.yzy.pe.service.UserService;
+import com.yzy.pe.util.DateUtil;
 import com.yzy.pe.util.ImportExcelUtil;
+import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.xssf.streaming.SXSSFRow;
+import org.apache.poi.xssf.streaming.SXSSFSheet;
+import org.apache.poi.xssf.streaming.SXSSFWorkbook;
+import org.apache.poi.xssf.usermodel.XSSFCellStyle;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
@@ -14,9 +20,11 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -182,6 +190,80 @@ public class AdminController {
             System.out.println("导入出错");
         }
         return new ModelAndView("/teacher/all_user");
+    }
+
+
+    /**
+     * 导出跟单信息Excel表
+     *
+     * @author
+     *
+     */
+    @RequestMapping(value = "/export")
+    public void exportallDocumentaryExcel(HttpServletResponse response, HttpServletRequest res, RedirectAttributes redirectAttributes) throws IOException {
+        try {
+                List<User> userList = userService.selectUserList();
+                // 在内存中创建一个Excel文件，通过输出流写到客户端提供下载
+                // 内存中保留 10000 条数据，以免内存溢出，其余写入 硬盘
+                SXSSFWorkbook workbook = new SXSSFWorkbook(10000);
+                CellStyle style = workbook.createCellStyle();
+                style.setAlignment(XSSFCellStyle.ALIGN_CENTER);//SXSSFWorkbook方式的居中
+                // 创建一个sheet页
+                SXSSFSheet sheet = (SXSSFSheet) workbook.createSheet("销售订单");
+                // 分别设置Excel列的宽度
+                /*sheet.setColumnWidth(0, 100 * 40); // 单据日期*/
+                // 创建标题
+                SXSSFRow headRow = (SXSSFRow) sheet.createRow(0);
+                headRow.createCell(0).setCellValue("学号");
+                headRow.createCell(1).setCellValue("姓名");
+                headRow.createCell(2).setCellValue("密码");
+                headRow.createCell(3).setCellValue("权限");
+                headRow.createCell(4).setCellValue("区队编码");
+                headRow.createCell(5).setCellValue("考评分数");
+                headRow.createCell(6).setCellValue("手机号码");
+                headRow.createCell(7).setCellValue("邮箱");
+                headRow.createCell(8).setCellValue("寝室号码");
+                headRow.createCell(9).setCellValue("性别");
+
+                for (User user : userList) {
+                    // 创建行
+                    SXSSFRow dataRow = (SXSSFRow) sheet.createRow(sheet.getLastRowNum() + 1);
+
+                    dataRow.createCell(0).setCellValue(user.getUserId());
+                    dataRow.createCell(1).setCellValue(user.getUserName());
+                    dataRow.createCell(2).setCellValue(user.getPwd());
+                    dataRow.createCell(3).setCellValue(user.getPermissionDegree());
+                    dataRow.createCell(4).setCellValue(user.getQdbm());
+                    dataRow.createCell(5).setCellValue(user.getKpfs());
+                    dataRow.createCell(6).setCellValue(user.getPhone());
+                    dataRow.createCell(7).setCellValue(user.getEmail());
+                    dataRow.createCell(8).setCellValue(user.getQshm());
+                    dataRow.createCell(9).setCellValue(user.getXb());
+                }
+
+                // 设置Excel文件名，并以中文进行编码
+                String codedFileName = new String("学生列表".getBytes("gbk"), "iso-8859-1");
+                response.setHeader("Content-Disposition", "attachment;filename=" + codedFileName + DateUtil.getCurrentTime() +".xlsx");
+                // 响应类型,编码
+                response.setContentType("application/octet-stream;charset=UTF-8");
+                // 形成输出流
+                OutputStream osOut = response.getOutputStream();
+                // 将指定的字节写入此输出流
+                workbook.write(osOut);
+                // 刷新此输出流并强制将所有缓冲的输出字节被写出
+                osOut.flush();
+                // 关闭流
+                osOut.close();
+                /*
+                 * dispose of temporary files backing this workbook on disk
+                 * 处理在磁盘上备份此工作簿的临时文件 SXSSF分配临时文件，必须始终清除显式，通过调用dispose方法
+                 */
+                workbook.dispose();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println( "导出用户失败！失败信息："+e.getMessage());
+        }
     }
 
 }

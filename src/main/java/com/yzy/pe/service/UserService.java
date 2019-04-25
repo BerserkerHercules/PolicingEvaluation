@@ -107,5 +107,5 @@ public interface UserService {
      * @date 2019-03-28 11:02:17
      */
     List<User> selectUserList(User user,int pageNum,int pageSize);
-
+    List<User> selectUserList();
 }

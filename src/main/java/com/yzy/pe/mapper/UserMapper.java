@@ -109,5 +109,5 @@ public interface UserMapper {
      * @date 2019-03-28 11:02:17
      */
     List<User> selectUserList(User user);
-
+    List<User> selectUserList1();
 }

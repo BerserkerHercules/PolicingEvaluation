@@ -122,6 +122,16 @@
         <if test="qdbm!=null and qdbm!= ''">
             and qdbm =#{qdbm}
         </if>
+        order by kpfs desc
+    </select>
+
+    <select id="selectUserList1" resultType="com.yzy.pe.entity.User">
+        SELECT
+        *
+        FROM
+        user
+        where permissionDegree in(2,3)
+        order by kpfs desc
     </select>
 
 </mapper>

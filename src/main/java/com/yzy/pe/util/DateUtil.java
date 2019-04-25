@@ -59,7 +59,7 @@ public class DateUtil {
     }
 
     public static String getCurrentTime2() {
-        return dateToString(new Date(), "yyyy-MM-dd HH_mm_ss");
+        return dateToString(new Date(), "yyyy-MM-dd_HHmmss");
     }
 
     public static String getCurrentYear() {

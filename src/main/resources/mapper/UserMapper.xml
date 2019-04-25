@@ -61,7 +61,7 @@
     <insert id="addUser" parameterType="com.yzy.pe.entity.User">
         insert into
         user(userId,userName, pwd, permissionDegree, qdbm, kpfs, qshm, phone, email, xb)
-        values(#{userId},#{userName},123456,3,#{qdbm},100,#{qshm},#{phone},#{email},#{xb})
+        values(#{userId},#{userName},123456,#{permissionDegree},#{qdbm},100,#{qshm},#{phone},#{email},#{xb})
     </insert>
 
     <insert id="save" parameterType="com.yzy.pe.entity.User">
@@ -112,15 +112,15 @@
         *
         FROM
         user
-        where permissionDegree=3
+        where permissionDegree in(2,3)
         <if test="userName!=null and userName!=''">
-            userName like CONCAT('%',#{userName},'%')
+            and userName like CONCAT('%',#{userName},'%')
         </if>
         <if test="userId!=null and userId!=''">
-            userId like CONCAT('%',#{userId},'%')
+            and userId like CONCAT('%',#{userId},'%')
         </if>
         <if test="qdbm!=null and qdbm!= ''">
-            qdbm =#{qdbm}
+            and qdbm =#{qdbm}
         </if>
     </select>
 

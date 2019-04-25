@@ -100,7 +100,10 @@ public class TeacherController {
      */
     @RequestMapping(value = "/haveId")
     @ResponseBody
-    public String haveId(String userId, String userName, String phone, String qdbm, String email, String qshm, String xb) {
+    public String haveId(String userId, String userName,
+                         String phone, String qdbm,
+                         String email, String qshm,
+                         String xb, String permissionDegree) {
         User user = new User();
         user.setUserId(userId);
         user.setUserName(userName);
@@ -109,6 +112,7 @@ public class TeacherController {
         user.setQdbm(qdbm);
         user.setQshm(qshm);
         user.setXb(xb);
+        user.setPermissionDegree(Long.parseLong(permissionDegree));
         String haveId = teacherService.haveId(userId);
         if ("true".equals(haveId)) {
             return "false";

@@ -27,6 +27,12 @@ function addPoint() {
             var list_ = data.list;
             for (var i = 1; i < list_.length + 1; i++) {
                 var content = list_[i - 1];
+                var gb = content.permissionDegree;
+                if(gb==2){
+                    gb="是";
+                }else{
+                    gb="否";
+                }
                 var trHTML = "<tr>"
                     + "<td>" + content.userId + "</td>"
                     + "<td>" + content.userName + "</td>"
@@ -34,12 +40,11 @@ function addPoint() {
                     + "<td>" + content.qdbm + "</td>"
                     + "<td>" + content.phone + "</td>"
                     + "<td>" + content.kpfs + "</td>"
+                    + "<td>" + gb + "</td>"
                     + "<td><a class='user-msg' href='javascript:;'>详情</a></td>"
                     + "</tr>";
                 $("#table_add tbody").append(trHTML);//在table最后面添加一行
             }
-            /*var xq = $(".xq");
-            alert(xq.length);*/
         },
     });
 }

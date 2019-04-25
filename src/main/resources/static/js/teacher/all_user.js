@@ -27,7 +27,7 @@ function addPoint() {
             var list_ = data.list;
             for (var i = 1; i < list_.length + 1; i++) {
                 var content = list_[i - 1];
-                var trHTML = "<tr><td>" + i + "</td>"
+                var trHTML = "<tr>"
                     + "<td>" + content.userId + "</td>"
                     + "<td>" + content.userName + "</td>"
                     + "<td>" + content.xb + "</td>"

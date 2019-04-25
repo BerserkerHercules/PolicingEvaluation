@@ -64,6 +64,12 @@
         values(#{userId},#{userName},123456,3,#{qdbm},100,#{qshm},#{phone},#{email},#{xb})
     </insert>
 
+    <insert id="save" parameterType="com.yzy.pe.entity.User">
+        insert into
+        user(userId,userName, pwd, permissionDegree, qdbm, kpfs, qshm, phone, email, xb)
+        values(#{userId},#{userName},#{pwd},#{permissionDegree},#{qdbm},#{kpfs},#{qshm},#{phone},#{email},#{xb})
+    </insert>
+
     <update id="updateUser" parameterType="com.yzy.pe.entity.User">
         update from user set
           userName=#{userName},pwd=#{pwd},

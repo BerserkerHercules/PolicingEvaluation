@@ -66,6 +66,8 @@ public interface UserMapper {
      */
     void addUser(User user);
 
+    void save(User user);
+
     /**
      * Description 修改用户
      *

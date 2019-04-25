@@ -145,11 +145,9 @@ public class AdminController {
      * @throws IOException
      */
     @RequestMapping(value = "/upload", method=RequestMethod.POST)
-    public String importFile(@RequestParam(value="file",required=false)MultipartFile myFile, HttpServletResponse respon, RedirectAttributes redirectAttributes)
-            throws IOException {
+    public ModelAndView importFile(@RequestParam(value="file",required=false)MultipartFile myFile,
+                                   HttpServletResponse respon, RedirectAttributes redirectAttributes) throws IOException {
         try {
-            //先删除数据库原有的数据
-            //orderexcelService.deleteAll(order);
             ImportExcelUtil util = new ImportExcelUtil();
             InputStream input = null;
             List<List<Object>> lists = null;
@@ -183,7 +181,7 @@ public class AdminController {
             e.printStackTrace();
             System.out.println("导入出错");
         }
-        return "/teacher/all_user";
+        return new ModelAndView("/teacher/all_user");
     }
 
 }

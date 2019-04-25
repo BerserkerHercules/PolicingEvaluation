@@ -5,13 +5,13 @@
  Source Server Type    : MySQL
  Source Server Version : 80015
  Source Host           : localhost:3306
- Source Schema         : ccc
+ Source Schema         : jingwu
 
  Target Server Type    : MySQL
  Target Server Version : 80015
  File Encoding         : 65001
 
- Date: 24/04/2019 21:45:07
+ Date: 25/04/2019 17:59:56
 */
 
 SET NAMES utf8mb4;
@@ -197,7 +197,7 @@ CREATE TABLE `team_del`  (
 -- ----------------------------
 INSERT INTO `team_del` VALUES (1, 'zjjc1591801', 10, '2019-04-23 16:25:12', '2019第1学期', 1, '卫生', 2);
 INSERT INTO `team_del` VALUES (1, 'zjjc1591801', 10, '2019-04-23 16:25:17', '2019第1学期', 1, '卫生', 2);
-INSERT INTO `team_del` VALUES (1, 'zjjc1591801', 10, '2019-04-23 16:25:21', '2019第1学期', 2, NULL, 2);
+INSERT INTO `team_del` VALUES (1, 'zjjc1591801', 10, '2019-04-23 16:25:21', '2019第1学期', 2, NULL, 1);
 INSERT INTO `team_del` VALUES (1, 'zjjc1111', 10, '2019-04-22 16:25:26', '2019第1学期', 2, NULL, 2);
 INSERT INTO `team_del` VALUES (1, 'zjjc1111', 10, '2019-04-23 16:25:30', '2019第1学期', 2, NULL, 2);
 INSERT INTO `team_del` VALUES (1, 'zjjc1111', 10, '2019-04-24 16:25:33', '2019第1学期', 2, NULL, 2);
@@ -232,9 +232,9 @@ CREATE TABLE `user`  (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', 'admin', '1', 1, '', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `user` VALUES ('2', '严子义', '2', 3, 'zjjc1591801', 118, '15700122303', 'dddz97@163.com', '6-503', '男');
-INSERT INTO `user` VALUES ('3', 'teacher', '3', 2, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `user` VALUES ('1', '老师', '1', 1, '', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `user` VALUES ('2', '女干部', '2', 2, 'zjjc1591801', 126, '17757180496', 'cccc@qq.com', '7-202', '女');
+INSERT INTO `user` VALUES ('3', '严子义', '3', 3, 'zjjc1591801', 118, '15700122303', 'dddz97@163.com', '6-503', '男');
 
 -- ----------------------------
 -- Table structure for user_wj

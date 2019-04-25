@@ -17,17 +17,6 @@ import java.util.*;
  */
 public class DateUtil {
 
-
-    /**
-     * 描述:
-     *
-     * @param date
-     * @param format
-     * @return
-     * @auther gqf
-     * @date 2015年5月13日
-     */
-
     public static String dateToString(Date date, String format) {
         String result = "";
         if (date != null) {
@@ -41,17 +30,6 @@ public class DateUtil {
         return result;
     }
 
-
-    /**
-     * 描述:
-     *
-     * @param strDate
-     * @param format
-     * @return
-     * @auther gqf
-     * @date 2015年5月13日
-     */
-
     public static Date stringToDate(String strDate, String format) {
         try {
             SimpleDateFormat sdf = new SimpleDateFormat(format);
@@ -63,14 +41,7 @@ public class DateUtil {
 
     /**
      * 描述: 中文日期转化日期格式
-     *
-     * @param strDate
-     * @param format
-     * @return
-     * @auther gqf
-     * @date 2015年5月15日
      */
-
     public static Date chineseStrToDate(String strDate, String format) {
         strDate = strDate.replace("年", "-");
         strDate = strDate.replace("月", "-");
@@ -83,27 +54,13 @@ public class DateUtil {
         }
     }
 
-
-    /**
-     * 描述:
-     *
-     * @return
-     * @auther gqf
-     * @date 2015年5月13日
-     */
-
     public static String getCurrentTime() {
         return dateToString(new Date(), "yyyy-MM-dd HH:mm:ss");
     }
 
-
-    /**
-     * 描述:
-     *
-     * @return
-     * @auther gqf
-     * @date 2015年5月13日
-     */
+    public static String getCurrentTime2() {
+        return dateToString(new Date(), "yyyy-MM-dd HH_mm_ss");
+    }
 
     public static String getCurrentYear() {
         return dateToString(new Date(), "yyyy");
@@ -111,10 +68,6 @@ public class DateUtil {
 
     /**
      * 获取去年年份
-     *
-     * @return java.lang.String
-     * @author caofei
-     * @date 2018-10-18 09:46:24
      */
     public static String getLastYear() {
         return String.valueOf(LocalDate.now().getYear() - 1);
@@ -124,8 +77,6 @@ public class DateUtil {
         return String.valueOf(LocalDate.now().getYear() - num);
     }
 
-
-
     public static String getLastYearMonth() {
         Calendar c = Calendar.getInstance();
         c.setTime(new Date());
@@ -134,27 +85,9 @@ public class DateUtil {
         return dateToString(y, "yyyy-MM");
     }
 
-
-    /**
-     * 描述:
-     *
-     * @return
-     * @auther gqf
-     * @date 2015年5月13日
-     */
-
     public static String getCurrentDate() {
         return dateToString(new Date(), "yyyy-MM-dd");
     }
-
-
-    /**
-     * 描述:
-     *
-     * @return
-     * @auther gqf
-     * @date 2015年5月13日
-     */
 
     public static String getCurrentSimpleTime() {
         return dateToString(new Date(), "HH:mm:ss");
@@ -162,10 +95,6 @@ public class DateUtil {
 
     /**
      * 描述: 获取当前完整日期
-     *
-     * @return
-     * @auther yushunwei
-     * @date 2013-11-28
      */
     public static String getCurrentSimpleDate() {
         return dateToString(new Date(), "yyyyMMdd");
@@ -173,12 +102,6 @@ public class DateUtil {
 
     /**
      * 描述: 把日期转成完整格式。如：2007-1-1 转化后为 2007-01-01
-     *
-     * @param strDate
-     * @param regex
-     * @return
-     * @auther yushunwei
-     * @date 2013-11-28
      */
     public static String toComplexDate(String strDate, String regex) {
         try {
@@ -200,12 +123,6 @@ public class DateUtil {
 
     /**
      * 描述: 获取N年后时间
-     *
-     * @param date
-     * @param n
-     * @return
-     * @auther yushunwei
-     * @date 2013-11-28
      */
     public static String getNyearlater(Date date, int n) {
         try {
@@ -222,12 +139,6 @@ public class DateUtil {
 
     /**
      * 描述: 获取N年后日期
-     *
-     * @param date
-     * @param n
-     * @return
-     * @auther yushunwei
-     * @date 2013-11-28
      */
     public static String getNyearlaterDate(Date date, int n) {
         try {
@@ -243,12 +154,6 @@ public class DateUtil {
 
     /**
      * 描述: 获取n年后日期对象
-     *
-     * @param date
-     * @param n
-     * @return
-     * @auther yushunwei
-     * @date 2013-11-28
      */
     public static Date getnyearlaterDateObject(Date date, int n) {
         Calendar now = Calendar.getInstance();
@@ -265,12 +170,6 @@ public class DateUtil {
 
     /**
      * 描述: 获取n月后时间
-     *
-     * @param date
-     * @param n
-     * @return
-     * @auther yushunwei
-     * @date 2013-11-28
      */
     public static String getNmonthlater(Date date, int n) {
         Calendar now = Calendar.getInstance();
@@ -282,12 +181,6 @@ public class DateUtil {
 
     /**
      * 描述: 获取n月后日期
-     *
-     * @param date
-     * @param n
-     * @return
-     * @auther yushunwei
-     * @date 2013-11-28
      */
     public static Date getNmonthlaterDate(Date date, int n) {
         Calendar now = Calendar.getInstance();
@@ -302,12 +195,6 @@ public class DateUtil {
 
     /**
      * 描述: 获取n天后日期(字符串形式)
-     *
-     * @param date
-     * @param n
-     * @return
-     * @auther yushunwei
-     * @date 2013-11-28
      */
     public static String getNdaylater(Date date, int n) {
         try {
@@ -320,12 +207,6 @@ public class DateUtil {
 
     /**
      * 描述: 获取n天后日期
-     *
-     * @param date
-     * @param n
-     * @return
-     * @auther yushunwei
-     * @date 2013-11-28
      */
     public static Date getNdaylaterDate(Date date, int n) {
         Calendar now = Calendar.getInstance();
@@ -336,12 +217,6 @@ public class DateUtil {
 
     /**
      * 描述: 获取n小时后时间
-     *
-     * @param date
-     * @param n
-     * @return
-     * @auther yushunwei
-     * @date 2013-11-28
      */
     public static Date getNhourlater(Date date, int n) {
         long myTime = (date.getTime() / 1000) + 60 * 60 * n;
@@ -351,12 +226,6 @@ public class DateUtil {
 
     /**
      * 描述: 获取n分钟后时间
-     *
-     * @param date
-     * @param n
-     * @return
-     * @auther yushunwei
-     * @date 2013-11-28
      */
     public static Date getNMinutelater(Date date, int n) {
         long myTime = (date.getTime() / 1000) + 60 * n;
@@ -366,13 +235,6 @@ public class DateUtil {
 
     /**
      * 描述: 计算两日期相差天数
-     *
-     * @param smdate
-     * @param bdate
-     * @return
-     * @throws Exception
-     * @auther yushunwei
-     * @date 2013-12-26
      */
     public static int getDaysBetween(String smdate, String bdate) throws Exception {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -388,13 +250,6 @@ public class DateUtil {
 
     /**
      * 描述: 计算两日期相差天数
-     *
-     * @param smdate
-     * @param bdate
-     * @return
-     * @throws Exception
-     * @auther yushunwei
-     * @date 2013-12-26
      */
     public static int getDaysBetween(Date smdate, Date bdate) throws Exception {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -412,13 +267,6 @@ public class DateUtil {
 
     /**
      * 描述: 获取格式化后日期时间
-     *
-     * @param date
-     * @param format
-     * @return
-     * @throws Exception
-     * @auther yushunwei
-     * @date 2013-12-26
      */
     public static long getAfterFormatTime(Date date, String format) throws Exception {
         SimpleDateFormat sdf = new SimpleDateFormat(format);
@@ -428,12 +276,6 @@ public class DateUtil {
 
     /**
      * 描述: 计算两日期相差月数
-     *
-     * @param beforeDate
-     * @param afterDate
-     * @return
-     * @auther yushunwei
-     * @date 2013-11-28
      */
     public static int getBetweenMonths(String beforeDate, String afterDate) {
         try {
@@ -487,12 +329,6 @@ public class DateUtil {
 
     /**
      * 描述: 计算N月之后的时间
-     *
-     * @param d
-     * @param i
-     * @return
-     * @auther yushunwei
-     * @date 2013-11-28
      */
     public static Date addMonth(Date d, int i) {
         Date date = null;
@@ -510,12 +346,6 @@ public class DateUtil {
 
     /**
      * 描述: 比较两时间前后
-     *
-     * @param date1
-     * @param date2
-     * @return int
-     * @author 徐建军
-     * @date 2013-10-8
      */
     public static int compareDate(String date1, String date2) {
 
@@ -538,12 +368,6 @@ public class DateUtil {
 
     /**
      * 描述: 返回两个日期之间的时间 单位分钟
-     *
-     * @param beforeDate
-     * @param nowDate
-     * @return
-     * @auther ZhouYan
-     * @date 2014-8-23
      */
     public static long getBetweenDaysToMut(Date beforeDate, Date nowDate) {
         long myTime = (nowDate.getTime() / 1000) - (beforeDate.getTime() / 1000);
@@ -552,11 +376,6 @@ public class DateUtil {
 
     /**
      * 描述: 格式化查询条件：起始日期
-     *
-     * @param startTime
-     * @return
-     * @auther ZhouYan
-     * @date 2014年11月27日
      */
     public static Date getStartDate(String startTime) {
         if (startTime != null && startTime.length() > 0) {
@@ -567,11 +386,6 @@ public class DateUtil {
 
     /**
      * 描述: 格式化查询条件：截止日期
-     *
-     * @param endTime
-     * @return
-     * @auther ZhouYan
-     * @date 2014年11月27日
      */
     public static Date getEndDate(String endTime) {
         if (endTime != null && endTime.length() > 0) {
@@ -582,11 +396,6 @@ public class DateUtil {
 
     /**
      * 描述: 获取日期多在的周几
-     *
-     * @param
-     * @return
-     * @auther ZhouYan
-     * @date 2014年11月27日
      */
     public static String getWeekForDate(Date date) {
         String[] weekDays = {"星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"};
@@ -601,11 +410,6 @@ public class DateUtil {
 
     /**
      * 获取上周最后一天
-     *
-     * @param
-     * @return
-     * @author fanzhen
-     * @date 2017-11-12
      */
     public static String getLastSatDate(String pattern) {
         Calendar calendar = Calendar.getInstance();
@@ -630,11 +434,6 @@ public class DateUtil {
 
     /**
      * 描述 获取当前时间前的 x 个年（包含当前年）
-     *
-     * @param x
-     * @return String[]
-     * @author hsh
-     * @date 2018/10/17 17:19
      */
     public static String[] getSomeYears(int x) {
         LocalDate today = LocalDate.now();
@@ -650,11 +449,6 @@ public class DateUtil {
 
     /**
      * 描述 获取当前时间前的 x 个年（不包含当前年）
-     *
-     * @param x
-     * @return String[]
-     * @author hsh
-     * @date 2018/10/22 17:19
      */
     public static List<String> getSomeYearsNotIncludeCurrent(int x) {
         LocalDate today = LocalDate.now();
@@ -670,11 +464,6 @@ public class DateUtil {
 
     /**
      * 描述 获取当前日期 格式：(yyyy年MM月dd日 hh:mm:ss)
-     *
-     * @param
-     * @return String
-     * @author hsh
-     * @date 2018/11/26 10:33
      */
     public static String getCurrentFullTimeStr() {
         return java.time.LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy年MM月dd日 HH:mm:ss"));
@@ -682,11 +471,6 @@ public class DateUtil {
 
     /**
      * 描述 获取今天星期几
-     *
-     * @param
-     * @return String
-     * @author hsh
-     * @date 2018/11/26 10:53
      */
     public static String getDayOfTheWeek() {
         String[][] strArray = {{"1", "一"}, {"2", "二"}, {"3", "三"}, {"4", "四"}, {"5", "五"}, {"6", "六"}, {"7", "日"}};
@@ -709,8 +493,6 @@ public class DateUtil {
 
     /**
      * 描述 获取上一周日期(7天)
-     *
-     * @return
      */
     public static List<String> getLastWeekDays() {
         List<String> dateList = new ArrayList<>();
@@ -724,8 +506,6 @@ public class DateUtil {
 
     /**
      * 描述 获取上一月日期(30天)
-     *
-     * @return
      */
     public static List<String> getLastMonthDays() {
         List<String> dateList = new ArrayList<>();

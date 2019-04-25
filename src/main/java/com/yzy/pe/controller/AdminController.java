@@ -17,10 +17,8 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.InputStream;
@@ -146,19 +144,17 @@ public class AdminController {
     }
 
     /**
-     * 导入销售订单数据
+     * 导入
      * @param myFile
-     * @param respon
      * @return
      * @throws IOException
      */
     @RequestMapping(value = "/upload", method=RequestMethod.POST)
-    public ModelAndView importFile(@RequestParam(value="file",required=false)MultipartFile myFile,
-                                   HttpServletResponse respon, RedirectAttributes redirectAttributes) throws IOException {
+    public ModelAndView importFile(@RequestParam(value="file",required=false)MultipartFile myFile) throws IOException {
         try {
             ImportExcelUtil util = new ImportExcelUtil();
-            InputStream input = null;
-            List<List<Object>> lists = null;
+            InputStream input;
+            List<List<Object>> lists;
             if (myFile.isEmpty()) {
                 System.out.println("导入文件为空");
             } else {
@@ -194,13 +190,10 @@ public class AdminController {
 
 
     /**
-     * 导出跟单信息Excel表
-     *
-     * @author
-     *
+     * 导出
      */
     @RequestMapping(value = "/export")
-    public void exportallDocumentaryExcel(HttpServletResponse response, HttpServletRequest res, RedirectAttributes redirectAttributes) throws IOException {
+    public void exportallDocumentaryExcel(HttpServletResponse response) throws IOException {
         try {
                 List<User> userList = userService.selectUserList();
                 // 在内存中创建一个Excel文件，通过输出流写到客户端提供下载
@@ -211,7 +204,10 @@ public class AdminController {
                 // 创建一个sheet页
                 SXSSFSheet sheet = (SXSSFSheet) workbook.createSheet("销售订单");
                 // 分别设置Excel列的宽度
-                /*sheet.setColumnWidth(0, 100 * 40); // 单据日期*/
+
+                for(int i=0;i<10;i++){
+                    sheet.setColumnWidth(i, 4000);
+                }
                 // 创建标题
                 SXSSFRow headRow = (SXSSFRow) sheet.createRow(0);
                 headRow.createCell(0).setCellValue("学号");
@@ -243,7 +239,9 @@ public class AdminController {
 
                 // 设置Excel文件名，并以中文进行编码
                 String codedFileName = new String("学生列表".getBytes("gbk"), "iso-8859-1");
-                response.setHeader("Content-Disposition", "attachment;filename=" + codedFileName + DateUtil.getCurrentTime() +".xlsx");
+                response.setHeader("Content-Disposition", "attachment;filename="
+                        + codedFileName + DateUtil.getCurrentTime2()
+                        +".xlsx");
                 // 响应类型,编码
                 response.setContentType("application/octet-stream;charset=UTF-8");
                 // 形成输出流

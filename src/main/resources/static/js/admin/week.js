@@ -39,9 +39,6 @@ $("#chooseWeek1").change(function () {
 $("#chooseQd1").change(function () {
     initZhanbi();
 });
-$("#chooseQd2").change(function () {
-    initWeekTeam();
-});
 
 $("#chooseXqs2").change(function () {
     initTimeZhanbi();
@@ -138,8 +135,7 @@ function initWeekTeam() {
         url: "/admin/getWeekData",    //请求发送到TestServlet处
         data : {
             "xqs":$("#chooseXqs3").val(),
-            "weekNum":$("#chooseWeek3").val(),
-            "qdbm":$("#chooseQd2").val()
+            "weekNum":$("#chooseWeek3").val()
         },
         dataType : "json",        //返回数据形式为json
         success: function (result) {

@@ -1,9 +1,11 @@
 package com.yzy.pe.service.impl;
 
+import com.yzy.pe.entity.Team;
 import com.yzy.pe.entity.WeakCheck;
 import com.yzy.pe.entity.dto.NameValueDto;
 import com.yzy.pe.entity.dto.TeamDelDto;
 import com.yzy.pe.mapper.AdminMapper;
+import com.yzy.pe.mapper.StudentMapper;
 import com.yzy.pe.service.AdminService;
 import com.yzy.pe.util.DateUtil;
 import org.springframework.stereotype.Service;
@@ -23,6 +25,8 @@ public class AdminServiceImpl implements AdminService {
 
     @Resource
     private AdminMapper adminMapper;
+    @Resource
+    private StudentMapper studentMapper;
 
     @Override
     public Map<String, List> initSelect() {
@@ -41,7 +45,7 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public Map<String, List> getWeekData(String xqs, String weekNum, String qdbm) {
 
-        List<TeamDelDto> dataList = adminMapper.getWeekData(xqs, weekNum, qdbm);
+        /*List<TeamDelDto> dataList = adminMapper.getWeekData(xqs, weekNum, qdbm);
         List<WeakCheck> checkList = adminMapper.getWeek2();
         List<TeamDelDto> dtoList = new ArrayList<>();
         checkList.forEach(e -> {
@@ -54,6 +58,28 @@ public class AdminServiceImpl implements AdminService {
         });
         Map<String, List> maps = new HashMap<>();
         maps.put("checkList", checkList);
+        maps.put("dataList", dtoList);
+        return maps;*/
+        //List<TeamDelDto> dataList = adminMapper.getWeekData(xqs, weekNum, qdbm);
+        Team team = new Team();
+        List<TeamDelDto> dataList = adminMapper.getTeamCheckDel(xqs,weekNum);
+        List<Team> teamList = studentMapper.getTeamList(team);
+        List<TeamDelDto> dtoList = new ArrayList<>();
+        teamList.forEach(e->{
+            TeamDelDto dto = new TeamDelDto();
+            dto.setQdmc(e.getQdmc());
+            dto.setQdbm(e.getQdbm());
+            dto.setCountTeam(0);
+            for (TeamDelDto t : dataList) {
+                if (e.getQdbm().equals(t.getQdbm())) {
+                    dto.setCountTeam(t.getCountTeam());
+                    //break;
+                }
+            }
+            dtoList.add(dto);
+        });
+        Map<String, List> maps = new HashMap<>();
+        maps.put("checkList", teamList);
         maps.put("dataList", dtoList);
         return maps;
     }

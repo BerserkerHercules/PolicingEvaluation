@@ -143,7 +143,7 @@ function initWeekTeam() {
             var checkList = result.checkList;
             var dataList = result.dataList;
             for (var i = 0; i < checkList.length; i++) {
-                names.push(checkList[i].checkName)
+                names.push(checkList[i].qdmc)
             }
             for (var i = 0; i < dataList.length; i++) {
                 nums.push(dataList[i].countTeam)

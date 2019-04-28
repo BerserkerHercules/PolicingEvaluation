@@ -10,6 +10,12 @@ public class TeamDelDto {
 
     private long checkId;
 
+    private String qdbm;
+
+    private String qdmc;
+
+    private String checkName;
+
     private Integer countTeam;
 
     private Date kfTime;
@@ -38,4 +44,27 @@ public class TeamDelDto {
         this.kfTime = kfTime;
     }
 
+    public String getQdbm() {
+        return qdbm;
+    }
+
+    public void setQdbm(String qdbm) {
+        this.qdbm = qdbm;
+    }
+
+    public String getQdmc() {
+        return qdmc;
+    }
+
+    public void setQdmc(String qdmc) {
+        this.qdmc = qdmc;
+    }
+
+    public String getCheckName() {
+        return checkName;
+    }
+
+    public void setCheckName(String checkName) {
+        this.checkName = checkName;
+    }
 }

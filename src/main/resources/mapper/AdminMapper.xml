@@ -65,4 +65,17 @@
         select count(userId) from user where permissionDegree=3
     </select>
 
+    <select id="getTeamCheckDel" resultType="com.yzy.pe.entity.dto.TeamDelDto">
+        select t.qdbm,sum(t.kf) as countTeam
+        from team_del t
+        where 1=1
+        <if test="param1!=null and param1!=''">
+            and t.xqs = #{param1}
+        </if>
+        <if test="param2!=null and param2!=''">
+            and t.weekNum = #{param2}
+        </if>
+        GROUP BY t.qdbm
+    </select>
+
 </mapper>

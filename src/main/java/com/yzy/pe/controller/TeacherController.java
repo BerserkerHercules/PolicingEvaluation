@@ -73,6 +73,7 @@ public class TeacherController {
      * @date 2019-03-29 09:43:49
      */
     @RequestMapping(value = "/getUserMsg", method = RequestMethod.GET)
+    @ResponseBody
     public User getUserMsg(String userId) {
         User user = new User();
         user.setUserId(userId);

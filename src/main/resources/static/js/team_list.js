@@ -36,11 +36,10 @@ function addPoint() {
             var list_ = data.list;
             for (var i = 1; i < list_.length + 1; i++) {
                 var content = list_[i - 1];
-                var trHTML = "<tr><td>" + i + "</td>"
+                var trHTML = "<tr>"
                     + "<td>" + content.qdbm + "</td>"
                     + "<td>" + content.qdmc + "</td>"
                     + "<td>" + content.qdms + "</td>"
-                    + "<td>" + content.qdkh + "</td>"
                     + "<td>" + content.qdkp + "</td>"
                     + "<td>" + content.qdrs + "</td></tr>";
                 $("#table_add tbody").append(trHTML);//在table最后面添加一行

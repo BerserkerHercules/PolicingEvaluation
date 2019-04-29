@@ -37,7 +37,7 @@ function addPoint() {
             var list_ = data.list;
             for (var i = 1; i < list_.length + 1; i++) {
                 var content = list_[i - 1];
-                var trHTML = "<tr><td>" + i + "</td>"
+                var trHTML = "<tr>"
                     + "<td>" + content.addDesc + "</td>"
                     + "<td>" + content.addPoint + "</td>"
                     + "<td>" + content.time + "</td></tr>";
@@ -105,7 +105,7 @@ function delPoint() {
 
             for (var i = 1; i < list_.length + 1; i++) {
                 var content = list_[i - 1];
-                var trHTML = "<tr><td>" + i + "</td>"
+                var trHTML = "<tr>"
                     + "<td>" + content.deleteDesc + "</td>"
                     + "<td>" + content.deletePoint + "</td>"
                     + "<td>" + content.deleteTime + "</td></tr>";
@@ -172,7 +172,7 @@ function jlXx() {
             var list_ = data.list;
             for (var i = 1; i < list_.length + 1; i++) {
                 var content = list_[i - 1];
-                var trHTML = "<tr><td>" + i + "</td>"
+                var trHTML = "<tr>"
                     + "<td>" + content.rewardReason + "</td>"
                     + "<td>" + content.rewardDesc + "</td>"
                     + "<td>" + content.rewardTime + "</td>";
@@ -239,7 +239,7 @@ function cfXx() {
             var list_ = data.list;
             for (var i = 1; i < list_.length + 1; i++) {
                 var content = list_[i - 1];
-                var trHTML = "<tr><td>" + i + "</td>"
+                var trHTML = "<tr>"
                     + "<td>" + content.punishReason + "</td>"
                     + "<td>" + content.punishDesc + "</td>"
                     + "<td>" + isOne(content.punishComplete) + "</td>"

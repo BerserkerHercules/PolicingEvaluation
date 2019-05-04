@@ -35,9 +35,10 @@ public class StudentController {
      * @author YanZiyi
      * @date 2019-03-29 09:43:49
      */
-    @RequestMapping(value = "/getMyName", method = RequestMethod.POST)
-    public User getMyMsg( HttpServletRequest request) {
-        User user = (User)request.getSession().getAttribute("user");
+    @RequestMapping(value = "/getMyName")
+    public User getMyName(String userId) {
+        User user = new User();
+        user.setUserId(userId);
         User user1 = userService.selectUser(user);
         return user1;
     }
@@ -48,9 +49,13 @@ public class StudentController {
      * @author YanZiyi
      * @date 2019-03-29 09:43:49
      */
-    @RequestMapping("/getMyMsg")
-    public ModelAndView getMyMsg() {
+    @RequestMapping(value = "/getMyMsg",method = RequestMethod.GET)
+    public ModelAndView getMyMsg(String userId) {
         ModelAndView mv = new ModelAndView("my_msg");
+        User user = new User();
+        user.setUserId(userId);
+        User user1 = userService.selectUser(user);
+        mv.addObject("user",user1);
         return mv;
     }
 
@@ -73,8 +78,10 @@ public class StudentController {
      * @date 2019-03-29 09:43:49
      */
     @RequestMapping("/change_msg")
-    public ModelAndView change_msg() {
+    public ModelAndView change_msg(String userId,String userName) {
         ModelAndView mv = new ModelAndView("change_msg");
+        mv.addObject("userId",userId);
+        mv.addObject("userName",userName);
         return mv;
     }
 
@@ -97,9 +104,7 @@ public class StudentController {
      * @date 2019-03-29 09:43:49
      */
     @RequestMapping("/changeMyMsg")
-    public ModelAndView changeMyMsg(User user, HttpServletRequest request) {
-        User user1 = (User)request.getSession().getAttribute("user");
-        user.setUserId(user1.getUserId());
+    public ModelAndView changeMyMsg(User user) {
         ModelAndView mv = new ModelAndView("my_msg");
         if(user.getPwd()!=null&&!"".equals(user.getPwd())){
             mv.setViewName("redirect:/");
@@ -116,10 +121,12 @@ public class StudentController {
      */
     @RequestMapping("/getAddPoint")
     @ResponseBody
-    public PageInfo<AddPoint> getAddPoint(AddPoint addPoint,HttpServletRequest request,
+    public PageInfo<AddPoint> getAddPoint(String addDesc,HttpServletRequest request,
                                       @RequestParam(defaultValue = "1") int pageNum,
                                       @RequestParam(defaultValue = "5") int pageSize) {
         User user = (User) request.getSession().getAttribute("user");
+        AddPoint addPoint = new AddPoint();
+        addPoint.setAddDesc(addDesc);
         addPoint.setUserId(user.getUserId());
         List<AddPoint> list = studentService.getAddPoint(addPoint, pageNum, pageSize);
         PageInfo<AddPoint> pageInfo = new PageInfo<>(list);

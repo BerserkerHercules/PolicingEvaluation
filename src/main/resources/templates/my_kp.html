@@ -9,6 +9,44 @@
     <link rel="stylesheet" href="/vendor/simple-line-icons/css/simple-line-icons.css">
     <link rel="stylesheet" href="/vendor/font-awesome/css/fontawesome-all.min.css">
     <link rel="stylesheet" href="/css/styles.css">
+    <style type="text/css">
+        .table-responsive1 {
+            display: block;
+            width: 100%;
+            height: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            -ms-overflow-style: -ms-autohiding-scrollbar
+        }
+
+        .table-responsive1 > .table-bordered {
+            border: 0
+        }
+        .col-md-6-2 {
+            position: relative;
+            width: 50%;
+            min-height: 1px;
+            padding-right: 15px;
+            padding-left: 15px
+        }
+
+        .col-md-6-2 {
+            -webkit-box-flex: 0;
+            -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+            max-width: 50%
+        }
+        .row {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            margin-right: 15px;
+            margin-left: 15px
+        }
+
+    </style>
 </head>
 <body>
 <div class="page-wrapper">
@@ -18,9 +56,21 @@
                 <div class="col-md-6">
                     <div class="card">
                         <div class="card-header bg-light">
-                            我的加分信息
+                            我的扣分信息
                         </div>
+                        <div class="row mt-4">
+                            <div class="col-md-4">
+                                <div class="form-group">
 
+                                    <input id="addDesc" name="addDesc" class="form-control" placeholder="加分原因">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <button class="btn btn-rounded btn-primary" id="search">搜索</button>
+                                </div>
+                            </div>
+                        </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-hover" id="table_add">

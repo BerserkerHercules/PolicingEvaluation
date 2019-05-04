@@ -61,7 +61,7 @@ public class TeacherController {
      * @date 2019-03-29 09:43:49
      */
     @RequestMapping(value = "/getUser", method = RequestMethod.GET)
-    public ModelAndView getUser() {
+    public ModelAndView getUser(String userId) {
         ModelAndView mv = new ModelAndView("/teacher/user_msg");
         return mv;
     }
@@ -72,7 +72,7 @@ public class TeacherController {
      * @author YanZiyi
      * @date 2019-03-29 09:43:49
      */
-    @RequestMapping(value = "/getUserMsg", method = RequestMethod.GET)
+    @RequestMapping(value = "/getUserMsg")
     @ResponseBody
     public User getUserMsg(String userId) {
         User user = new User();
@@ -122,5 +122,25 @@ public class TeacherController {
         }
         return "true";
     }
+
+    /**
+     * 录入学生加分
+     */
+
+    /**
+     * 录入扣分
+     */
+
+    /**
+     * 录入惩罚
+     */
+
+    /**
+     * 录入奖励
+     */
+
+    /**
+     * 提交重大违纪
+     */
 
 }

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -24,7 +24,7 @@
                         <div class="card-body">
                             <div class="row mb-5">
                                 <div class="col-md-4 mb-4">
-                                    <div>严子义</div>
+                                    <div>你好，<span th:text="${userName}"></span></div>
                                     <div class="text-muted small">以下是你可以修改的信息</div>
                                 </div>
 
@@ -33,6 +33,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="form-control-label">手机号码</label>
+                                                <input type="hidden" id="userId" name="userId" th:value="${userId}"/>
                                                 <input class="form-control" id="phone" name="phone">
                                             </div>
                                         </div>
@@ -78,7 +79,7 @@
 
                         <div class="card-footer bg-light text-right">
                             <button id="save" type="submit" class="btn btn-primary">保存修改</button>
-                            <a href="/student/getMyMsg"><button type="submit" class="btn btn-primary">取消修改</button></a>
+                            <!--<a id="cancel"><button class="btn btn-primary">取消修改</button></a>-->
                         </div>
 
                     </form>
@@ -91,7 +92,6 @@
 <script src="/vendor/popper.js/popper.min.js"></script>
 <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
 <script src="/vendor/chart.js/chart.min.js"></script>
-<script src="/js/change_msg.js"></script>
 <script>
     $("#save").click(function () {
         var pwd=$("#pwd").val();
@@ -102,6 +102,12 @@
         }
         $("#save_form").submit();
     });
+
+    /*$(document).ready(function () {
+        var userId=$("#userId").val();
+        alert(userId);
+        $("#cancel").attr("href","/student/getMyMsg");
+     });*/
 </script>
 </body>
 </html>

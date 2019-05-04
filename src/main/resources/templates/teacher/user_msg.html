@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>我的信息</title>
+    <title>学生信息</title>
     <link rel="stylesheet" href="/vendor/simple-line-icons/css/simple-line-icons.css">
     <link rel="stylesheet" href="/vendor/font-awesome/css/fontawesome-all.min.css">
     <link rel="stylesheet" href="/css/styles.css">
@@ -29,7 +29,7 @@
                                     </div>
 
                                     <div class="col-md-6 text-right">
-                                        <p class="font-weight-bold mb-4">详情</p>
+                                        <p class="font-weight-bold mb-4">学生信息详情</p>
                                         <p class="mb-1" id="id"><span class="text-muted">学号: </span></p>
                                         <p class="mb-1" id="pwd"><span class="text-muted">密码: </span></p>
                                         <p class="mb-1" id="kpfs"><span class="text-muted">考评总分: </span></p>
@@ -38,12 +38,12 @@
                                     </div>
                                 </div>
 
-                                <!--<div class="row p-5">
+                                <div class="row p-5">
                                     <div class="col-md-12">
-                                        <a href="/student/change_msg"><button type="button" class="btn btn-outline-primary">修改信息</button></a>
-                                        <a href="/student/myKp"><button type="button" class="btn btn-outline-primary">考评详情</button></a>
+                                        <a href="/student/change_msg"><button type="button" class="btn btn-outline-primary">录入考评</button></a>
+                                        <!--<a href="/student/myKp"><button type="button" class="btn btn-outline-primary">考评详情</button></a>-->
                                     </div>
-                                </div>-->
+                                </div>
 
                             </div>
                         </div>
@@ -56,20 +56,20 @@
 <script src="/vendor/jquery/jquery.min.js"></script>
 <script src="/vendor/popper.js/popper.min.js"></script>
 <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
-<script src="/vendor/chart.js/chart.min.js"></script>
 <script>
 
     $(document).ready(function () {
-        var userId ='${userId}';
-        alert(userId);
             $.ajax({
             url : "/teacher/getUserMsg",     //后台请求的数据
             dataType : "string",
-            data:userId,
-            type : "get",                  //请求方式
+            data:{
+                "userId":3,
+            },
+            type : "post",
             async : true,                   //是否异步请求
             success : function(data) {      //如果请求成功，返回数据。
-                $("#userName").append(data.userName);
+                alert(1);
+                /*$("#userName").append(data.userName);
                 $("#xb").append(data.xb);
                 $("#phone").append(data.phone);
                 $("#email").append(data.email);
@@ -77,7 +77,7 @@
                 $("#pwd").append(data.pwd);
                 $("#kpfs").append(data.kpfs);
                 $("#qdbm").append(data.qdbm);
-                $("#qshm").append(data.qshm);
+                $("#qshm").append(data.qshm);*/
             },
         });
 

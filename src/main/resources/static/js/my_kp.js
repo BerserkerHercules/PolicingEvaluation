@@ -1,4 +1,4 @@
-var add_pageNum = 1, pageSize = 5, add_pages = 0;
+var add_pageNum = 1, pageSize = 6, add_pages = 0;
 var del_pageNum = 1, del_pages = 0;
 var jl_pageNum = 1, jl_pages = 0;
 var cf_pageNum = 1, cf_pages = 0;
@@ -27,7 +27,8 @@ function addPoint() {
         url: "/student/getAddPoint",     //后台请求的数据
         data: {
             "pageSize": pageSize,
-            "pageNum": add_pageNum
+            "pageNum": add_pageNum,
+            "addDesc":$("#addDesc").val(),
         },
         type: "post",                  //请求方式
         async: true,                   //是否异步请求

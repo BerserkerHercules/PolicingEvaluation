@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -18,30 +18,31 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body p-0">
-
+                        <input type="hidden" id="userId" name="userId" th:value="${user.userId}"/>
+                        <input type="hidden" id="userName" name="userName" th:value="${user.userName}"/>
                         <div class="row pb-5 p-5">
                             <div class="col-md-6">
                                 <p class="font-weight-bold mb-4">我的个人信息</p>
-                                <p class="mb-1" id="userName">姓名：</p>
-                                <p id="xb">性别：</p>
-                                <p class="mb-1" id="phone">手机号码：</p>
-                                <p class="mb-1" id="email">邮箱：</p>
+                                <p class="mb-1">姓名：<span th:text="${user.userName}"></span></p>
+                                <p id="xb">性别：<span th:text="${user.xb}"></span></p>
+                                <p class="mb-1" id="phone">手机号码：<span th:text="${user.phone}"></span></p>
+                                <p class="mb-1" id="email">邮箱：<span th:text="${user.email}"></span></p>
                             </div>
 
                             <div class="col-md-6 text-right">
                                 <p class="font-weight-bold mb-4">详情</p>
-                                <p class="mb-1" id="id"><span class="text-muted">学号: </span></p>
-                                <p class="mb-1" id="pwd"><span class="text-muted">密码: </span></p>
-                                <p class="mb-1" id="kpfs"><span class="text-muted">考评总分: </span></p>
-                                <p class="mb-1" id="qdbm"><span class="text-muted">所属区队: </span></p>
-                                <p class="mb-1" id="qshm"><span class="text-muted">寝室号码: </span></p>
+                                <p class="mb-1"><span class="text-muted">学号: <span th:text="${user.userId}"></span></span></p>
+                                <p class="mb-1" id="pwd"><span class="text-muted">密码:<span th:text="${user.pwd}"></span> </span></p>
+                                <p class="mb-1" id="kpfs"><span class="text-muted">考评总分:<span th:text="${user.kpfs}"></span> </span></p>
+                                <p class="mb-1" id="qdbm"><span class="text-muted">所属区队:<span th:text="${user.qdbm}"></span> </span></p>
+                                <p class="mb-1" id="qshm"><span class="text-muted">寝室号码:<span th:text="${user.qshm}"></span> </span></p>
                             </div>
                         </div>
 
                         <div class="row p-5">
                             <div class="col-md-12">
-                                <a href="/student/change_msg"><button type="button" class="btn btn-outline-primary">修改信息</button></a>
-                                <a href="/student/myKp"><button type="button" class="btn btn-outline-primary">考评详情</button></a>
+                                <a id="change_msg"><button type="button" class="btn btn-outline-primary">修改信息</button></a>
+                                <a id="myKp"><button type="button" class="btn btn-outline-primary">考评详情</button></a>
                             </div>
                         </div>
 

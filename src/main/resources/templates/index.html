@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body class="sidebar-fixed header-fixed">
+<input type="hidden" id="userId" name="userId" th:value="${user.userId}"/>
 <div class="page-wrapper">
     <nav class="navbar page-header">
 
@@ -33,6 +34,11 @@
                     <img src="/imgs/avatar-1.png" class="avatar avatar-sm" alt="logo">
                     <span id="myMsg" class="small ml-1 d-md-down-none"></span>
                 </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a href="/" class="dropdown-item">
+                        <i class="fa fa-lock"></i> 退出
+                    </a>
+                </div>
             </li>
         </ul>
     </nav>
@@ -41,10 +47,10 @@
         <div class="sidebar">
             <nav class="sidebar-nav">
                 <ul class="nav">
-                    <li class="nav-title">我的</li>
+                    <li class="nav-title"><span th:text="${user.userName}"></span></li>
 
                     <li class="nav-item">
-                        <a href="/student/getMyMsg" target="targetText" class="nav-link active">
+                        <a id="my_msg" href="/student/getMyMsg" target="targetText" class="nav-link active">
                             <i class="icon icon-speedometer"></i> 我的个人信息
                         </a>
                     </li>
@@ -76,7 +82,7 @@
             <div class="container">
                 <div class="row">
                     <iframe id="iframe" onload="this.height=body.offsetHeight" width="100%" scrolling="true"
-                            frameborder="0" src="/student/getMyMsg" name="targetText"></iframe>
+                            frameborder="0" src="" name="targetText"></iframe>
                 </div>
             </div>
         </div>

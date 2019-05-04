@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -35,7 +34,7 @@ public class UserController {
      * @date 2019-03-21 09:06:08
      */
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public ModelAndView login(User user, HttpServletRequest request) {
+    public ModelAndView login(User user) {
         User user1 = userService.login(user);
         ModelAndView mv = new ModelAndView("login");
         if (user1 == null) {
@@ -43,17 +42,14 @@ public class UserController {
         }else if(user1.getPermissionDegree()==3){
             mv.setViewName("index");
             mv.addObject("user",user1);
-            request.getSession().setAttribute("user", user1);
             return mv;
         }else if (user1.getPermissionDegree()==1){
             mv.setViewName("/admin/admin");
             mv.addObject("user",user1);
-            request.getSession().setAttribute("user", user1);
             return mv;
         }else if(user1.getPermissionDegree()==2){
             mv.setViewName("/teacher/teacher");
             mv.addObject("user",user1);
-            request.getSession().setAttribute("user", user1);
             return mv;
         }else{
             return mv;

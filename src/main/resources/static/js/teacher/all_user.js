@@ -49,7 +49,7 @@ function addPoint() {
                     + "<td>" + content.phone + "</td>"
                     + "<td>" + content.kpfs + "</td>"
                     + "<td>" + gb + "</td>"
-                    + "<td><a class='user-msg' href='javascript:;'>详情</a></td>"
+                    + "<td><a class='user-msg' href='/teacher/getUser?userId="+content.userId+"'>详情</a></td>"
                     + "</tr>";
                 $("#table_add tbody").append(trHTML);//在table最后面添加一行
             }
@@ -92,30 +92,4 @@ $(".add").click(function () {
             addPoint();
             break;
     }
-});
-
-$(".user-msg").click(function () {
-    //alert(1);
-    var userId = $(this).attr('userId');
-    alert(userId);
-    $("#all_user").hide();
-    $("#user_msg").show();
-    $.ajax({
-        url : "/teacher/getUserMsg",     //后台请求的数据
-        dataType : "string",
-        data:userId,
-        type : "get",                   //请求方式
-        async : true,                   //是否异步请求
-        success : function(data) {      //如果请求成功，返回数据。
-            $("#userName").append(data.userName);
-            $("#xb").append(data.xb);
-            $("#phone").append(data.phone);
-            $("#email").append(data.email);
-            $("#id").append(data.userId);
-            $("#pwd").append(data.pwd);
-            $("#kpfs").append(data.kpfs);
-            $("#qdbm").append(data.qdbm);
-            $("#qshm").append(data.qshm);
-        },
-    });
 });

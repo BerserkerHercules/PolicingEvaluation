@@ -1,7 +1,7 @@
 package com.yzy.pe.controller;
 
 import com.github.pagehelper.PageInfo;
-import com.yzy.pe.entity.User;
+import com.yzy.pe.entity.*;
 import com.yzy.pe.service.TeacherService;
 import com.yzy.pe.service.UserService;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -63,6 +63,10 @@ public class TeacherController {
     @RequestMapping(value = "/getUser", method = RequestMethod.GET)
     public ModelAndView getUser(String userId) {
         ModelAndView mv = new ModelAndView("/teacher/user_msg");
+        User user = new User();
+        user.setUserId(userId);
+        User user1 = userService.selectUser(user);
+        mv.addObject("user",user1);
         return mv;
     }
 
@@ -124,20 +128,94 @@ public class TeacherController {
     }
 
     /**
+     * 打开录入考评页面
+     */
+    @RequestMapping(value = "/addUserKp", method = RequestMethod.GET)
+    public ModelAndView addUserKp(String userId) {
+        ModelAndView mv = new ModelAndView("/teacher/add_kp");
+        User user = new User();
+        user.setUserId(userId);
+        User user1 = userService.selectUser(user);
+        mv.addObject("user",user1);
+        return mv;
+    }
+
+    /**
      * 录入学生加分
      */
+    @RequestMapping(value = "/kpAdd")
+    @ResponseBody
+    public ModelAndView kpAdd(AddPoint addPoint) {
+
+        try{
+            teacherService.kpAdd(addPoint);
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        ModelAndView mv = new ModelAndView("/teacher/add_kp");
+        User user = new User();
+        user.setUserId(addPoint.getUserId());
+        User user1 = userService.selectUser(user);
+        mv.addObject("user",user1);
+        return mv;
+    }
 
     /**
      * 录入扣分
      */
+    @RequestMapping(value = "/kpDel")
+    @ResponseBody
+    public ModelAndView kpDel(DeletePoint deletePoint) {
+        try{
+            teacherService.kpDel(deletePoint);
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        ModelAndView mv = new ModelAndView("/teacher/add_kp");
+        User user = new User();
+        user.setUserId(deletePoint.getUserId());
+        User user1 = userService.selectUser(user);
+        mv.addObject("user",user1);
+        return mv;
+    }
 
     /**
      * 录入惩罚
      */
+    @RequestMapping(value = "/kpPunish")
+    @ResponseBody
+    public ModelAndView kpPunish(Punish punish) {
+        try{
+            teacherService.kpPunish(punish);
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        ModelAndView mv = new ModelAndView("/teacher/add_kp");
+        User user = new User();
+        user.setUserId(punish.getUserId());
+        User user1 = userService.selectUser(user);
+        mv.addObject("user",user1);
+        return mv;
+    }
 
     /**
      * 录入奖励
      */
+    @RequestMapping(value = "/kpReward")
+    @ResponseBody
+    public ModelAndView kpReward(Reward reward) {
+        try{
+            teacherService.kpReward(reward);
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        ModelAndView mv = new ModelAndView("/teacher/add_kp");
+        User user = new User();
+        user.setUserId(reward.getUserId());
+        User user1 = userService.selectUser(user);
+        mv.addObject("user",user1);
+        return mv;
+    }
 
     /**
      * 提交重大违纪

@@ -22,4 +22,32 @@
         select userId from user where userId=#{parameter_}
     </select>
 
+    <insert id="kpAdd" parameterType="com.yzy.pe.entity.AddPoint">
+        insert into add_point(userId,userName,addPoint,addDesc,time)
+        values (#{userId},#{userName},#{addPoint},#{addDesc},#{time})
+    </insert>
+
+    <insert id="kpDel" parameterType="com.yzy.pe.entity.DeletePoint">
+        insert into delete_point(userId,userName,deletePoint,deleteDesc,deleteTime)
+        values (#{userId},#{userName},#{deletePoint},#{deleteDesc},#{deleteTime})
+    </insert>
+
+    <insert id="kpReward" parameterType="com.yzy.pe.entity.Reward">
+        insert into reward(userId,userName,rewardReason,rewardDesc,rewardTime)
+        values (#{userId},#{userName},#{rewardReason},#{rewardDesc},#{rewardTime})
+    </insert>
+
+    <insert id="kpPunish" parameterType="com.yzy.pe.entity.Punish">
+        insert into punish(userId,userName,punishReason,punishDesc,punishTime,punishComplete)
+        values (#{userId},#{userName},#{punishReason},#{punishDesc},#{punishTime},'2')
+    </insert>
+
+    <update id="addPoint" parameterType="com.yzy.pe.entity.AddPoint">
+        update user set kpfs=kpfs+#{addPoint} where userId=#{userId}
+    </update>
+
+    <update id="delPoint" parameterType="com.yzy.pe.entity.DeletePoint">
+        update user set kpfs=kpfs-#{deletePoint} where userId=#{userId}
+    </update>
+
 </mapper>

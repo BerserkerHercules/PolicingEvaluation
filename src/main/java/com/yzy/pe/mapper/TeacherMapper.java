@@ -1,6 +1,6 @@
 package com.yzy.pe.mapper;
 
-import com.yzy.pe.entity.User;
+import com.yzy.pe.entity.*;
 
 import java.util.List;
 
@@ -16,4 +16,15 @@ public interface TeacherMapper {
 
     String haveId(String id);
 
+    void kpAdd(AddPoint addPoint)throws Exception;
+
+    void kpDel(DeletePoint deletePoint)throws Exception;
+
+    void kpReward(Reward reward)throws Exception;
+
+    void kpPunish(Punish punish)throws Exception;
+
+    void addPoint(AddPoint addPoint)throws Exception;
+
+    void delPoint(DeletePoint deletePoint)throws Exception;
 }

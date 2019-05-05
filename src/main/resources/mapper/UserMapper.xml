@@ -71,7 +71,7 @@
     </insert>
 
     <update id="updateUser" parameterType="com.yzy.pe.entity.User">
-        update from user set
+        update user set
           userName=#{userName},pwd=#{pwd},
           permissionDegree=#{permissionDegree},
           qdbm=#{qdbm},kpfs=#{kpfs}

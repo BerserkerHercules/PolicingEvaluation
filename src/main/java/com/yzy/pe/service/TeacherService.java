@@ -1,9 +1,8 @@
 package com.yzy.pe.service;
 
-import com.yzy.pe.entity.AddPoint;
-import com.yzy.pe.entity.DeletePoint;
-import com.yzy.pe.entity.Punish;
-import com.yzy.pe.entity.Reward;
+import com.yzy.pe.entity.*;
+
+import java.util.List;
 
 /**
  * @author YanZiyi
@@ -21,4 +20,5 @@ public interface TeacherService {
 
     void kpPunish(Punish punish)throws Exception;
 
+    List<UserWj> userWj();
 }

@@ -1,15 +1,13 @@
 package com.yzy.pe.service.impl;
 
-import com.yzy.pe.entity.AddPoint;
-import com.yzy.pe.entity.DeletePoint;
-import com.yzy.pe.entity.Punish;
-import com.yzy.pe.entity.Reward;
+import com.yzy.pe.entity.*;
 import com.yzy.pe.mapper.TeacherMapper;
 import com.yzy.pe.service.TeacherService;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @author YanZiyi
@@ -50,5 +48,10 @@ public class TeacherServiceImpl implements TeacherService {
     @Override
     public void kpPunish(Punish punish) throws Exception {
         teacherMapper.kpPunish(punish);
+    }
+
+    @Override
+    public List<UserWj> userWj() {
+        return teacherMapper.userWj();
     }
 }

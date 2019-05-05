@@ -12,6 +12,7 @@ public class UserWj {
   private long wjPoint;
   private Date wjTime;
   private String wjcl;
+  private int wjdj;
 
 
   public long getWjId() {
@@ -76,4 +77,11 @@ public class UserWj {
     this.wjcl = wjcl;
   }
 
+  public int getWjdj() {
+    return wjdj;
+  }
+
+  public void setWjdj(int wjdj) {
+    this.wjdj = wjdj;
+  }
 }

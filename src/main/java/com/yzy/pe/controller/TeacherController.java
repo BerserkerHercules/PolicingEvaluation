@@ -218,6 +218,30 @@ public class TeacherController {
     }
 
     /**
+     * 打开提交违纪页面
+     */
+    @RequestMapping(value = "/addWj", method = RequestMethod.GET)
+    public ModelAndView addWj(String userId) {
+        ModelAndView mv = new ModelAndView("/teacher/add_wj");
+        User user = new User();
+        user.setUserId(userId);
+        User user1 = userService.selectUser(user);
+        mv.addObject("user",user1);
+        return mv;
+    }
+
+    /**
+     * 打开违纪信息页面
+     */
+    @RequestMapping(value = "/allWj")
+    public ModelAndView allWj() {
+        ModelAndView mv = new ModelAndView("/teacher/all_wj");
+        List<UserWj> list = teacherService.userWj();
+        mv.addObject("list",list);
+        return mv;
+    }
+
+    /**
      * 提交重大违纪
      */
 

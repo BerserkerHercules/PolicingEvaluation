@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>提交违纪</title>
+    <link rel="stylesheet" href="/vendor/simple-line-icons/css/simple-line-icons.css">
+    <link rel="stylesheet" href="/vendor/font-awesome/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<div class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header bg-light">
+                    提交关于<span th:text="${user.userName}"></span>(学号：<span th:text="${user.userId}"></span>)的违纪信息
+                </div>
+                <div class="card-body">
+                    <hr>
+                    <form id="punish_form" action="/teacher/kpPunish" method="post">
+                        <input type="hidden" name="userId" th:value="${user.userId}"/>
+                        <input type="hidden" name="userName" th:value="${user.userName}"/>
+                        <div class="mb-4">
+                            <p>学生违纪审核提交</p>
+                            <div class="row mt-4">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="textarea">Example textarea</label>
+                                        <textarea id="textarea" class="form-control" rows="6"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-4">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="form-control-label">违纪扣除分数</label>
+                                        <input class="form-control" placeholder="请输入违纪扣除分数" id="wjPoint" name="wjPoint">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="form-control-label">违纪时间</label>
+                                        <input class="form-control" placeholder="请输入时间(格式：yyyy-MM-dd)" id="wjTime" name="wjTime">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="form-control-label">建议的处理结果</label>
+                                        <input class="form-control" placeholder="建议的处理结果" id="wjcl" name="wjcl">
+                                    </div>
+                                </div>
+                            </div>
+                            <button id="kp_punish" type="button" class="btn btn-outline-primary">确定</button>
+                            <button type="reset" class="btn btn-outline-primary">重置</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/vendor/jquery/jquery.min.js"></script>
+<script src="/vendor/popper.js/popper.min.js"></script>
+<script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="/vendor/chart.js/chart.min.js"></script>
+</body>
+</html>

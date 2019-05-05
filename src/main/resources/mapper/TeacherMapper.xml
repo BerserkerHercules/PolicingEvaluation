@@ -50,4 +50,8 @@
         update user set kpfs=kpfs-#{deletePoint} where userId=#{userId}
     </update>
 
+    <select id="userWj" resultType="com.yzy.pe.entity.UserWj">
+        select * from user_wj order by wjdj desc
+    </select>
+
 </mapper>

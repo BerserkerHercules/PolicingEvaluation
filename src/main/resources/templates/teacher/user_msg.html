@@ -43,6 +43,7 @@
                                 <div class="row p-5">
                                     <div class="col-md-12">
                                         <a id="add_kp"><button type="button" class="btn btn-outline-primary">录入考评</button></a>
+                                        <a id="add_wj"><button type="button" class="btn btn-outline-primary">违纪处理</button></a>
                                     </div>
                                 </div>
 
@@ -62,6 +63,7 @@
     var userId=$("#userId").val();
     $(document).ready(function () {
         $("#add_kp").attr("href","/teacher/addUserKp?userId="+userId);
+        $("#add_wj").attr("href","/teacher/addWj?userId="+userId);
     });
 </script>
 </body>

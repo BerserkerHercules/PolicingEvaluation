@@ -27,4 +27,6 @@ public interface TeacherMapper {
     void addPoint(AddPoint addPoint)throws Exception;
 
     void delPoint(DeletePoint deletePoint)throws Exception;
+
+    List<UserWj> userWj();
 }

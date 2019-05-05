@@ -7,6 +7,7 @@ $(document).ready(function () {
         success : function(data) {      //如果请求成功，返回数据。
             $("#myMsg").text(data.userName);
             $("#my_msg").attr("href","/student/getMyMsg?userId="+data.userId);
+            $("#myKp").attr("href","/student/myKp?userId="+data.userId);
             $("#iframe").attr("src","/student/getMyMsg?userId="+data.userId);
         },
     });

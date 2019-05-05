@@ -21,4 +21,12 @@ public interface TeacherService {
     void kpPunish(Punish punish)throws Exception;
 
     List<UserWj> userWj();
+
+    void addWjTj(UserWj userWj);
+
+    List<UserWj> userWjTj();
+
+    void addWj(UserWj userWj);
+
+    void delWjTj(UserWj userWj);
 }

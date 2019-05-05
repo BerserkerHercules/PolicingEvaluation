@@ -12,14 +12,16 @@
 </head>
 <body>
 <div th:each="wj,wjStat : ${list}">
-    <div class="col-md-4">
-        <div class="card">
-            <div class="card-header bg-light">
-                <span th:text="${wj.userName}"></span>
-            </div>
-            <div class="card-body">
-                 <span th:text="${wj.wjMs}"></span>
-            </div>
+    <div class="card">
+        <div class="card-header bg-light">
+            <b>违纪人：<span th:text="${wj.userName}"></span></b>
+        </div>
+        <div class="card-body">
+            <b>违纪类别：<span th:text="${wj.wjdjms}"></span></b><br/><br/>
+            <b>违纪事件：</b><span th:text="${wj.wjMs}"></span><br/><br/>
+            <b>违纪时间：</b><span th:text="${wj.wjTime}"></span><br/><br/>
+            <b>处理结果：</b><span th:text="${wj.wjcl}"></span><br/><br/>
+            <b>扣除考评分数：</b><span th:text="${wj.wjPoint}"></span>分<br/>
         </div>
     </div>
 </div>

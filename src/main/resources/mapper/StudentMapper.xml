@@ -8,7 +8,7 @@
         select addId,addDesc,addPoint,userId,userName,time  from add_point
         where userId=#{userId}
         <if test="addDesc !=null and addDesc !=''">
-            and addDesc=#{addDesc}
+            and addDesc like concat('%',#{addDesc},'%')
         </if>
         <if test="addPoint !=null and addPoint !=''">
             and addPoint=#{addPoint}
@@ -21,7 +21,7 @@
         select * from delete_point
         where userId=#{userId}
         <if test="deleteDesc !=null and deleteDesc !=''">
-            and deleteDesc=#{deleteDesc}
+            and deleteDesc like concat('%',#{deleteDesc},'%')
         </if>
         <if test="deletePoint !=null and deletePoint !=''">
             and deletePoint=#{deletePoint}
@@ -33,7 +33,7 @@
         select * from punish
         where userId=#{userId}
         <if test="punishReason !=null and punishReason !=''">
-            and punishReason=#{punishReason}
+            and punishReason like concat('%',#{punishReason},'%')
         </if>
         <if test="punishComplete !=null and punishComplete !=''">
             and punishComplete=#{punishComplete}
@@ -48,7 +48,7 @@
         select * from reward
         where userId=#{userId}
         <if test="rewardReason !=null and rewardReason !=''">
-            and rewardReason=#{rewardReason}
+            and rewardReason like concat('%',#{rewardReason},'%')
         </if>
         <if test="rewardDesc !=null and rewardDesc !=''">
             and rewardDesc=#{rewardDesc}

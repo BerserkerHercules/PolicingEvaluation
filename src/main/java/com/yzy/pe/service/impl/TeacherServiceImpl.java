@@ -54,4 +54,25 @@ public class TeacherServiceImpl implements TeacherService {
     public List<UserWj> userWj() {
         return teacherMapper.userWj();
     }
+
+    @Override
+    public void addWjTj(UserWj userWj) {
+        teacherMapper.addWjTj(userWj);
+    }
+
+    @Override
+    public List<UserWj> userWjTj() {
+        return teacherMapper.userWjTj();
+    }
+
+    @Override
+    public void addWj(UserWj userWj) {
+        teacherMapper.addWj(userWj);
+        teacherMapper.delWjTj(userWj);
+    }
+
+    @Override
+    public void delWjTj(UserWj userWj) {
+        teacherMapper.delWjTj(userWj);
+    }
 }

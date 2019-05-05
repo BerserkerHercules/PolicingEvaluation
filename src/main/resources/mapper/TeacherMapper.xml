@@ -54,4 +54,22 @@
         select * from user_wj order by wjdj desc
     </select>
 
+    <insert id="addWjTj" parameterType="com.yzy.pe.entity.UserWj">
+        insert into user_wj_tj(userId,userName,wjMs,wjPoint,wjcl,wjdj,wjdjms,wjTime)
+        values (#{userId},#{userName},#{wjMs},#{wjPoint},#{wjcl},#{wjdj},#{wjdjms},#{wjTime})
+    </insert>
+
+    <select id="userWjTj" resultType="com.yzy.pe.entity.UserWj">
+        select * from user_wj_tj order by wjdj desc
+    </select>
+
+    <insert id="addWj" parameterType="com.yzy.pe.entity.UserWj">
+        insert into user_wj(userId,userName,wjMs,wjPoint,wjcl,wjdj,wjdjms,wjTime)
+        values (#{userId},#{userName},#{wjMs},#{wjPoint},#{wjcl},#{wjdj},#{wjdjms},#{wjTime})
+    </insert>
+
+    <delete id="delWjTj">
+        delete from user_wj_tj where wjId=#{wjId}
+    </delete>
+
 </mapper>

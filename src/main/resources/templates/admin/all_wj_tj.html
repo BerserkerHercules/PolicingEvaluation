@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>违纪展示</title>
+    <link rel="stylesheet" href="/vendor/simple-line-icons/css/simple-line-icons.css">
+    <link rel="stylesheet" href="/vendor/font-awesome/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<div th:each="wj,wjStat : ${list}">
+
+    <div class="card">
+        <div class="card-header bg-light">
+            <b>违纪人：<span th:text="${wj.userName}"></span></b>
+        </div>
+        <div class="card-body">
+            <form action="/admin/pass" method="post">
+                <input type="hidden" th:value="${wj.userId}" name="userId">
+                <input type="hidden" th:value="${wj.userName}" name="userName">
+                <input type="hidden" th:value="${wj.wjId}" name="wjId">
+                <input type="hidden" th:value="${wj.wjdj}" name="wjdj">
+                <input type="hidden" th:value="${wj.wjdjms}" name="wjdjms">
+                <input type="hidden" th:value="${wj.wjMs}" name="wjMs">
+                <input type="hidden" th:value="${wj.wjTime}" name="wjTime">
+                <input type="hidden" th:value="${wj.wjcl}" name="wjcl">
+                <input type="hidden" th:value="${wj.wjPoint}" name="wjPoint">
+
+                <b>违纪类别：<span th:text="${wj.wjdjms}"></span></b><br/><br/>
+                <b>违纪事件：</b><span th:text="${wj.wjMs}"></span><br/><br/>
+                <b>违纪时间：</b><span th:text="${wj.wjTime}"></span><br/><br/>
+                <b>处理结果：</b><span th:text="${wj.wjcl}"></span><br/><br/>
+                <b>扣除考评分数：</b><span th:text="${wj.wjPoint}"></span>分<br/><br/>
+                <button type="submit" class="btn btn-outline-primary">
+                    违纪审核通过
+                </button>
+                <!--<button th:value="${wj.wjId}" type="button" class="btn btn-outline-primary change">
+                    修改违纪信息
+                </button>-->
+            </form>
+            <form action="/admin/cancel" method="post">
+                <input type="hidden" th:value="${wj.wjId}" name="wjId">
+                <br/><button type="submit" class="btn btn-outline-danger">
+                    否决本次提交
+                </button>
+            </form>
+        </div>
+    </div>
+
+</div>
+<script src="/vendor/jquery/jquery.min.js"></script>
+<script src="/vendor/popper.js/popper.min.js"></script>
+<script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="/vendor/chart.js/chart.min.js"></script>
+</body>
+</html>

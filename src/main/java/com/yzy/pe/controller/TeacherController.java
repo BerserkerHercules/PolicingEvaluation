@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Description user
@@ -242,7 +244,31 @@ public class TeacherController {
     }
 
     /**
+     * 所有违纪
+     * @return
+     */
+    @RequestMapping("/get_all_wj")
+    @ResponseBody
+    public List<UserWj> getAllWj(){
+        return teacherService.userWj();
+    }
+
+    /**
      * 提交重大违纪
      */
+    @RequestMapping("/add_wj")
+    public ModelAndView addWj(UserWj userWj){
+        String wjdj = userWj.getWjdj()+"";
+        Map<String,String> wjMap = new HashMap<>(5);
+        wjMap.put("1","口头警告");
+        wjMap.put("2","警告");
+        wjMap.put("3","严重警告");
+        wjMap.put("4","记过");
+        wjMap.put("5","记大过");
+        userWj.setWjdjms(wjMap.get(wjdj));
+        teacherService.addWjTj(userWj);
+        ModelAndView mv = new ModelAndView("/teacher/all_user");
+        return mv;
+    }
 
 }

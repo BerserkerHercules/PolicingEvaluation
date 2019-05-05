@@ -22,7 +22,7 @@ function upload() {
 
 function addPoint() {
     $.ajax({
-        url: "/teacher/getUserList",     //后台请求的数据
+        url: "/admin/getUserList",     //后台请求的数据
         data: {
             "pageSize": pageSize,
             "pageNum": add_pageNum
@@ -49,7 +49,7 @@ function addPoint() {
                     + "<td>" + content.phone + "</td>"
                     + "<td>" + content.kpfs + "</td>"
                     + "<td>" + gb + "</td>"
-                    + "<td><a class='user-msg' href='/teacher/getUser?userId="+content.userId+"'>录入信息</a></td>"
+                    + "<td><a class='user-msg' href='/admin/getUser?userId="+content.userId+"'>详情</a></td>"
                     + "</tr>";
                 $("#table_add tbody").append(trHTML);//在table最后面添加一行
             }

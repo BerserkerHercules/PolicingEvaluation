@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -49,14 +49,15 @@
     </style>
 </head>
 <body>
-<div class="page-wrapper">
-    <div class="main-container">
-        <div class="content">
-            <div class="row">
-                <div class="col-md-6">
+<input type="hidden" id="userId" name="userId" th:value="${userId}"/>
+<!--<div class="page-wrapper">-->
+<!--    <div class="main-container">-->
+<!--        <div class="content">-->
+            <!--<div class="row">-->
+                <!--<div class="col-md-6">-->
                     <div class="card">
                         <div class="card-header bg-light">
-                            我的扣分信息
+                            我的加分信息
                         </div>
                         <div class="row mt-4">
                             <div class="col-md-4">
@@ -67,7 +68,7 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <button class="btn btn-rounded btn-primary" id="search">搜索</button>
+                                    <button class="btn btn-rounded btn-primary" id="search_add">搜索</button>
                                 </div>
                             </div>
                         </div>
@@ -92,14 +93,25 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                <!--</div>-->
 
-                <div class="col-md-6">
+                <!--<div class="col-md-6">-->
                     <div class="card">
                         <div class="card-header bg-light">
                             我的扣分信息
                         </div>
-
+                        <div class="row mt-4">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <input id="deleteDesc" name="deleteDesc" class="form-control" placeholder="扣分原因">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <button class="btn btn-rounded btn-primary" id="search_del">搜索</button>
+                                </div>
+                            </div>
+                        </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-hover" id="table_del">
@@ -121,16 +133,28 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
+                <!--</div>-->
+            <!--</div>-->
 
-            <div class="row">
-                <div class="col-md-6">
+            <!--<div class="row">-->
+                <!--<div class="col-md-6">-->
                     <div class="card">
                         <div class="card-header bg-light">
                             我的奖励信息
                         </div>
+                        <div class="row mt-4">
+                            <div class="col-md-4">
+                                <div class="form-group">
 
+                                    <input id="rewardReason" name="rewardReason" class="form-control" placeholder="奖励原因">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <button class="btn btn-rounded btn-primary" id="search_reward">搜索</button>
+                                </div>
+                            </div>
+                        </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-hover" id="table_jl">
@@ -152,14 +176,26 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                <!--</div>-->
 
-                <div class="col-md-6">
+                <!--<div class="col-md-6">-->
                     <div class="card">
                         <div class="card-header bg-light">
                             我的惩罚信息
                         </div>
+                        <div class="row mt-4">
+                            <div class="col-md-4">
+                                <div class="form-group">
 
+                                    <input id="punishReason" name="punishReason" class="form-control" placeholder="惩罚原因">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <button class="btn btn-rounded btn-primary" id="search_punish">搜索</button>
+                                </div>
+                            </div>
+                        </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-hover" id="table_cf">
@@ -182,11 +218,11 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+                <!--</div>-->
+            <!--</div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 <script src="/vendor/jquery/jquery.min.js"></script>
 <script src="/vendor/popper.js/popper.min.js"></script>
 <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>

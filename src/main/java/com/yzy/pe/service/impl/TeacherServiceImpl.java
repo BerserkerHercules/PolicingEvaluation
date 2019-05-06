@@ -67,6 +67,11 @@ public class TeacherServiceImpl implements TeacherService {
 
     @Override
     public void addWj(UserWj userWj) {
+        DeletePoint deletePoint = new DeletePoint();
+        deletePoint.setUserId(userWj.getUserId());
+        deletePoint.setUserName(userWj.getUserName());
+        deletePoint.setDeletePoint(userWj.getWjPoint());
+        teacherMapper.kpDel(deletePoint);
         teacherMapper.addWj(userWj);
         teacherMapper.delWjTj(userWj);
     }

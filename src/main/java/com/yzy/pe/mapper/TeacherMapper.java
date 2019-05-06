@@ -18,7 +18,7 @@ public interface TeacherMapper {
 
     void kpAdd(AddPoint addPoint)throws Exception;
 
-    void kpDel(DeletePoint deletePoint)throws Exception;
+    void kpDel(DeletePoint deletePoint);
 
     void kpReward(Reward reward)throws Exception;
 

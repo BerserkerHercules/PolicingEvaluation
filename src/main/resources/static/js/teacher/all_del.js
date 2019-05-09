@@ -11,23 +11,14 @@ function init() {
     addPoint();
 }
 
-//****************************************************************************************************
-
-/**
- * 区队信息
- */
 function addPoint() {
-
-    var data = {
-        "pageSize": pageSize,
-        "pageNum": add_pageNum,
-        "qdmc": $("#qdmc").val(),
-        "qdbm": $("#qdbm").val(),
-    };
-
     $.ajax({
-        url: "/student/getTeamList",     //后台请求的数据
-        data: data,
+        url: "/teacher/del_list",     //后台请求的数据
+        data: {
+            "pageSize": pageSize,
+            "pageNum": add_pageNum,
+            "userId": $("#userId").val(),
+        },
         type: "post",                  //请求方式
         async: true,                   //是否异步请求
         success: function (data) {      //如果请求成功，返回数据。
@@ -37,10 +28,13 @@ function addPoint() {
             for (var i = 1; i < list_.length + 1; i++) {
                 var content = list_[i - 1];
                 var trHTML = "<tr>"
-                    + "<td>" + content.qdbm + "</td>"
-                    + "<td>" + content.qdmc + "</td>"
-                    + "<td>" + content.qdkp + "</td>"
-                    + "<td>" + content.qdrs + "</td></tr>";
+                    + "<td>" + content.userId + "</td>"
+                    + "<td>" + content.userName + "</td>"
+                    + "<td>" + content.deleteDesc + "</td>"
+                    + "<td>" + content.deletePoint + "</td>"
+                    + "<td>" + content.deleteTime + "</td>"
+                    + "<td><a class='user-msg' href='/teacher/del_del?userId="+content.userId+"&deleteId="+content.deleteId+"&userName="+content.userName+"'>编辑</a></td>"
+                    + "</tr>";
                 $("#table_add tbody").append(trHTML);//在table最后面添加一行
             }
         },
@@ -48,7 +42,7 @@ function addPoint() {
 }
 
 /**
- * 区队信息表翻页
+ * 翻页
  */
 $(".add").click(function () {
     var data = $(this).html();
@@ -83,7 +77,7 @@ $(".add").click(function () {
             break;
     }
 });
-
-$("#search").click(function () {
+$("#search_reward").click(function () {
     addPoint();
 });
+

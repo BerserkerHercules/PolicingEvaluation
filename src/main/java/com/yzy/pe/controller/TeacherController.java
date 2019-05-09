@@ -271,4 +271,68 @@ public class TeacherController {
         return mv;
     }
 
+    /**
+     * Description 打开添加学生页面
+     *
+     * @author YanZiyi
+     * @date 2019-03-29 09:43:49
+     */
+    @RequestMapping(value = "/all_del")
+    public ModelAndView allDel() {
+        ModelAndView mv = new ModelAndView("/teacher/all_del");
+        return mv;
+    }
+
+    /**
+     * 扣分学生
+     */
+    @RequestMapping("/del_list")
+    @ResponseBody
+    public PageInfo<DeletePoint> delList(String userId, @RequestParam(defaultValue = "1") int pageNum,
+                                         @RequestParam(defaultValue = "10") int pageSize) {
+        List<DeletePoint> list = teacherService.allDel(userId, pageNum, pageSize);
+        return new PageInfo<>(list);
+    }
+
+    /**
+     * 编辑此次扣分
+     */
+    @RequestMapping("/del_del")
+    @ResponseBody
+    public ModelAndView delDel(String userName,String userId,String deleteId) {
+        ModelAndView mv = new ModelAndView("/teacher/update_del");
+        DeletePoint deletePoint1 = new DeletePoint();
+        deletePoint1.setDeleteId(Long.parseLong(deleteId));
+        DeletePoint deletePoint = teacherService.getDel(deletePoint1);
+        mv.addObject("userId",userId);
+        mv.addObject("deletePoint",deletePoint);
+        mv.addObject("userName",userName);
+        return mv;
+    }
+
+    /**
+     * 录入扣分
+     */
+    @RequestMapping(value = "/upDel")
+    @ResponseBody
+    public ModelAndView upDel(DeletePoint deletePoint) {
+        ModelAndView mv = new ModelAndView("/teacher/all_del");
+        teacherService.upDel(deletePoint);
+        return mv;
+    }
+
+    /**
+     * 编辑此次扣分
+     */
+    @RequestMapping(value = "/del_this")
+    @ResponseBody
+    public ModelAndView delThis(String deleteId) {
+        ModelAndView mv = new ModelAndView("/teacher/all_del");
+        DeletePoint deletePoint1 = new DeletePoint();
+        deletePoint1.setDeleteId(Long.parseLong(deleteId));
+        DeletePoint deletePoint = teacherService.getDel(deletePoint1);
+        teacherService.delThis(deletePoint);
+        return mv;
+    }
+
 }

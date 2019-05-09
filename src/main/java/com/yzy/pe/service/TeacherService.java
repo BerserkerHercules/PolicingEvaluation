@@ -29,4 +29,11 @@ public interface TeacherService {
     void addWj(UserWj userWj);
 
     void delWjTj(UserWj userWj);
+
+    List<DeletePoint> allDel(String userId, int pageNum, int pageSize);
+
+    DeletePoint getDel(DeletePoint deletePoint);
+    void upDel(DeletePoint deletePoint);
+
+    void delThis(DeletePoint deletePoint);
 }

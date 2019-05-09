@@ -349,4 +349,11 @@ public class AdminController {
         return mv;
     }
 
+    @RequestMapping(value = "/upTeam")
+    public ModelAndView upTeam(UserWj userWj) {
+        ModelAndView mv = new ModelAndView("/admin/week");
+        adminService.upTeam();
+        return mv;
+    }
+
 }

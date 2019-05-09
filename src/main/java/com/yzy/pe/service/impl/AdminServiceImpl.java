@@ -152,4 +152,9 @@ public class AdminServiceImpl implements AdminService {
     public String stuCount() {
         return adminMapper.stuCount();
     }
+
+    @Override
+    public void upTeam() {
+        adminMapper.upTeam();
+    }
 }

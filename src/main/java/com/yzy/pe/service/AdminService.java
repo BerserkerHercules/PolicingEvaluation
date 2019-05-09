@@ -25,5 +25,6 @@ public interface AdminService {
     List<NameValueDto> getWeekData4(String xqs, String weekNum);
 
     String stuCount();
+    void upTeam();
 
 }

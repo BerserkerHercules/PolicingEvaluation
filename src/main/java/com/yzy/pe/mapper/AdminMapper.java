@@ -31,5 +31,6 @@ public interface AdminMapper {
     String stuCount();
 
     List<TeamDelDto> getTeamCheckDel(String data1,String data2);
+    void upTeam();
 
 }

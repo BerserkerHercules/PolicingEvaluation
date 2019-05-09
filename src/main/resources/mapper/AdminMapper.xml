@@ -78,4 +78,23 @@
         GROUP BY t.qdbm
     </select>
 
+    <update id="upTeam">
+        update team set
+        qdkp=(
+            select sum(kpfs)
+            from user
+            where qdbm in(
+              select qdbm
+              from user
+              group by qdbm
+              order by qdbm)
+            )
+        where qdbm in (
+            select qdbm
+            from user
+            group by qdbm
+            order by qdbm
+            )
+    </update>
+
 </mapper>

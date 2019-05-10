@@ -62,10 +62,10 @@ public class AdminServiceImpl implements AdminService {
         return maps;*/
         //List<TeamDelDto> dataList = adminMapper.getWeekData(xqs, weekNum, qdbm);
         Team team = new Team();
-        List<TeamDelDto> dataList = adminMapper.getTeamCheckDel(xqs,weekNum);
+        List<TeamDelDto> dataList = adminMapper.getTeamCheckDel(xqs, weekNum);
         List<Team> teamList = studentMapper.getTeamList(team);
         List<TeamDelDto> dtoList = new ArrayList<>();
-        teamList.forEach(e->{
+        teamList.forEach(e -> {
             TeamDelDto dto = new TeamDelDto();
             dto.setQdmc(e.getQdmc());
             dto.setQdbm(e.getQdbm());
@@ -155,6 +155,9 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public void upTeam() {
-        adminMapper.upTeam();
+        Team t = new Team();
+        List<Team> teamList = studentMapper.getTeamList(t);
+        teamList.forEach(e -> adminMapper.upTeam(e));
     }
+
 }

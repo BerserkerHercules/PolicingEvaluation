@@ -1,6 +1,12 @@
 var add_pageNum = 1, pageSize = 10, add_pages = 0;
 
 $(document).ready(function () {
+    var isSuccess = $("#isSuccess").val();
+    if(isSuccess=="2"){
+        alert('您导入的文件中学号有重复，请检查后再执行');
+    }else if(isSuccess=="1"){
+        alert('导入成功');
+    }
     init();
 });
 

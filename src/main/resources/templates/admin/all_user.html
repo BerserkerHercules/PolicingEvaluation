@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -34,17 +34,17 @@
         <i class="fa fa-align-center"></i> &nbsp; 添加学生
     </button>
 </a>
-    <a href="/admin/initUpload">
+<a href="/admin/initUpload">
     <button type="button" class="btn btn-primary">
         <i class="fa fa-align-center"></i> &nbsp; 批量导入
     </button>
-    </a>
-    <a href="/admin/export">
+</a>
+<a href="/admin/export">
     <button type="button" class="btn btn-secondary">
         <i class="fa fa-download"></i> &nbsp; 批量导出
     </button>
-    </a>
-
+</a>
+<input type="hidden" th:value="${isSuccess}" id="isSuccess"/>
 <div class="page-wrapper" id="all_user">
     <div class="main-container">
         <div class="content">

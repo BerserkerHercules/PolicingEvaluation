@@ -60,6 +60,7 @@ public class AdminController {
     @RequestMapping("/all_user")
     public ModelAndView allUser() {
         ModelAndView mv = new ModelAndView("/admin/all_user");
+        mv.addObject("isSuccess","3");
         return mv;
     }
 
@@ -200,6 +201,7 @@ public class AdminController {
      */
     @RequestMapping(value = "/upload", method=RequestMethod.POST)
     public ModelAndView importFile(@RequestParam(value="file",required=false)MultipartFile myFile) throws IOException {
+        ModelAndView mv = new ModelAndView("/admin/all_user");
         try {
             ImportExcelUtil util = new ImportExcelUtil();
             InputStream input;
@@ -211,7 +213,16 @@ public class AdminController {
                 input = myFile.getInputStream();
                 lists = util.getBankListByExcel(input, fileName);
                 input.close();
-                // 循环将excel中的数据存入库
+                //判断主键重复
+                for (int i = 1; i < lists.size(); i++) {
+                    List<Object> list = lists.get(i);
+                    String haveId = teacherService.haveId(util.getFormat(String.valueOf(list.get(0))));
+                    if ("true".equals(haveId)) {
+                        mv.addObject("isSuccess","2");
+                        return mv;
+                    }
+                }
+                //循环将excel中的数据存入库
                 for (int i = 1; i < lists.size(); i++) {
                     List<Object> list = lists.get(i);
                     User users = new User();
@@ -234,7 +245,8 @@ public class AdminController {
             e.printStackTrace();
             System.out.println("导入出错");
         }
-        return new ModelAndView("/teacher/all_user");
+        mv.addObject("isSuccess","1");
+        return mv;
     }
 
 

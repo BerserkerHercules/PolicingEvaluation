@@ -13,9 +13,6 @@
         <if test="userName != null and userName != ''">
             and userName = #{userName}
         </if>
-        <if test="userName != null and userName != ''">
-            and userName = #{userName}
-        </if>
     </select>
 
     <select id="haveId" parameterType="java.lang.String" resultType="java.lang.String">

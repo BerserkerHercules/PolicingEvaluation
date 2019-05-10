@@ -106,7 +106,7 @@ public class StudentController {
      */
     @RequestMapping("/changeMyMsg")
     public ModelAndView changeMyMsg(User user) {
-        ModelAndView mv = new ModelAndView("my_msg");
+        ModelAndView mv = new ModelAndView("redirect:/student/getMyMsg?userId="+user.getUserId());
         if(user.getPwd()!=null&&!"".equals(user.getPwd())){
             mv.setViewName("redirect:/");
         }

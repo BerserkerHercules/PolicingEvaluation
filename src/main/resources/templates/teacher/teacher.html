@@ -50,7 +50,7 @@
                 <ul class="nav">
                     <li class="nav-title">学生干部<span th:text="${user.userName}"></span>，你好</li>
                     <input type="hidden" id="userId" name="userId" th:value="${user.userId}"/>
-                    <li class="nav-item">
+                    <!--<li class="nav-item">
                         <a id="my_msg" href="/student/getMyMsg" target="targetText" class="nav-link active">
                             <i class="icon icon-speedometer"></i> 我的个人信息
                         </a>
@@ -83,7 +83,7 @@
                     </li>
 
                     <li class="nav-title">学生干部</li>
-
+-->
                     <li class="nav-item">
                         <a href="/teacher/all_user" target="targetText" class="nav-link active">
                             <i class="icon icon-target"></i></i> 所有学生信息
@@ -117,7 +117,7 @@
 <script src="/vendor/chart.js/chart.min.js"></script>
 <script src="/js/carbon.js"></script>
 <script src="/js/teacher/index.js"></script>
-<script>
+<!--<script>
 $(document).ready(function () {
     var userId = $("#userId").val();
     $("#my_msg").attr("href","/student/getMyMsg?userId="+userId);
@@ -125,6 +125,6 @@ $(document).ready(function () {
     $("#myKp").attr("href","/student/myKp?userId="+userId);
     $("#iframe").attr("src","/student/getMyMsg?userId="+userId);
 });
-</script>
+</script>-->
 </body>
 </html>

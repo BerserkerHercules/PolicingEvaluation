@@ -25,7 +25,8 @@ function addPoint() {
         url: "/teacher/getUserList",     //后台请求的数据
         data: {
             "pageSize": pageSize,
-            "pageNum": add_pageNum
+            "pageNum": add_pageNum,
+            "userId":$("#userId").val(),
         },
         type: "post",                  //请求方式
         async: true,                   //是否异步请求
@@ -92,4 +93,8 @@ $(".add").click(function () {
             addPoint();
             break;
     }
+});
+
+$("#search_reward").click(function () {
+    addPoint();
 });

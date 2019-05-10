@@ -117,7 +117,7 @@
             and userName like CONCAT('%',#{userName},'%')
         </if>
         <if test="userId!=null and userId!=''">
-            and userId like CONCAT('%',#{userId},'%')
+            and userId = #{userId}
         </if>
         <if test="qdbm!=null and qdbm!= ''">
             and qdbm =#{qdbm}

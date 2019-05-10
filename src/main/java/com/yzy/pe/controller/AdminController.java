@@ -72,8 +72,10 @@ public class AdminController {
      */
     @RequestMapping("/getUserList")
     @ResponseBody
-    public PageInfo<User> getDeletePoint(User user, @RequestParam(defaultValue = "1") int pageNum,
+    public PageInfo<User> getDeletePoint(String userId, @RequestParam(defaultValue = "1") int pageNum,
                                          @RequestParam(defaultValue = "10") int pageSize) {
+        User user = new User();
+        user.setUserId(userId);
         List<User> list = userService.selectUserList(user, pageNum, pageSize);
         return new PageInfo<>(list);
     }

@@ -11,7 +11,7 @@
  Target Server Version : 80015
  File Encoding         : 65001
 
- Date: 05/05/2019 17:25:29
+ Date: 06/05/2019 01:55:28
 */
 
 SET NAMES utf8mb4;
@@ -29,20 +29,19 @@ CREATE TABLE `add_point`  (
   `addDesc` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '加分描述',
   `time` datetime(0) NULL DEFAULT NULL COMMENT '加分时间',
   PRIMARY KEY (`addId`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of add_point
 -- ----------------------------
-INSERT INTO `add_point` VALUES (1, '2', '严子义', 10, '救人', '2019-03-29 09:56:27');
-INSERT INTO `add_point` VALUES (2, '2', '严子义', 14, '救1人', '2019-04-09 21:00:21');
-INSERT INTO `add_point` VALUES (3, '2', '严子义', 13, '救1人12', '2019-04-08 21:00:26');
-INSERT INTO `add_point` VALUES (4, '2', '严子义', 11, '救1人我', '2019-04-11 21:00:31');
-INSERT INTO `add_point` VALUES (5, '2', '严子义', 12, '救1人撒旦', '2019-04-12 21:00:36');
-INSERT INTO `add_point` VALUES (6, '2', '严子义', 15, '萨芬', '2019-04-06 21:00:41');
-INSERT INTO `add_point` VALUES (7, '2', '严子义', 16, '沙发', '2019-04-05 21:00:45');
-INSERT INTO `add_point` VALUES (8, '2', '严子义', 17, 'f发', '2019-04-09 21:00:48');
-INSERT INTO `add_point` VALUES (15, '2', '女干部', 1, '1', '2018-12-31 00:00:00');
+INSERT INTO `add_point` VALUES (1, '3', '严子义', 10, '救人', '2019-03-29 09:56:27');
+INSERT INTO `add_point` VALUES (2, '3', '严子义', 14, '救1人', '2019-04-09 21:00:21');
+INSERT INTO `add_point` VALUES (3, '3', '严子义', 13, '救1人12', '2019-04-08 21:00:26');
+INSERT INTO `add_point` VALUES (4, '3', '严子义', 11, '救1人我', '2019-04-11 21:00:31');
+INSERT INTO `add_point` VALUES (5, '3', '严子义', 12, '救1人撒旦', '2019-04-12 21:00:36');
+INSERT INTO `add_point` VALUES (6, '3', '严子义', 15, '萨芬', '2019-04-06 21:00:41');
+INSERT INTO `add_point` VALUES (7, '3', '严子义', 16, '沙发', '2019-04-05 21:00:45');
+INSERT INTO `add_point` VALUES (8, '3', '严子义', 17, 'f发', '2019-04-09 21:00:48');
 
 -- ----------------------------
 -- Table structure for advice
@@ -55,7 +54,7 @@ CREATE TABLE `advice`  (
   `isCross` int(1) NULL DEFAULT NULL COMMENT '1：已通过，2：未通过',
   `orderTime` datetime(0) NULL DEFAULT NULL COMMENT '提交时间',
   PRIMARY KEY (`adviceId`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of advice
@@ -74,25 +73,24 @@ CREATE TABLE `delete_point`  (
   `deleteDesc` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '扣分描述',
   `deleteTime` datetime(0) NULL DEFAULT NULL COMMENT '扣分时间',
   PRIMARY KEY (`deleteId`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of delete_point
 -- ----------------------------
-INSERT INTO `delete_point` VALUES (1, '2', '严子义', 2, '被子不整齐', '2019-03-29 09:58:10');
-INSERT INTO `delete_point` VALUES (2, '2', '严子义', 1, '被子不整齐', '2019-04-04 21:32:58');
-INSERT INTO `delete_point` VALUES (3, '2', '严子义', 2, '撒打发', '2019-04-09 21:33:01');
-INSERT INTO `delete_point` VALUES (4, '2', '严子义', 3, '飞洒', '2019-04-05 21:33:05');
-INSERT INTO `delete_point` VALUES (5, '2', '严子义', 4, '更换尿布地方', '2019-04-07 21:33:09');
-INSERT INTO `delete_point` VALUES (6, '2', '严子义', 5, '如果', '2019-04-01 21:33:12');
-INSERT INTO `delete_point` VALUES (7, '2', '严子义', 6, '人我', '2019-04-02 21:33:18');
-INSERT INTO `delete_point` VALUES (8, '2', '严子义', 5, '阿尔瓦', '2019-04-09 21:33:23');
-INSERT INTO `delete_point` VALUES (9, '2', '严子义', 7, '范德萨', '2019-04-11 21:33:26');
-INSERT INTO `delete_point` VALUES (10, '2', '严子义', 21, '购房价款', '2019-04-08 21:33:28');
-INSERT INTO `delete_point` VALUES (11, '2', '严子义', 4, '发大水', '2019-04-11 21:33:32');
-INSERT INTO `delete_point` VALUES (12, '2', '严子义', 56, '法国', '2019-04-02 21:33:35');
-INSERT INTO `delete_point` VALUES (13, '2', '严子义', 4, '公认为', '2019-04-10 21:33:39');
-INSERT INTO `delete_point` VALUES (14, '2', '女干部', 1, '1', '2018-12-31 00:00:00');
+INSERT INTO `delete_point` VALUES (1, '3', '严子义', 2, '被子不整齐', '2019-03-29 09:58:10');
+INSERT INTO `delete_point` VALUES (2, '3', '严子义', 1, '被子不整齐', '2019-04-04 21:32:58');
+INSERT INTO `delete_point` VALUES (3, '3', '严子义', 2, '撒打发', '2019-04-09 21:33:01');
+INSERT INTO `delete_point` VALUES (4, '3', '严子义', 3, '飞洒', '2019-04-05 21:33:05');
+INSERT INTO `delete_point` VALUES (5, '3', '严子义', 4, '更换尿布地方', '2019-04-07 21:33:09');
+INSERT INTO `delete_point` VALUES (6, '3', '严子义', 5, '如果', '2019-04-01 21:33:12');
+INSERT INTO `delete_point` VALUES (7, '3', '严子义', 6, '人我', '2019-04-02 21:33:18');
+INSERT INTO `delete_point` VALUES (8, '3', '严子义', 5, '阿尔瓦', '2019-04-09 21:33:23');
+INSERT INTO `delete_point` VALUES (9, '3', '严子义', 7, '范德萨', '2019-04-11 21:33:26');
+INSERT INTO `delete_point` VALUES (10, '3', '严子义', 21, '购房价款', '2019-04-08 21:33:28');
+INSERT INTO `delete_point` VALUES (11, '3', '严子义', 4, '发大水', '2019-04-11 21:33:32');
+INSERT INTO `delete_point` VALUES (12, '3', '严子义', 56, '法国', '2019-04-02 21:33:35');
+INSERT INTO `delete_point` VALUES (13, '3', '严子义', 4, '公认为', '2019-04-10 21:33:39');
 
 -- ----------------------------
 -- Table structure for permission
@@ -104,7 +102,7 @@ CREATE TABLE `permission`  (
   `permissionDegree` int(1) NULL DEFAULT NULL COMMENT '权限系数',
   `perUrl` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '权限url',
   PRIMARY KEY (`permissionId`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of permission
@@ -124,16 +122,16 @@ CREATE TABLE `punish`  (
   `punishDesc` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '惩罚描述',
   `punishTime` datetime(0) NULL DEFAULT NULL COMMENT '惩罚时间',
   PRIMARY KEY (`punishId`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of punish
 -- ----------------------------
-INSERT INTO `punish` VALUES (1, '2', '严子义', '扣班级分数1', 1, '10圈', '2019-03-27 10:03:59');
-INSERT INTO `punish` VALUES (2, '2', '严子义', '扣班级分数2', 2, '10圈', '2019-04-11 22:27:56');
-INSERT INTO `punish` VALUES (3, '2', '严子义', '扣班级分数3', 1, '10圈', '2019-04-09 22:27:59');
-INSERT INTO `punish` VALUES (4, '2', '严子义', '扣班级分数4', 1, '10圈', '2019-04-08 22:28:03');
-INSERT INTO `punish` VALUES (5, '2', '严子义', '扣班级分数5', 2, '10圈', '2019-04-02 22:57:14');
+INSERT INTO `punish` VALUES (1, '3', '严子义', '扣班级分数1', 1, '10圈', '2019-03-27 10:03:59');
+INSERT INTO `punish` VALUES (2, '3', '严子义', '扣班级分数2', 2, '10圈', '2019-04-11 22:27:56');
+INSERT INTO `punish` VALUES (3, '3', '严子义', '扣班级分数3', 1, '10圈', '2019-04-09 22:27:59');
+INSERT INTO `punish` VALUES (4, '3', '严子义', '扣班级分数4', 1, '10圈', '2019-04-08 22:28:03');
+INSERT INTO `punish` VALUES (5, '3', '严子义', '扣班级分数5', 2, '10圈', '2019-04-02 22:57:14');
 
 -- ----------------------------
 -- Table structure for reward
@@ -147,14 +145,18 @@ CREATE TABLE `reward`  (
   `rewardDesc` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '奖励描述',
   `rewardTime` datetime(0) NULL DEFAULT NULL COMMENT '奖励时间',
   PRIMARY KEY (`rewardId`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of reward
 -- ----------------------------
-INSERT INTO `reward` VALUES (1, '2', '严子义', '一等奖', '吃饭大赛荣获一等奖学金', '2019-04-11 21:41:33');
-INSERT INTO `reward` VALUES (2, '2', '严子义', '2等奖', '吃饭大赛荣获2等奖学金', '2019-04-12 21:42:25');
-INSERT INTO `reward` VALUES (3, '2', '严子义', '3等奖', '吃饭大赛3等奖', '2019-04-13 21:42:45');
+INSERT INTO `reward` VALUES (1, '3', '严子义', '一等奖', '吃饭大赛荣获一等奖学金', '2019-04-11 21:41:33');
+INSERT INTO `reward` VALUES (2, '3', '严子义', '2等奖', '吃饭大赛荣获2等奖学金', '2019-04-12 21:42:25');
+INSERT INTO `reward` VALUES (3, '3', '严子义', '3等奖', '吃饭大赛3等奖', '2019-04-13 21:42:45');
+INSERT INTO `reward` VALUES (9, '3', '严子义', '严子义', '严子义', '2019-04-10 22:58:07');
+INSERT INTO `reward` VALUES (10, '3', '严子义', '严子义', '严子义', '2019-04-10 22:58:10');
+INSERT INTO `reward` VALUES (11, '3', '严子义', '严子义', '严子义', '2019-04-10 22:58:13');
+INSERT INTO `reward` VALUES (12, '3', '严子义', '严子义', '严子义', '2019-04-10 22:58:16');
 
 -- ----------------------------
 -- Table structure for team
@@ -167,7 +169,7 @@ CREATE TABLE `team`  (
   `qdkp` int(4) NULL DEFAULT NULL COMMENT '区队考评分数',
   `qdrs` int(5) NULL DEFAULT NULL COMMENT '区队人数',
   PRIMARY KEY (`qdId`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of team
@@ -196,18 +198,18 @@ CREATE TABLE `team_del`  (
 INSERT INTO `team_del` VALUES (1, 'zjjc1591801', 10, '2019-04-23 16:25:12', '2019第1学期', 1, '卫生', 2);
 INSERT INTO `team_del` VALUES (1, 'zjjc1591801', 10, '2019-04-23 16:25:17', '2019第1学期', 1, '卫生', 2);
 INSERT INTO `team_del` VALUES (1, 'zjjc1591801', 10, '2019-04-23 16:25:21', '2019第1学期', 2, NULL, 1);
-INSERT INTO `team_del` VALUES (2, 'zjjc1111', 10, '2019-04-22 16:25:26', '2019第1学期', 2, NULL, 2);
-INSERT INTO `team_del` VALUES (2, 'zjjc1111', 10, '2019-04-23 16:25:30', '2019第1学期', 2, NULL, 2);
-INSERT INTO `team_del` VALUES (2, 'zjjc1111', 10, '2019-04-24 16:25:33', '2019第1学期', 2, NULL, 2);
-INSERT INTO `team_del` VALUES (2, 'zjjc1111', 10, '2019-04-19 16:25:37', '2019第1学期', 3, NULL, 1);
-INSERT INTO `team_del` VALUES (2, 'zjjc1111', 10, '2019-04-18 16:25:41', '2019第1学期', 3, NULL, 1);
+INSERT INTO `team_del` VALUES (1, 'zjjc1111', 10, '2019-04-22 16:25:26', '2019第1学期', 2, NULL, 2);
+INSERT INTO `team_del` VALUES (1, 'zjjc1111', 10, '2019-04-23 16:25:30', '2019第1学期', 2, NULL, 2);
+INSERT INTO `team_del` VALUES (1, 'zjjc1111', 10, '2019-04-24 16:25:33', '2019第1学期', 2, NULL, 2);
+INSERT INTO `team_del` VALUES (1, 'zjjc1111', 10, '2019-04-19 16:25:37', '2019第1学期', 3, NULL, 1);
+INSERT INTO `team_del` VALUES (1, 'zjjc1111', 10, '2019-04-18 16:25:41', '2019第1学期', 3, NULL, 1);
 INSERT INTO `team_del` VALUES (1, 'zjjc1591801', 10, '2019-04-18 16:26:29', '2019第1学期', 1, NULL, 1);
 INSERT INTO `team_del` VALUES (1, 'zjjc1591801', 10, '2019-04-17 16:26:32', '2019第1学期', 4, NULL, 1);
 INSERT INTO `team_del` VALUES (1, 'zjjc1591801', 10, '2019-04-16 16:26:37', '2019第1学期', 4, NULL, 1);
 INSERT INTO `team_del` VALUES (1, 'zjjc1591801', 10, '2019-04-15 16:26:41', '2019第1学期', 5, NULL, 1);
 INSERT INTO `team_del` VALUES (1, 'zjjc1591801', 10, '2019-04-16 16:26:44', '2019第1学期', 6, NULL, 1);
 INSERT INTO `team_del` VALUES (1, 'zjjc1591801', 10, '2019-04-25 16:26:49', '2019第1学期', 6, NULL, 2);
-INSERT INTO `team_del` VALUES (2, 'zjjc1111', 10, '2019-04-22 16:26:53', '2019第1学期', 6, NULL, 2);
+INSERT INTO `team_del` VALUES (1, 'zjjc1111', 10, '2019-04-22 16:26:53', '2019第1学期', 6, NULL, 2);
 
 -- ----------------------------
 -- Table structure for user
@@ -231,7 +233,7 @@ CREATE TABLE `user`  (
 -- Records of user
 -- ----------------------------
 INSERT INTO `user` VALUES ('1', '老师', '1', 1, '', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `user` VALUES ('2', '女干部', '2', 2, 'zjjc1591801', 120, '17757180496', 'cccc@qq.com', '7-202', '女');
+INSERT INTO `user` VALUES ('2', '女干部', '2', 2, 'zjjc1591801', 126, '17757180496', 'cccc@qq.com', '7-202', '女');
 INSERT INTO `user` VALUES ('3', '严子义', '3', 3, 'zjjc1591801', 118, '15700122303', 'dddz97@163.com', '6-503', '男');
 
 -- ----------------------------
@@ -240,21 +242,26 @@ INSERT INTO `user` VALUES ('3', '严子义', '3', 3, 'zjjc1591801', 118, '157001
 DROP TABLE IF EXISTS `user_wj`;
 CREATE TABLE `user_wj`  (
   `wjId` int(6) NOT NULL AUTO_INCREMENT,
-  `wjMs` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '违纪描述',
+  `wjMs` varchar(1000) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '违纪描述',
   `userName` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '违纪人名称',
   `userId` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '违纪人Id',
   `wjPoint` int(4) NULL DEFAULT NULL COMMENT '违纪扣除分数',
   `wjTime` datetime(0) NULL DEFAULT NULL COMMENT '违纪时间',
-  `wjcl` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '违纪处理结果',
-  `wjdj` int(1) NULL DEFAULT NULL COMMENT '违纪等级：1-5',
+  `wjcl` varchar(1000) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '违纪处理结果',
+  `wjdj` int(1) NULL DEFAULT NULL COMMENT '违纪等级1-5',
+  `wjdjms` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '违纪等级说明',
   PRIMARY KEY (`wjId`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of user_wj
 -- ----------------------------
-INSERT INTO `user_wj` VALUES (1, '503寝室，于5月1日在寝室庆祝劳动节吃火锅刷肉，严重违反寝室文明纪律。', '严子义', '3', 10, '2019-05-01 10:24:52', '记全校通报一次', 6);
-INSERT INTO `user_wj` VALUES (2, '嫖娼', '严子义', '3', 100, '2019-05-04 10:27:32', '开除', 1);
+INSERT INTO `user_wj` VALUES (1, '学校违纪学生通报 XXXX年X月X日上午九点三十七分，X班XXX在XXX楼二楼楼道对XXX进行殴打，造成XXX至今还在医院治疗。上述X名的违纪行为，事实清楚，情节恶劣。严重违反校规、校纪。给学校正常的教育教学活动带来严重冲击，影响极坏。', '严子义', '3', 50, '2019-05-04 20:53:48', '依据XXX中学学生违纪处罚条例，经过校委会研究决定，本着帮助教育的原则，给她们一个改正错误的机会，决定给予以上X名同学开除学籍，留校察看一年处分。受到纪律处分的五名同学在处分没有撤销前，不能评为“三好学生”，', 1, '口头警告');
+INSERT INTO `user_wj` VALUES (2, '学校违纪学生通报 XXXX年X月X日上午九点三十七分，X班XXX在XXX楼二楼楼道对XXX进行殴打，造成XXX至今还在医院治疗。上述X名的违纪行为，事实清楚，情节恶劣。严重违反校规、校纪。给学校正常的教育教学活动带来严重冲击，影响极坏。', '严子义', '3', 50, '2019-05-04 20:53:48', '依据XXX中学学生违纪处罚条例，经过校委会研究决定，本着帮助教育的原则，给她们一个改正错误的机会，决定给予以上X名同学开除学籍，留校察看一年处分。受到纪律处分的五名同学在处分没有撤销前，不能评为“三好学生”，', 2, '警告');
+INSERT INTO `user_wj` VALUES (3, '学校违纪学生通报 XXXX年X月X日上午九点三十七分，X班XXX在XXX楼二楼楼道对XXX进行殴打，造成XXX至今还在医院治疗。上述X名的违纪行为，事实清楚，情节恶劣。严重违反校规、校纪。给学校正常的教育教学活动带来严重冲击，影响极坏。', '严子义', '3', 50, '2019-05-04 20:53:48', '依据XXX中学学生违纪处罚条例，经过校委会研究决定，本着帮助教育的原则，给她们一个改正错误的机会，决定给予以上X名同学开除学籍，留校察看一年处分。受到纪律处分的五名同学在处分没有撤销前，不能评为“三好学生”，', 3, '严重警告');
+INSERT INTO `user_wj` VALUES (4, '学校违纪学生通报 XXXX年X月X日上午九点三十七分，X班XXX在XXX楼二楼楼道对XXX进行殴打，造成XXX至今还在医院治疗。上述X名的违纪行为，事实清楚，情节恶劣。严重违反校规、校纪。给学校正常的教育教学活动带来严重冲击，影响极坏。', '严子义', '3', 50, '2019-05-04 20:53:48', '依据XXX中学学生违纪处罚条例，经过校委会研究决定，本着帮助教育的原则，给她们一个改正错误的机会，决定给予以上X名同学开除学籍，留校察看一年处分。受到纪律处分的五名同学在处分没有撤销前，不能评为“三好学生”，', 4, '记过');
+INSERT INTO `user_wj` VALUES (5, '学校违纪学生通报 XXXX年X月X日上午九点三十七分，X班XXX在XXX楼二楼楼道对XXX进行殴打，造成XXX至今还在医院治疗。上述X名的违纪行为，事实清楚，情节恶劣。严重违反校规、校纪。给学校正常的教育教学活动带来严重冲击，影响极坏。', '严子义', '3', 50, '2019-05-04 20:53:48', '依据XXX中学学生违纪处罚条例，经过校委会研究决定，本着帮助教育的原则，给她们一个改正错误的机会，决定给予以上X名同学开除学籍，留校察看一年处分。受到纪律处分的五名同学在处分没有撤销前，不能评为“三好学生”，', 5, '记大过');
+INSERT INTO `user_wj` VALUES (9, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', '女干部', '2', 10, '2019-04-29 00:00:00', 'cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc', 3, '严重警告');
 
 -- ----------------------------
 -- Table structure for user_wj_tj
@@ -262,21 +269,16 @@ INSERT INTO `user_wj` VALUES (2, '嫖娼', '严子义', '3', 100, '2019-05-04 10
 DROP TABLE IF EXISTS `user_wj_tj`;
 CREATE TABLE `user_wj_tj`  (
   `wjId` int(6) NOT NULL AUTO_INCREMENT,
-  `wjMs` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '违纪描述',
+  `wjMs` varchar(1000) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '违纪描述',
   `userName` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '违纪人名称',
   `userId` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '违纪人Id',
   `wjPoint` int(4) NULL DEFAULT NULL COMMENT '违纪扣除分数',
   `wjTime` datetime(0) NULL DEFAULT NULL COMMENT '违纪时间',
-  `wjcl` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '违纪处理结果',
-  `wjdj` int(1) NULL DEFAULT NULL COMMENT '违纪等级：1-5',
+  `wjcl` varchar(1000) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '违纪处理结果',
+  `wjdj` int(1) NULL DEFAULT NULL COMMENT '违纪等级1-5',
+  `wjdjms` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '违纪等级说明',
   PRIMARY KEY (`wjId`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of user_wj_tj
--- ----------------------------
-INSERT INTO `user_wj_tj` VALUES (1, '503寝室，于5月1日在寝室庆祝劳动节吃火锅刷肉，严重违反寝室文明纪律。', '严子义', '3', 10, '2019-05-01 10:24:52', '记全校通报一次', 6);
-INSERT INTO `user_wj_tj` VALUES (2, '嫖娼', '严子义', '3', 100, '2019-05-04 10:27:32', '开除', 1);
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for weak_check
@@ -289,7 +291,7 @@ CREATE TABLE `weak_check`  (
   `checkPoint` int(4) NULL DEFAULT NULL COMMENT '检查分数',
   `isNow` int(1) NULL DEFAULT NULL COMMENT '1本周，2上周',
   PRIMARY KEY (`checkId`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of weak_check

@@ -1,9 +1,12 @@
 package com.yzy.pe.controller;
 
+import com.github.pagehelper.PageInfo;
 import com.yzy.pe.entity.User;
+import com.yzy.pe.entity.UserWj;
 import com.yzy.pe.entity.WeakCheck;
 import com.yzy.pe.entity.dto.NameValueDto;
 import com.yzy.pe.service.AdminService;
+import com.yzy.pe.service.TeacherService;
 import com.yzy.pe.service.UserService;
 import com.yzy.pe.util.DateUtil;
 import com.yzy.pe.util.ImportExcelUtil;
@@ -24,6 +27,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -39,10 +43,58 @@ import java.util.Map;
 public class AdminController {
 
     @Resource
+    private TeacherService teacherService;
+
+    @Resource
     private AdminService adminService;
 
     @Resource
     private UserService userService;
+
+    /**
+     * Description 打开所有学生页面
+     *
+     * @author YanZiyi
+     * @date 2019-03-29 09:43:49
+     */
+    @RequestMapping("/all_user")
+    public ModelAndView allUser() {
+        ModelAndView mv = new ModelAndView("/admin/all_user");
+        mv.addObject("isSuccess","3");
+        return mv;
+    }
+
+    /**
+     * Description 所有学生信息
+     *
+     * @author YanZiyi
+     * @date 2019-03-29 09:43:49
+     */
+    @RequestMapping("/getUserList")
+    @ResponseBody
+    public PageInfo<User> getDeletePoint(String userId, @RequestParam(defaultValue = "1") int pageNum,
+                                         @RequestParam(defaultValue = "10") int pageSize) {
+        User user = new User();
+        user.setUserId(userId);
+        List<User> list = userService.selectUserList(user, pageNum, pageSize);
+        return new PageInfo<>(list);
+    }
+
+    /**
+     * Description 打开学生详情页面
+     *
+     * @author YanZiyi
+     * @date 2019-03-29 09:43:49
+     */
+    @RequestMapping(value = "/getUser", method = RequestMethod.GET)
+    public ModelAndView getUser(String userId) {
+        ModelAndView mv = new ModelAndView("/admin/user_msg");
+        User user = new User();
+        user.setUserId(userId);
+        User user1 = userService.selectUser(user);
+        mv.addObject("user",user1);
+        return mv;
+    }
 
     /**
      * Description 打开周信息页面
@@ -151,6 +203,7 @@ public class AdminController {
      */
     @RequestMapping(value = "/upload", method=RequestMethod.POST)
     public ModelAndView importFile(@RequestParam(value="file",required=false)MultipartFile myFile) throws IOException {
+        ModelAndView mv = new ModelAndView("/admin/all_user");
         try {
             ImportExcelUtil util = new ImportExcelUtil();
             InputStream input;
@@ -162,7 +215,16 @@ public class AdminController {
                 input = myFile.getInputStream();
                 lists = util.getBankListByExcel(input, fileName);
                 input.close();
-                // 循环将excel中的数据存入库
+                //判断主键重复
+                for (int i = 1; i < lists.size(); i++) {
+                    List<Object> list = lists.get(i);
+                    String haveId = teacherService.haveId(util.getFormat(String.valueOf(list.get(0))));
+                    if ("true".equals(haveId)) {
+                        mv.addObject("isSuccess","2");
+                        return mv;
+                    }
+                }
+                //循环将excel中的数据存入库
                 for (int i = 1; i < lists.size(); i++) {
                     List<Object> list = lists.get(i);
                     User users = new User();
@@ -185,7 +247,8 @@ public class AdminController {
             e.printStackTrace();
             System.out.println("导入出错");
         }
-        return new ModelAndView("/teacher/all_user");
+        mv.addObject("isSuccess","1");
+        return mv;
     }
 
 
@@ -262,6 +325,49 @@ public class AdminController {
             e.printStackTrace();
             System.out.println( "导出用户失败！失败信息："+e.getMessage());
         }
+    }
+
+    /**
+     * 打开违纪提交信息页面
+     */
+    @RequestMapping(value = "/allWjTj")
+    public ModelAndView allWj() {
+        ModelAndView mv = new ModelAndView("/admin/all_wj_tj");
+        List<UserWj> list = teacherService.userWjTj();
+        mv.addObject("list",list);
+        return mv;
+    }
+
+    @RequestMapping(value = "/pass")
+    public ModelAndView pass(UserWj userWj) {
+        ModelAndView mv = new ModelAndView("/admin/all_wj_tj");
+        String wjdj = userWj.getWjdj()+"";
+        Map<String,String> wjMap = new HashMap<>(5);
+        wjMap.put("1","口头警告");
+        wjMap.put("2","警告");
+        wjMap.put("3","严重警告");
+        wjMap.put("4","记过");
+        wjMap.put("5","记大过");
+        teacherService.addWj(userWj);
+        List<UserWj> list = teacherService.userWjTj();
+        mv.addObject("list",list);
+        return mv;
+    }
+
+    @RequestMapping(value = "/cancel")
+    public ModelAndView cancel(UserWj userWj) {
+        ModelAndView mv = new ModelAndView("/admin/all_wj_tj");
+        teacherService.delWjTj(userWj);
+        List<UserWj> list = teacherService.userWjTj();
+        mv.addObject("list",list);
+        return mv;
+    }
+
+    @RequestMapping(value = "/upTeam")
+    public ModelAndView upTeam(UserWj userWj) {
+        ModelAndView mv = new ModelAndView("/admin/week");
+        adminService.upTeam();
+        return mv;
     }
 
 }

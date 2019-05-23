@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Description user
@@ -48,8 +50,10 @@ public class TeacherController {
      */
     @RequestMapping("/getUserList")
     @ResponseBody
-    public PageInfo<User> getDeletePoint(User user, @RequestParam(defaultValue = "1") int pageNum,
+    public PageInfo<User> getDeletePoint(String userId, @RequestParam(defaultValue = "1") int pageNum,
                                          @RequestParam(defaultValue = "10") int pageSize) {
+        User user = new User();
+        user.setUserId(userId);
         List<User> list = userService.selectUserList(user, pageNum, pageSize);
         return new PageInfo<>(list);
     }
@@ -242,7 +246,95 @@ public class TeacherController {
     }
 
     /**
+     * 所有违纪
+     * @return
+     */
+    @RequestMapping("/get_all_wj")
+    @ResponseBody
+    public List<UserWj> getAllWj(){
+        return teacherService.userWj();
+    }
+
+    /**
      * 提交重大违纪
      */
+    @RequestMapping("/add_wj")
+    public ModelAndView addWj(UserWj userWj){
+        String wjdj = userWj.getWjdj()+"";
+        Map<String,String> wjMap = new HashMap<>(5);
+        wjMap.put("1","口头警告");
+        wjMap.put("2","警告");
+        wjMap.put("3","严重警告");
+        wjMap.put("4","记过");
+        wjMap.put("5","记大过");
+        userWj.setWjdjms(wjMap.get(wjdj));
+        teacherService.addWjTj(userWj);
+        ModelAndView mv = new ModelAndView("/teacher/all_user");
+        return mv;
+    }
+
+    /**
+     * Description 打开添加学生页面
+     *
+     * @author YanZiyi
+     * @date 2019-03-29 09:43:49
+     */
+    @RequestMapping(value = "/all_del")
+    public ModelAndView allDel() {
+        ModelAndView mv = new ModelAndView("/teacher/all_del");
+        return mv;
+    }
+
+    /**
+     * 扣分学生
+     */
+    @RequestMapping("/del_list")
+    @ResponseBody
+    public PageInfo<DeletePoint> delList(String userId, @RequestParam(defaultValue = "1") int pageNum,
+                                         @RequestParam(defaultValue = "10") int pageSize) {
+        List<DeletePoint> list = teacherService.allDel(userId, pageNum, pageSize);
+        return new PageInfo<>(list);
+    }
+
+    /**
+     * 编辑此次扣分
+     */
+    @RequestMapping("/del_del")
+    @ResponseBody
+    public ModelAndView delDel(String userName,String userId,String deleteId) {
+        ModelAndView mv = new ModelAndView("/teacher/update_del");
+        DeletePoint deletePoint1 = new DeletePoint();
+        deletePoint1.setDeleteId(Long.parseLong(deleteId));
+        DeletePoint deletePoint = teacherService.getDel(deletePoint1);
+        mv.addObject("userId",userId);
+        mv.addObject("deletePoint",deletePoint);
+        mv.addObject("userName",userName);
+        return mv;
+    }
+
+    /**
+     * 录入扣分
+     */
+    @RequestMapping(value = "/upDel")
+    @ResponseBody
+    public ModelAndView upDel(DeletePoint deletePoint) {
+        ModelAndView mv = new ModelAndView("/teacher/all_del");
+        teacherService.upDel(deletePoint);
+        return mv;
+    }
+
+    /**
+     * 编辑此次扣分
+     */
+    @RequestMapping(value = "/del_this")
+    @ResponseBody
+    public ModelAndView delThis(String deleteId) {
+        ModelAndView mv = new ModelAndView("/teacher/all_del");
+        DeletePoint deletePoint1 = new DeletePoint();
+        deletePoint1.setDeleteId(Long.parseLong(deleteId));
+        DeletePoint deletePoint = teacherService.getDel(deletePoint1);
+        teacherService.delThis(deletePoint);
+        return mv;
+    }
 
 }

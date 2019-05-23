@@ -13,9 +13,6 @@
         <if test="userName != null and userName != ''">
             and userName = #{userName}
         </if>
-        <if test="userName != null and userName != ''">
-            and userName = #{userName}
-        </if>
     </select>
 
     <select id="haveId" parameterType="java.lang.String" resultType="java.lang.String">
@@ -53,5 +50,55 @@
     <select id="userWj" resultType="com.yzy.pe.entity.UserWj">
         select * from user_wj order by wjdj desc
     </select>
+
+    <insert id="addWjTj" parameterType="com.yzy.pe.entity.UserWj">
+        insert into user_wj_tj(userId,userName,wjMs,wjPoint,wjcl,wjdj,wjdjms,wjTime)
+        values (#{userId},#{userName},#{wjMs},#{wjPoint},#{wjcl},#{wjdj},#{wjdjms},#{wjTime})
+    </insert>
+
+    <select id="userWjTj" resultType="com.yzy.pe.entity.UserWj">
+        select * from user_wj_tj order by wjdj desc
+    </select>
+
+    <insert id="addWj" parameterType="com.yzy.pe.entity.UserWj">
+        insert into user_wj(userId,userName,wjMs,wjPoint,wjcl,wjdj,wjdjms,wjTime)
+        values (#{userId},#{userName},#{wjMs},#{wjPoint},#{wjcl},#{wjdj},#{wjdjms},#{wjTime})
+    </insert>
+
+    <delete id="delWjTj">
+        delete from user_wj_tj where wjId=#{wjId}
+    </delete>
+
+    <select id="allDel" resultType="com.yzy.pe.entity.DeletePoint" parameterType="com.yzy.pe.entity.User">
+        select * from delete_point where
+         1=1
+         <if test="userId!=null and userId != ''">
+             and userId = #{userId}
+         </if>
+         and date_sub(CURDATE(),INTERVAL 8 DAY) &lt; DATE(deleteTime) order by deleteTime desc
+    </select>
+
+    <select id="getDel" resultType="com.yzy.pe.entity.DeletePoint" parameterType="com.yzy.pe.entity.DeletePoint">
+        select * from delete_point where deleteId=#{deleteId}
+    </select>
+
+    <update id="upDel" parameterType="com.yzy.pe.entity.DeletePoint">
+        update delete_point set
+         userId=#{userId}
+         <if test="deleteTime!=null and deleteTime != ''">
+             ,deleteTime=#{deleteTime}
+         </if>
+        <if test="deleteDesc!=null and deleteDesc != ''">
+            ,deleteDesc=#{deleteDesc}
+        </if>
+        <if test="deletePoint!=null and deletePoint != ''">
+            ,deletePoint=#{deletePoint}
+        </if>
+         where deleteId=#{deleteId}
+    </update>
+
+    <delete id="delThis" parameterType="com.yzy.pe.entity.DeletePoint">
+        delete from delete_point where deleteId=#{deleteId}
+    </delete>
 
 </mapper>

@@ -9,24 +9,15 @@ $(document).ready(function () {
  */
 function init() {
     addPoint();
-    upload();
 }
-
-function upload() {
-    $("#btnImport").click(function(){
-        $.jBox($("#importBox").html(), {title:"导入数据", buttons:{"关闭":true},
-            bottomText:"导入文件不能超过5M，仅允许导入“xls”或“xlsx”格式文件！"});
-    });
-}
-
 
 function addPoint() {
     $.ajax({
-        url: "/teacher/getUserList",     //后台请求的数据
+        url: "/teacher/del_list",     //后台请求的数据
         data: {
             "pageSize": pageSize,
             "pageNum": add_pageNum,
-            "userId":$("#userId").val(),
+            "userId": $("#userId").val(),
         },
         type: "post",                  //请求方式
         async: true,                   //是否异步请求
@@ -36,21 +27,13 @@ function addPoint() {
             var list_ = data.list;
             for (var i = 1; i < list_.length + 1; i++) {
                 var content = list_[i - 1];
-                var gb = content.permissionDegree;
-                if(gb==2){
-                    gb="是";
-                }else{
-                    gb="否";
-                }
                 var trHTML = "<tr>"
                     + "<td>" + content.userId + "</td>"
                     + "<td>" + content.userName + "</td>"
-                    + "<td>" + content.xb + "</td>"
-                    + "<td>" + content.qdbm + "</td>"
-                    + "<td>" + content.phone + "</td>"
-                    + "<td>" + content.kpfs + "</td>"
-                    + "<td>" + gb + "</td>"
-                    + "<td><a class='user-msg' href='/teacher/getUser?userId="+content.userId+"'>录入信息</a></td>"
+                    + "<td>" + content.deleteDesc + "</td>"
+                    + "<td>" + content.deletePoint + "</td>"
+                    + "<td>" + content.deleteTime + "</td>"
+                    + "<td><a class='user-msg' href='/teacher/del_del?userId="+content.userId+"&deleteId="+content.deleteId+"&userName="+content.userName+"'>编辑</a></td>"
                     + "</tr>";
                 $("#table_add tbody").append(trHTML);//在table最后面添加一行
             }
@@ -94,7 +77,7 @@ $(".add").click(function () {
             break;
     }
 });
-
 $("#search_reward").click(function () {
     addPoint();
 });
+

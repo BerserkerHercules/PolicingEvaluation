@@ -22,10 +22,9 @@
         .table-responsive1 > .table-bordered {
             border: 0
         }
-
         .col-md-6-2 {
             position: relative;
-            width: 100%;
+            width: 50%;
             min-height: 1px;
             padding-right: 15px;
             padding-left: 15px
@@ -35,9 +34,8 @@
             -webkit-box-flex: 0;
             -ms-flex: 0 0 100%;
             flex: 0 0 100%;
-            max-width: 100%
+            max-width: 50%
         }
-
         .row {
             display: -webkit-box;
             display: -ms-flexbox;
@@ -48,41 +46,41 @@
             margin-left: 15px
         }
 
-
     </style>
 </head>
 <body>
-<div class="page-wrapper">
-    <div class="main-container">
+
+<!--<div class="page-wrapper" id="all_user">-->
+<!--    <div class="main-container">
         <div class="content">
-            <div class="col-md-6-2">
+            <div class="col-md-6-2">-->
                 <div class="card">
+                    <div class="card-header bg-light">
+                        近期扣分学生信息
+                    </div>
                     <div class="row mt-4">
                         <div class="col-md-4">
                             <div class="form-group">
-                                <input id="qdmc" name="qdmc" class="form-control" placeholder="区队名称">
+                                <input id="userId" name="userId" class="form-control" placeholder="输入学号查询">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <input id="qdbm" name="qdbm" class="form-control" placeholder="区队编码">
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <button class="btn btn-rounded btn-primary" id="search">搜索</button>
+                                <button class="btn btn-rounded btn-primary" id="search_reward">搜索</button>
                             </div>
                         </div>
                     </div>
                     <div class="card-body">
-                        <div class="table-responsive1">
-                            <table class="table table-hover" id="table_add">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="table_add">
                                 <thead>
                                 <tr>
-                                    <th>区队编码</th>
-                                    <th>名称</th>
-                                    <th>分数</th>
-                                    <th>人数</th>
+                                    <th>学号</th>
+                                    <th>姓名</th>
+                                    <th>扣分项目</th>
+                                    <th>扣分数</th>
+                                    <th>扣分时间</th>
+                                    <th>编辑</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -96,14 +94,15 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+<!--            </div>-->
+<!--        </div>
     </div>
-</div>
+</div>-->
+
 <script src="/vendor/jquery/jquery.min.js"></script>
 <script src="/vendor/popper.js/popper.min.js"></script>
 <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
 <script src="/vendor/chart.js/chart.min.js"></script>
-<script src="/js/team_list.js"></script>
+<script src="/js/teacher/all_del.js"></script>
 </body>
 </html>

@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>学生干部</title>
+    <title>警务考评系统-干部</title>
     <link rel="stylesheet" href="/vendor/simple-line-icons/css/simple-line-icons.css">
     <link rel="stylesheet" href="/vendor/font-awesome/css/fontawesome-all.min.css">
     <link rel="stylesheet" href="/css/styles.css">
@@ -48,8 +48,42 @@
         <div class="sidebar">
             <nav class="sidebar-nav">
                 <ul class="nav">
-                    <li class="nav-title">学生干部，你好</li>
+                    <li class="nav-title">学生干部<span th:text="${user.userName}"></span>，你好</li>
+                    <input type="hidden" id="userId" name="userId" th:value="${user.userId}"/>
+                    <!--<li class="nav-item">
+                        <a id="my_msg" href="/student/getMyMsg" target="targetText" class="nav-link active">
+                            <i class="icon icon-speedometer"></i> 我的个人信息
+                        </a>
+                    </li>
 
+                    <li class="nav-item">
+                        <a id="myKp" href="/student/myKp" target="targetText" class="nav-link active">
+                            <i class="icon icon-speedometer"></i> 我的考评信息
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="/teacher/allWj" target="targetText" class="nav-link active">
+                            <i class="icon icon-speedometer"></i> 学生违纪展示
+                        </a>
+                    </li>
+
+                    <li class="nav-title">区队</li>
+
+                    <li class="nav-item">
+                        <a id="myTeam" href="/student/teamMsg" target="targetText" class="nav-link active">
+                            <i class="icon icon-speedometer"></i> 我的区队信息
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="/student/team_list" target="targetText" class="nav-link active">
+                            <i class="icon icon-speedometer"></i> 区队考评信息
+                        </a>
+                    </li>
+
+                    <li class="nav-title">学生干部</li>
+-->
                     <li class="nav-item">
                         <a href="/teacher/all_user" target="targetText" class="nav-link active">
                             <i class="icon icon-target"></i></i> 所有学生信息
@@ -62,11 +96,11 @@
                         </a>
                     </li>
 
-                    <!--<li class="nav-item">
-                        <a href="/teacher/all_user" target="targetText" class="nav-link active">
-                            <i class="icon icon-target"></i></i> 违纪信息提交
+                    <li class="nav-item">
+                        <a href="/teacher/all_del" target="targetText" class="nav-link active">
+                            <i class="icon icon-target"></i></i> 近期扣分显示
                         </a>
-                    </li>-->
+                    </li>
 
                 </ul>
             </nav>
@@ -83,5 +117,14 @@
 <script src="/vendor/chart.js/chart.min.js"></script>
 <script src="/js/carbon.js"></script>
 <script src="/js/teacher/index.js"></script>
+<!--<script>
+$(document).ready(function () {
+    var userId = $("#userId").val();
+    $("#my_msg").attr("href","/student/getMyMsg?userId="+userId);
+    $("#myTeam").attr("href","/student/teamMsg?userId="+userId);
+    $("#myKp").attr("href","/student/myKp?userId="+userId);
+    $("#iframe").attr("src","/student/getMyMsg?userId="+userId);
+});
+</script>-->
 </body>
 </html>

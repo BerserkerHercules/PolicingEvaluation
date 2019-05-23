@@ -16,17 +16,32 @@ public interface TeacherMapper {
 
     String haveId(String id);
 
-    void kpAdd(AddPoint addPoint)throws Exception;
+    void kpAdd(AddPoint addPoint);
 
-    void kpDel(DeletePoint deletePoint)throws Exception;
+    void kpDel(DeletePoint deletePoint);
 
-    void kpReward(Reward reward)throws Exception;
+    void kpReward(Reward reward);
 
-    void kpPunish(Punish punish)throws Exception;
+    void kpPunish(Punish punish);
 
-    void addPoint(AddPoint addPoint)throws Exception;
+    void addPoint(AddPoint addPoint);
+    void delPoint(DeletePoint deletePoint);
 
-    void delPoint(DeletePoint deletePoint)throws Exception;
+    void addWjTj(UserWj userWj);
+
+    void addWj(UserWj userWj);
+
+    void delWjTj(UserWj userWj);
 
     List<UserWj> userWj();
+
+    List<UserWj> userWjTj();
+
+    List<DeletePoint> allDel(User user);
+
+    DeletePoint getDel(DeletePoint deletePoint);
+
+    void upDel(DeletePoint deletePoint);
+    void delThis(DeletePoint deletePoint);
+
 }

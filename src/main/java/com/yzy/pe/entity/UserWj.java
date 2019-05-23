@@ -13,6 +13,7 @@ public class UserWj {
   private Date wjTime;
   private String wjcl;
   private int wjdj;
+  private String wjdjms;
 
 
   public long getWjId() {
@@ -83,5 +84,13 @@ public class UserWj {
 
   public void setWjdj(int wjdj) {
     this.wjdj = wjdj;
+  }
+
+  public String getWjdjms() {
+    return wjdjms;
+  }
+
+  public void setWjdjms(String wjdjms) {
+    this.wjdjms = wjdjms;
   }
 }

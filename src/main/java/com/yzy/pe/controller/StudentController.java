@@ -65,9 +65,10 @@ public class StudentController {
      * @author YanZiyi
      * @date 2019-03-29 09:43:49
      */
-    @RequestMapping("/myKp")
-    public ModelAndView myKp() {
+    @RequestMapping(value = "/myKp",method = RequestMethod.GET)
+    public ModelAndView myKp(String userId) {
         ModelAndView mv = new ModelAndView("my_kp");
+        mv.addObject("userId",userId);
         return mv;
     }
 
@@ -105,7 +106,7 @@ public class StudentController {
      */
     @RequestMapping("/changeMyMsg")
     public ModelAndView changeMyMsg(User user) {
-        ModelAndView mv = new ModelAndView("my_msg");
+        ModelAndView mv = new ModelAndView("redirect:/student/getMyMsg?userId="+user.getUserId());
         if(user.getPwd()!=null&&!"".equals(user.getPwd())){
             mv.setViewName("redirect:/");
         }
@@ -121,13 +122,12 @@ public class StudentController {
      */
     @RequestMapping("/getAddPoint")
     @ResponseBody
-    public PageInfo<AddPoint> getAddPoint(String addDesc,HttpServletRequest request,
+    public PageInfo<AddPoint> getAddPoint(String addDesc,String userId,
                                       @RequestParam(defaultValue = "1") int pageNum,
                                       @RequestParam(defaultValue = "5") int pageSize) {
-        User user = (User) request.getSession().getAttribute("user");
         AddPoint addPoint = new AddPoint();
         addPoint.setAddDesc(addDesc);
-        addPoint.setUserId(user.getUserId());
+        addPoint.setUserId(userId);
         List<AddPoint> list = studentService.getAddPoint(addPoint, pageNum, pageSize);
         PageInfo<AddPoint> pageInfo = new PageInfo<>(list);
         return pageInfo;
@@ -141,11 +141,13 @@ public class StudentController {
      */
     @RequestMapping("/getDeletePoint")
     @ResponseBody
-    public PageInfo<DeletePoint> getDeletePoint(DeletePoint deletePoint,HttpServletRequest request,
+    public PageInfo<DeletePoint> getDeletePoint(String deleteDesc,String userId,
                                             @RequestParam(defaultValue = "1") int pageNum,
                                             @RequestParam(defaultValue = "5") int pageSize) {
-        User user = (User) request.getSession().getAttribute("user");
-        deletePoint.setUserId(user.getUserId());
+
+        DeletePoint deletePoint = new DeletePoint();
+        deletePoint.setUserId(userId);
+        deletePoint.setDeleteDesc(deleteDesc);
         List<DeletePoint> list = studentService.getDeletePoint(deletePoint, pageNum, pageSize);
         PageInfo<DeletePoint> pageInfo = new PageInfo<>(list);
         return pageInfo;
@@ -159,11 +161,12 @@ public class StudentController {
      */
     @RequestMapping("/getPunishList")
     @ResponseBody
-    public PageInfo<Punish> getPunishList(Punish punish,HttpServletRequest request,
+    public PageInfo<Punish> getPunishList(String punishReason,String userId,
                                       @RequestParam(defaultValue = "1") int pageNum,
                                       @RequestParam(defaultValue = "5") int pageSize) {
-        User user = (User) request.getSession().getAttribute("user");
-        punish.setUserId(user.getUserId());
+        Punish punish = new Punish();
+        punish.setPunishReason(punishReason);
+        punish.setUserId(userId);
         List<Punish> list = studentService.getPunishList(punish, pageNum, pageSize);
         PageInfo<Punish> pageInfo = new PageInfo<>(list);
         return pageInfo;
@@ -177,11 +180,12 @@ public class StudentController {
      */
     @RequestMapping("/getRewardList")
     @ResponseBody
-    public PageInfo<Reward> getRewardList(Reward reward,HttpServletRequest request,
+    public PageInfo<Reward> getRewardList(String rewardReason,String userId,
                                       @RequestParam(defaultValue = "1") int pageNum,
                                       @RequestParam(defaultValue = "5") int pageSize) {
-        User user = (User) request.getSession().getAttribute("user");
-        reward.setUserId(user.getUserId());
+        Reward reward = new Reward();
+        reward.setRewardReason(rewardReason);
+        reward.setUserId(userId);
         List<Reward> list = studentService.getRewardList(reward, pageNum, pageSize);
         PageInfo<Reward> pageInfo = new PageInfo<>(list);
         return pageInfo;

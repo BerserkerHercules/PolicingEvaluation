@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -48,11 +48,26 @@
     </style>
 </head>
 <body>
-
+<a href="/teacher/addUser">
+    <button type="button" class="btn btn-primary">
+        <i class="fa fa-align-center"></i> &nbsp; 添加学生
+    </button>
+</a>
+<a href="/admin/initUpload">
+    <button type="button" class="btn btn-primary">
+        <i class="fa fa-align-center"></i> &nbsp; 批量导入
+    </button>
+</a>
+<a href="/admin/export">
+    <button type="button" class="btn btn-secondary">
+        <i class="fa fa-download"></i> &nbsp; 批量导出
+    </button>
+</a>
+<input type="hidden" th:value="${isSuccess}" id="isSuccess"/>
 <!--<div class="page-wrapper" id="all_user">
     <div class="main-container">
-        <div class="content">
-            <div class="col-md-6-2">-->
+        <div class="content">-->
+            <!--<div class="col-md-6-2">-->
                 <div class="card">
                     <div class="card-header bg-light">
                         所有学生信息
@@ -99,10 +114,54 @@
         </div>
     </div>
 </div>-->
+
+<div class="page-wrapper" id="user_msg" style="display: none">
+    <div class="main-container">
+        <div class="content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body p-0">
+
+                                <div class="row pb-5 p-5">
+                                    <div class="col-md-6">
+                                        <p class="font-weight-bold mb-4">学生信息</p>
+                                        <p class="mb-1" id="userName">姓名：</p>
+                                        <p id="xb">性别：</p>
+                                        <p class="mb-1" id="phone">手机号码：</p>
+                                        <p class="mb-1" id="email">邮箱：</p>
+                                    </div>
+
+                                    <div class="col-md-6 text-right">
+                                        <p class="font-weight-bold mb-4">详情</p>
+                                        <p class="mb-1" id="id"><span class="text-muted">学号: </span></p>
+                                        <p class="mb-1" id="pwd"><span class="text-muted">密码: </span></p>
+                                        <p class="mb-1" id="kpfs"><span class="text-muted">考评总分: </span></p>
+                                        <p class="mb-1" id="qdbm"><span class="text-muted">所属区队: </span></p>
+                                        <p class="mb-1" id="qshm"><span class="text-muted">寝室号码: </span></p>
+                                    </div>
+                                </div>
+
+                                <!--<div class="row p-5">
+                                    <div class="col-md-12">
+                                        <a href="/student/change_msg"><button type="button" class="btn btn-outline-primary">修改信息</button></a>
+                                        <a href="/student/myKp"><button type="button" class="btn btn-outline-primary">考评详情</button></a>
+                                    </div>
+                                </div>-->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <script src="/vendor/jquery/jquery.min.js"></script>
 <script src="/vendor/popper.js/popper.min.js"></script>
 <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
 <script src="/vendor/chart.js/chart.min.js"></script>
-<script src="/js/teacher/all_user.js"></script>
+<script src="/js/admin/all_user.js"></script>
 </body>
 </html>

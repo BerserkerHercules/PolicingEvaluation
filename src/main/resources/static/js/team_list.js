@@ -39,7 +39,6 @@ function addPoint() {
                 var trHTML = "<tr>"
                     + "<td>" + content.qdbm + "</td>"
                     + "<td>" + content.qdmc + "</td>"
-                    + "<td>" + content.qdms + "</td>"
                     + "<td>" + content.qdkp + "</td>"
                     + "<td>" + content.qdrs + "</td></tr>";
                 $("#table_add tbody").append(trHTML);//在table最后面添加一行

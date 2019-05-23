@@ -1,5 +1,6 @@
 package com.yzy.pe.service.impl;
 
+import com.github.pagehelper.PageHelper;
 import com.yzy.pe.entity.*;
 import com.yzy.pe.mapper.TeacherMapper;
 import com.yzy.pe.service.TeacherService;
@@ -53,5 +54,58 @@ public class TeacherServiceImpl implements TeacherService {
     @Override
     public List<UserWj> userWj() {
         return teacherMapper.userWj();
+    }
+
+    @Override
+    public void addWjTj(UserWj userWj) {
+        teacherMapper.addWjTj(userWj);
+    }
+
+    @Override
+    public List<UserWj> userWjTj() {
+        return teacherMapper.userWjTj();
+    }
+
+    @Override
+    public void addWj(UserWj userWj) {
+        DeletePoint deletePoint = new DeletePoint();
+        deletePoint.setUserId(userWj.getUserId());
+        deletePoint.setUserName(userWj.getUserName());
+        deletePoint.setDeletePoint(userWj.getWjPoint());
+        teacherMapper.delPoint(deletePoint);
+        teacherMapper.addWj(userWj);
+        teacherMapper.delWjTj(userWj);
+    }
+
+    @Override
+    public void delWjTj(UserWj userWj) {
+        teacherMapper.delWjTj(userWj);
+    }
+
+    @Override
+    public List<DeletePoint> allDel(String userId, int pageNum, int pageSize) {
+        User user = new User();
+        user.setUserId(userId);
+        PageHelper.startPage(pageNum, pageSize);
+        return teacherMapper.allDel(user);
+    }
+
+    @Override
+    public DeletePoint getDel(DeletePoint deletePoint) {
+        return teacherMapper.getDel(deletePoint);
+    }
+
+    @Override
+    public void upDel(DeletePoint deletePoint) {
+        teacherMapper.upDel(deletePoint);
+    }
+
+    @Override
+    public void delThis(DeletePoint deletePoint) {
+        AddPoint addPoint = new AddPoint();
+        addPoint.setUserId(deletePoint.getUserId());
+        addPoint.setAddPoint(deletePoint.getDeletePoint());
+        teacherMapper.addPoint(addPoint);
+        teacherMapper.delThis(deletePoint);
     }
 }

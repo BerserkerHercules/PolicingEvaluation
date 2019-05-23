@@ -1,7 +1,8 @@
-var add_pageNum = 1, pageSize = 6, add_pages = 0;
+var add_pageNum = 1, pageSize = 5, add_pages = 0;
 var del_pageNum = 1, del_pages = 0;
 var jl_pageNum = 1, jl_pages = 0;
 var cf_pageNum = 1, cf_pages = 0;
+var userId = $("#userId").val();
 
 $(document).ready(function () {
     init();
@@ -14,7 +15,7 @@ function init() {
     addPoint();
     delPoint();
     jlXx();
-    cfXx();
+    //cfXx();
 }
 
 //****************************************************************************************************
@@ -29,6 +30,7 @@ function addPoint() {
             "pageSize": pageSize,
             "pageNum": add_pageNum,
             "addDesc":$("#addDesc").val(),
+            "userId":userId
         },
         type: "post",                  //请求方式
         async: true,                   //是否异步请求
@@ -95,7 +97,8 @@ function delPoint() {
         url: "/student/getDeletePoint",     //后台请求的数据
         data: {
             "pageSize": pageSize,
-            "pageNum": del_pageNum
+            "pageNum": del_pageNum,"deleteDesc":$("#deleteDesc").val(),
+            "userId":userId,
         },
         type: "post",                  //请求方式
         async: true,                   //是否异步请求
@@ -163,7 +166,7 @@ function jlXx() {
         url: "/student/getRewardList",     //后台请求的数据
         data: {
             "pageSize": pageSize,
-            "pageNum": jl_pageNum
+            "pageNum": jl_pageNum,"userId":userId,"rewardReason":$("#rewardReason").val(),
         },
         type: "post",                  //请求方式
         async: true,                   //是否异步请求
@@ -230,7 +233,7 @@ function cfXx() {
         url: "/student/getPunishList",     //后台请求的数据
         data: {
             "pageSize": pageSize,
-            "pageNum": cf_pageNum
+            "pageNum": cf_pageNum,"userId":userId,"punishReason":$("#punishReason").val(),
         },
         type: "post",                  //请求方式
         async: true,                   //是否异步请求
@@ -297,3 +300,19 @@ function isOne(data) {
         return "未完成";
     }
 }
+
+$("#search_add").click(function () {
+    addPoint();
+});
+
+$("#search_del").click(function () {
+    delPoint();
+});
+
+$("#search_reward").click(function () {
+    jlXx();
+});
+
+$("#search_punish").click(function () {
+    cfXx();
+});

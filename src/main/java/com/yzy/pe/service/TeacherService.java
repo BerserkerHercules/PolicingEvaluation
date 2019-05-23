@@ -36,4 +36,7 @@ public interface TeacherService {
     void upDel(DeletePoint deletePoint);
 
     void delThis(DeletePoint deletePoint);
+
+    List<WeakCheck> allCheck();
+
 }

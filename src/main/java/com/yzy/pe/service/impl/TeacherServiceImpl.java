@@ -108,4 +108,9 @@ public class TeacherServiceImpl implements TeacherService {
         teacherMapper.addPoint(addPoint);
         teacherMapper.delThis(deletePoint);
     }
+
+    @Override
+    public List<WeakCheck> allCheck() {
+        return teacherMapper.allCheck();
+    }
 }

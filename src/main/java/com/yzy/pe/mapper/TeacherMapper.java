@@ -44,4 +44,6 @@ public interface TeacherMapper {
     void upDel(DeletePoint deletePoint);
     void delThis(DeletePoint deletePoint);
 
+    List<WeakCheck> allCheck();
+
 }

@@ -141,6 +141,7 @@ public class TeacherController {
         user.setUserId(userId);
         User user1 = userService.selectUser(user);
         mv.addObject("user",user1);
+        mv.addObject("checkList",teacherService.allCheck());
         return mv;
     }
 
@@ -274,7 +275,7 @@ public class TeacherController {
     }
 
     /**
-     * Description 打开添加学生页面
+     * Description 打开近期扣分
      *
      * @author YanZiyi
      * @date 2019-03-29 09:43:49
@@ -336,5 +337,8 @@ public class TeacherController {
         teacherService.delThis(deletePoint);
         return mv;
     }
+
+
+
 
 }

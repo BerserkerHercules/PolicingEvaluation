@@ -78,6 +78,19 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="row mt-4">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="form-control-label">选择扣分项目</label>
+                                                <select class="chooseKf" id="chooseKf" name="checkId">
+                                                    <option th:each="c:${checkList}"
+                                                            th:value="${c.checkId}"
+                                                            th:text="${c.checkName}"></option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                    </div>
                                     <button id="kp_del" type="button" class="btn btn-outline-primary">确定</button>
                                     <button type="reset" class="btn btn-outline-danger">重置</button>
                                 </div>

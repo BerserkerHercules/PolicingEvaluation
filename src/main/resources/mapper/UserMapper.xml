@@ -90,6 +90,9 @@
         <if test="email != null and email != ''">
             ,email=#{email}
         </if>
+        <if test="qshm != null and qshm != ''">
+            ,qshm=#{qshm}
+        </if>
         where
         userId=#{userId}
     </update>

@@ -25,8 +25,8 @@
     </insert>
 
     <insert id="kpDel" parameterType="com.yzy.pe.entity.DeletePoint">
-        insert into delete_point(userId,userName,deletePoint,deleteDesc,deleteTime)
-        values (#{userId},#{userName},#{deletePoint},#{deleteDesc},#{deleteTime})
+        insert into delete_point(userId,userName,deletePoint,deleteDesc,deleteTime,checkId)
+        values (#{userId},#{userName},#{deletePoint},#{deleteDesc},#{deleteTime},#{checkId})
     </insert>
 
     <insert id="kpReward" parameterType="com.yzy.pe.entity.Reward">
@@ -88,7 +88,7 @@
     <update id="upDel" parameterType="com.yzy.pe.entity.DeletePoint">
         update delete_point set
          userId=#{userId}
-         <if test="deleteTime!=null and deleteTime != ''">
+         <if test="deleteTime!=null">
              ,deleteTime=#{deleteTime}
          </if>
         <if test="deleteDesc!=null and deleteDesc != ''">
@@ -103,5 +103,9 @@
     <delete id="delThis" parameterType="com.yzy.pe.entity.DeletePoint">
         delete from delete_point where deleteId=#{deleteId}
     </delete>
+
+    <select id="allCheck" resultType="com.yzy.pe.entity.WeakCheck">
+        select * from weak_check order by checkId
+    </select>
 
 </mapper>

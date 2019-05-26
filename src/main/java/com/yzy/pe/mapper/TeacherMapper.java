@@ -37,7 +37,7 @@ public interface TeacherMapper {
 
     List<UserWj> userWjTj();
 
-    List<DeletePoint> allDel(User user);
+    List<DeletePoint> allDel(DeletePoint dp);
 
     DeletePoint getDel(DeletePoint deletePoint);
 

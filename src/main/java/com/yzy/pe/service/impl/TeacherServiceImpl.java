@@ -83,11 +83,9 @@ public class TeacherServiceImpl implements TeacherService {
     }
 
     @Override
-    public List<DeletePoint> allDel(String userId, int pageNum, int pageSize) {
-        User user = new User();
-        user.setUserId(userId);
+    public List<DeletePoint> allDel(DeletePoint dp, int pageNum, int pageSize) {
         PageHelper.startPage(pageNum, pageSize);
-        return teacherMapper.allDel(user);
+        return teacherMapper.allDel(dp);
     }
 
     @Override

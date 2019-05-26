@@ -290,9 +290,12 @@ public class TeacherController {
      */
     @RequestMapping("/del_list")
     @ResponseBody
-    public PageInfo<DeletePoint> delList(String userId, @RequestParam(defaultValue = "1") int pageNum,
+    public PageInfo<DeletePoint> delList(String deleteDesc,String userId, @RequestParam(defaultValue = "1") int pageNum,
                                          @RequestParam(defaultValue = "10") int pageSize) {
-        List<DeletePoint> list = teacherService.allDel(userId, pageNum, pageSize);
+        DeletePoint dp = new DeletePoint();
+        dp.setUserId(userId);
+        dp.setDeleteDesc(deleteDesc);
+        List<DeletePoint> list = teacherService.allDel(dp, pageNum, pageSize);
         return new PageInfo<>(list);
     }
 

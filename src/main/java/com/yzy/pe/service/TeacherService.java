@@ -30,7 +30,7 @@ public interface TeacherService {
 
     void delWjTj(UserWj userWj);
 
-    List<DeletePoint> allDel(String userId, int pageNum, int pageSize);
+    List<DeletePoint> allDel(DeletePoint dp, int pageNum, int pageSize);
 
     DeletePoint getDel(DeletePoint deletePoint);
     void upDel(DeletePoint deletePoint);

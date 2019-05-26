@@ -34,7 +34,7 @@
                 <b>违纪时间：</b><span th:text="${wj.wjTime}"></span><br/><br/>
                 <b>处理结果：</b><span th:text="${wj.wjcl}"></span><br/><br/>
                 <b>扣除考评分数：</b><span th:text="${wj.wjPoint}"></span>分<br/><br/>
-                <button type="submit" class="btn btn-outline-primary">
+                <button type="submit" class="btn btn-outline-primary" onclick="alert('提交成功')">
                     违纪审核通过
                 </button>
                 <!--<button th:value="${wj.wjId}" type="button" class="btn btn-outline-primary change">

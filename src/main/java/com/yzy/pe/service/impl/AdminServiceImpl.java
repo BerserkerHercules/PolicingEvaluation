@@ -45,22 +45,6 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public Map<String, List> getWeekData(String xqs, String weekNum, String qdbm) {
 
-        /*List<TeamDelDto> dataList = adminMapper.getWeekData(xqs, weekNum, qdbm);
-        List<WeakCheck> checkList = adminMapper.getWeek2();
-        List<TeamDelDto> dtoList = new ArrayList<>();
-        checkList.forEach(e -> {
-            for (TeamDelDto t : dataList) {
-                if (e.getCheckId() == t.getCheckId()) {
-                    dtoList.add(t);
-                    break;
-                }
-            }
-        });
-        Map<String, List> maps = new HashMap<>();
-        maps.put("checkList", checkList);
-        maps.put("dataList", dtoList);
-        return maps;*/
-        //List<TeamDelDto> dataList = adminMapper.getWeekData(xqs, weekNum, qdbm);
         Team team = new Team();
         List<TeamDelDto> dataList = adminMapper.getTeamCheckDel(xqs, weekNum);
         List<Team> teamList = studentMapper.getTeamList(team);

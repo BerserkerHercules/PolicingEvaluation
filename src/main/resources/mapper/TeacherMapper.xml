@@ -69,12 +69,15 @@
         delete from user_wj_tj where wjId=#{wjId}
     </delete>
 
-    <select id="allDel" resultType="com.yzy.pe.entity.DeletePoint" parameterType="com.yzy.pe.entity.User">
-        select * from delete_point where
-         1=1
+    <select id="allDel" resultType="com.yzy.pe.entity.DeletePoint" parameterType="com.yzy.pe.entity.DeletePoint">
+        select d.*,u.* from delete_point d,user u where
+        u.userId=d.userId
          <if test="userId!=null and userId != ''">
-             and userId = #{userId}
+             and u.userId = #{userId}
          </if>
+        <if test="deleteDesc!=null and deleteDesc != ''">
+            and d.deleteDesc LIKE CONCAT('%',#{deleteDesc},'%')
+        </if>
          and date_sub(CURDATE(),INTERVAL 8 DAY) &lt; DATE(deleteTime) order by deleteTime desc
     </select>
 

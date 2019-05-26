@@ -3,7 +3,7 @@ package com.yzy.pe.entity;
 
 import java.sql.Date;
 
-public class DeletePoint {
+public class DeletePoint extends User {
 
   private long deleteId;
   private String userId;

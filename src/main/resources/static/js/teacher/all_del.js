@@ -18,6 +18,7 @@ function addPoint() {
             "pageSize": pageSize,
             "pageNum": add_pageNum,
             "userId": $("#userId").val(),
+            "deleteDesc": $("#deleteDesc").val(),
         },
         type: "post",                  //请求方式
         async: true,                   //是否异步请求
@@ -30,6 +31,8 @@ function addPoint() {
                 var trHTML = "<tr>"
                     + "<td>" + content.userId + "</td>"
                     + "<td>" + content.userName + "</td>"
+                    + "<td>" + content.qdbm + "</td>"
+                    + "<td>" + content.kpfs + "</td>"
                     + "<td>" + content.deleteDesc + "</td>"
                     + "<td>" + content.deletePoint + "</td>"
                     + "<td>" + content.deleteTime + "</td>"
